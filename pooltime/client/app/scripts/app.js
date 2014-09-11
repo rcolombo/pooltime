@@ -26,8 +26,9 @@
 
 		.directive('jzNavHeader', ['$location', 'UserService', function ($location, UserService) {
 			return {
+				replace: true,
 				template:
-					'<div ng-show="userIsLoggedIn()">' +
+					'<div class="header" ng-show="userIsLoggedIn()">' +
 					'    <ul class="nav nav-pills pull-right">' +
 	                '        <li ng-repeat="tab in tabs" ng-class="{\'active\': atLocation(tab.path)}"><a ng-href="#{{tab.path}}">{{ tab.title }}</a></li>' +
 	                '    </ul>' +
