@@ -346,8 +346,8 @@ module.exports = function (grunt) {
 
         concat: {
             templates: {
-                dest: '/tmp/concat/scripts/scripts.js',
-                src: ['.tmp/concat/scripts/scripts.js', '<%= ngtemplates.app.dest %>']
+                dest: '.tmp/concat/scripts/main.js',
+                src: ['.tmp/concat/scripts/main.js', '<%= ngtemplates.app.dest %>']
             }
         }
     });
@@ -394,7 +394,8 @@ module.exports = function (grunt) {
         'ngtemplates',
         'concurrent:dist',
         'autoprefixer',
-        'concat',
+        'concat:generated',
+        'concat:templates',
         'cssmin',
         'uglify',
         'copy:dist',
