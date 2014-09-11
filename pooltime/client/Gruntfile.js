@@ -389,7 +389,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'bowerInstall',
         'useminPrepare',
         'ngtemplates',
         'concurrent:dist',
