@@ -1,0 +1,64 @@
+.matchups {
+    .matchups-header {
+        font-size: 16px;
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+    }
+    .matchup {
+        font-size: 16px;
+        padding: 5px;
+        text-align: center;
+        vertical-align: middle;
+
+        .team {
+            margin-top: 3px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .selected {
+            margin-top: 0px;
+            color: $brand-primary;
+            border: solid $brand-primary;
+            border-radius: 25px;
+        }
+        .selected.correct {
+            color: $brand-success;
+            border: solid $brand-success;
+        }
+        .selected.incorrect {
+            color: $brand-danger;
+            border: solid $brand-danger;
+        }
+
+        .spread {
+            margin-top: 3px;
+            padding: 5px;
+        }
+    }
+    .matchup:nth-child(even) {
+        background: $table-bg-accent;
+    }
+    .team-divider {
+        background: #ccc;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .matchups {
+        .matchups-header, .matchup {
+            font-size: 20px;
+        }
+    }
+}
+
+.all-picks .table {
+    td, th {
+        text-align: center;
+    }
+
+    .all-picks-header {
+        text-transform: uppercase;
+    }
+}

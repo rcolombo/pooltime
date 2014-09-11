@@ -1,0 +1,23 @@
+<div class="row all-picks">
+	<div class="col-xs-12">
+		<table class="table table-striped">
+			<thead>
+				<tr class="all-picks-header">
+					<th ng-repeat="(username, picks) in allPicksView.allPicks track by username">{{ username }} ({{allPicksView.scoreHelper.getTotalCorrect(allPicksView.matchups, picks)}})</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="matchup in allPicksView.matchups">
+					<td ng-repeat="(username, picks) in allPicksView.allPicks track by username"
+					    ng-init="pick = picks[matchup.id]"
+					    ng-class="{
+					        'success': allPicksView.scoreHelper.isCorrect(matchup, pick),
+					        'danger': matchup.result !== null && !allPicksView.scoreHelper.isCorrect(matchup, pick)
+					    }">
+					    {{ pick }}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
