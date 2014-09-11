@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="{{ url_for('index') }}">Home</a><br><br>
+        </div>
+        {% if show %}
+            <form action="{{ url_for('make_picks') }}" method="post" enctype="multipart/form-data">
+                <div>
+                    Who Are You?<br>
+                    <select name="user">
+                        <option value="" selected disabled>Please select an option...</option>
+                        {% for u in users %}
+                            <option value="{{ u.id }}">{{ u.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div><br></br>
+                <table>
+                    <tr>
+                        <th>Away Team</th>
+                        <th>Home Team</th>
+                        <th>Selection</th>
+                    </tr>
+                  {% for game in games %}
+                      <tr>
+                          <td>{{ game.away }} ({{ game.away_pts }})</td>
+                          <td>{{ game.home }} ({{ game.home_pts }})</td>
+                          <td>
+                              <select name="{{ game.id }}">
+                                  <option value="{{ game.away }}">{{ game.away }}</option>
+                                  <option value="{{ game.home }}">{{ game.home }}</option>
+                              </select>
+                          </td>
+                      </tr>
+                  {% endfor %}
+              </table>
+              <input type="submit" name="submit" value="Submit">
+            </form>
+          <br>
+          <br>
+        {% else %}
+            Too Late!
+        {% endif %}
+    </body>
+</html>

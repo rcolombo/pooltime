@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="{{ url_for('index') }}">Home</a><br><br>
+        </div>
+        <div>
+            <a href="{{ url_for('view_picks', username='Colombo') }}">Colombo</a>
+            <a href="{{ url_for('view_picks', username='Joe') }}">Joe</a>
+            <a href="{{ url_for('view_picks', username='Ryan') }}">Ryan</a>
+            <a href="{{ url_for('view_picks', username='Will') }}">Will</a>
+        </div>
+        {% if show %}
+            <table>
+                <tr>
+                    <th>Away Team</th>
+                    <th>Home Team</th>
+                    <th>Selection</th>
+                </tr>
+              {% for pick in picks %}
+                  <tr>
+                      <td>{{ pick[3] }} ({{ pick[4] }})</td>
+                      <td>{{ pick[1] }} ({{ pick[2] }})</td>
+                      <td>{{ pick[0] }}
+                  </tr>
+              {% endfor %}
+          </table>
+          <br>
+          <br>
+        {% else %}
+            Too Early!
+        {% endif %}
+    </body>
+</html>

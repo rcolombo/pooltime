@@ -1,0 +1,12 @@
+_HiStOrY_V2_
+SELECT\040*\040FROM\040clicks\040limit\0405;
+\134d\040arrivals
+\134d\040users
+SELECT\040COUNT(DISTINCT\040email)\040FROM\040users;
+SELECT\040COUNT(email)\040FROM\040users;
+SELECT\040DATE(created_at\040AT\040TIME\040ZONE\040'EST5EDT'),\040COUNT(email)\040FROM\040users\040group\040by\0401\040order\040by\0401\040;
+make\040database\040pooltime;
+create\040database\040pooltime;
+use\040pooltime;
+create\040table\040weeks\040(id\040integer\040primary\040key,\040week\040integer,\040away\040varchar(32),\040home\040varchar(32),\040away_pts\040integer,\040home_pts\040integer);
+\134s\040weeks
