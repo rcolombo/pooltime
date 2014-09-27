@@ -8,6 +8,7 @@ from models.user import User
 
 from sqlalchemy import create_engine
 from sqlalchemy import and_
+from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
 
 import datetime
@@ -58,6 +59,49 @@ def picks(week=None):
         by_user[user].append({'game_id': game_id, 'team': team})
 
     return json.dumps(by_user), 200
+
+@app.route('/lookup')
+def lookup():
+    if request.args.get('user') is None:
+        return 'No user provided', 400
+
+    uid = session.query(User.id) \
+            .filter(func.lower(User.name) == request.args.get('user').lower()) \
+            .first()
+    if uid is None:
+        return 'User Not Found', 200
+
+    return str(uid[0]), 200
+
+@app.route('/submit_picks', methods=['PUT'])
+def submit_picks():
+    if not request.json:
+        return 'Non-JSON Request', 400
+    if 'user_id' not in request.json:
+        return 'Request must contain \'user_id\' field', 400
+    if 'selections' not in request.json:
+        return 'Request must contain \'selections\' field', 400
+
+    u = session.query(User).filter_by(id=request.json['user_id']).first()
+    if u is None:
+        return 'Invalid user_id', 400
+
+    for s in request.json['selections']:
+        g = session.query(Game.home, Game.away).filter_by(id=s['game_id']).first()
+        if g is None:
+            continue
+        if s['team'] not in g:
+            continue
+
+        rec = {
+                'user_id': request.json['user_id'],
+                'game_id': s['game_id'],
+                'team': s['team'],
+        }
+        selection = Selection(**rec)
+        session.merge(selection)
+        session.commit()
+    return 'OK'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
