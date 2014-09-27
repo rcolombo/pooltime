@@ -29,14 +29,18 @@ def index():
     return render_template('index.html')
 
 @app.route('/games', methods=['GET'])
-def games():
-    week = request.args.get('week')
+@app.route('/games/<int:week>', methods=['GET'])
+def games(week=None):
     if week is None:
         return 'No week number provided', 400
 
-    games = session.query(Game).filter_by(week=wn).all()
+    games = session.query(Game).filter_by(week=week).all()
     games = [g.to_dict() for g in games]
     return json.dumps(games), 200
+
+@app.route('/picks', methods=['GET'])
+def picks():
+    return 'OK'
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
