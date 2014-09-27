@@ -207,8 +207,8 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= config.dist %>/scripts/{,*/}*.js',
-                        '<%= config.dist %>/styles/{,*/}*.css',
+                        '<%= config.dist %>/static/scripts/{,*/}*.js',
+                        '<%= config.dist %>/static/styles/{,*/}*.css',
                         '<%= config.dist %>/images/{,*/}*.*',
                         '<%= config.dist %>/styles/fonts/{,*/}*.*',
                         '<%= config.dist %>/*.{ico,png}'
@@ -346,8 +346,8 @@ module.exports = function (grunt) {
 
         concat: {
             templates: {
-                dest: '.tmp/concat/scripts/main.js',
-                src: ['.tmp/concat/scripts/main.js', '<%= ngtemplates.app.dest %>']
+                dest: '.tmp/concat/static/scripts/main.js',
+                src: ['.tmp/concat/static/scripts/main.js', '<%= ngtemplates.app.dest %>']
             }
         }
     });

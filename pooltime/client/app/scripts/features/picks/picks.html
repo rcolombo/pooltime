@@ -6,7 +6,7 @@
 		<div class="col-xs-5 team">Underdog</div>
 	</div>
 	<div class="row matchup" ng-repeat="matchup in picksView.matchups">
-		<div class="col-xs-5 home team"
+		<div class="col-xs-5 favorite team"
 		     ng-class="{
 		         'selected': picksView.isPick(matchup, matchup.favorite),
 		         'correct': picksView.scoreHelper.isCorrect(matchup, matchup.favorite),
@@ -18,7 +18,7 @@
 		<div class="col-xs-2 spread">
 		  {{ matchup.spread }}
 		</div>
-		<div class="col-xs-5 away team"
+		<div class="col-xs-5 underdog team"
 		     ng-class="{
 		         'selected': picksView.isPick(matchup, matchup.underdog),
 		         'correct': picksView.scoreHelper.isCorrect(matchup, matchup.underdog),
