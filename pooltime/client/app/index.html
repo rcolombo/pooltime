@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>NFL Picks</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- build:css /static/styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) /static/styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body ng-app="nflpicks">
+
+        <div class="container">
+            <div jz-nav-header></div>
+            <div ng-view></div>
+        </div>
+
+        <!-- build:js /static/scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="../bower_components/ngstorage/ngStorage.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) /static/scripts/main.js -->
+        <script src="scripts/features/login/login.js"></script>
+        <script src="scripts/features/picks/picks.js"></script>
+        <script src="scripts/app.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

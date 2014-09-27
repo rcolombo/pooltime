@@ -1,2 +1,4 @@
 *.swp
 *.pyc
+pooltime/client/dist
+pooltime/static
