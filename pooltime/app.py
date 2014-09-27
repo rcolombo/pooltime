@@ -24,11 +24,12 @@ wn = 1
 games = session.query(Game).filter_by(week=wn).all()
 users = session.query(User).all()
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
-@app.route('/make_picks', methods=['GET', 'POST'])
+
+@app.route('/make_picks', methods=['POST'])
 def make_picks():
     now = datetime.datetime.now()
     if now.hour <= 13 and request.method == 'POST':
