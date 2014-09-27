@@ -1,7 +1,7 @@
 (function (angular) {
 	'use strict';
 
-	angular.module('nflpicks', ['ngRoute', 'ngStorage', 'login', 'picks'])
+	angular.module('nflpicks', ['ngRoute', 'ngStorage', 'login', 'picks', 'ngMoment'])
 
 		.config(['$routeProvider', function ($routeProvider) {
 			$routeProvider.otherwise({
@@ -24,7 +24,7 @@
 			});
 		}])
 
-		.directive('jzNavHeader', ['$location', 'UserService', function ($location, UserService) {
+		.directive('jzNavHeader', ['$location', 'UserService', 'NFLWeeks', function ($location, UserService, NFLWeeks) {
 			return {
 				replace: true,
 				template:
@@ -32,7 +32,7 @@
 					'    <ul class="nav nav-pills pull-right">' +
 	                '        <li ng-repeat="tab in tabs" ng-class="{\'active\': atLocation(tab.path)}"><a ng-href="#{{tab.path}}">{{ tab.title }}</a></li>' +
 	                '    </ul>' +
-	                '    <h3 class="text-muted">Week 1</h3>' +
+	                '    <h3 class="text-muted">Week {{ getCurrentWeek() }}</h3>' +
 	                '</div>',
 				link: function ($scope) {
 					$scope.tabs = [{
@@ -56,6 +56,9 @@
 							}
 						});
 						return curTab;
+					};
+					$scope.getCurrentWeek = function () {
+						return NFLWeeks.getCurrentWeek();
 					};
 				}
 			};
