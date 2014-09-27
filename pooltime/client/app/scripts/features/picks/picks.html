@@ -5,27 +5,32 @@
 		<div class="col-xs-2 spread"><small class="text-muted">Points</small></div>
 		<div class="col-xs-5 team">Underdog</div>
 	</div>
-	<div class="row matchup" ng-repeat="matchup in picksView.matchups">
-		<div class="col-xs-5 favorite team"
-		     ng-class="{
-		         'selected': picksView.isPick(matchup, matchup.favorite),
-		         'correct': picksView.scoreHelper.isCorrect(matchup, matchup.favorite),
-		         'incorrect': picksView.scoreHelper.isCorrect(matchup, matchup.underdog),
-		     }"
-		     ng-click="picksView.pickTeam(matchup, matchup.favorite)">
-		    {{ (matchup.homeTeam === matchup.favorite ? '' : '@ ') + matchup.favorite }}
+	<span ng-repeat="matchup in picksView.matchups">
+		<div class="row matchup" ng-class="{ 'even': $even }">
+			<div class="col-xs-5 favorite team"
+			     ng-class="{
+			         'selected': picksView.isPick(matchup, matchup.favorite),
+			         'correct': picksView.scoreHelper.isCorrect(matchup, matchup.favorite),
+			         'incorrect': picksView.scoreHelper.isCorrect(matchup, matchup.underdog),
+			     }"
+			     ng-click="picksView.pickTeam(matchup, matchup.favorite)">
+			    {{ (matchup.homeTeam === matchup.favorite ? '' : '@ ') + matchup.favorite }}
+			</div>
+			<div class="col-xs-2 spread">
+			  {{ matchup.spread }}
+			</div>
+			<div class="col-xs-5 underdog team"
+			     ng-class="{
+			         'selected': picksView.isPick(matchup, matchup.underdog),
+			         'correct': picksView.scoreHelper.isCorrect(matchup, matchup.underdog),
+			         'incorrect': picksView.scoreHelper.isCorrect(matchup, matchup.favorite),
+			     }"
+			     ng-click="picksView.pickTeam(matchup, matchup.underdog)">
+			    {{ (matchup.homeTeam === matchup.underdog ? '' : '@ ') + matchup.underdog }}
+			</div>
 		</div>
-		<div class="col-xs-2 spread">
-		  {{ matchup.spread }}
+		<div ng-show="picksView.hasError(matchup.id)" class="row error">
+			{{ picksView.getError(matchup.id) }}
 		</div>
-		<div class="col-xs-5 underdog team"
-		     ng-class="{
-		         'selected': picksView.isPick(matchup, matchup.underdog),
-		         'correct': picksView.scoreHelper.isCorrect(matchup, matchup.underdog),
-		         'incorrect': picksView.scoreHelper.isCorrect(matchup, matchup.favorite),
-		     }"
-		     ng-click="picksView.pickTeam(matchup, matchup.underdog)">
-		    {{ (matchup.homeTeam === matchup.underdog ? '' : '@ ') + matchup.underdog }}
-		</div>
-	</div>
+	</span>
 </div>

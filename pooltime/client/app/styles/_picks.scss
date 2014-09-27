@@ -37,11 +37,18 @@
             padding: 5px;
         }
     }
-    .matchup:nth-child(even) {
+    .matchup.even {
         background: $table-bg-accent;
     }
     .team-divider {
         background: #ccc;
+    }
+    .error {
+        padding: 5px;
+        text-align: center;
+        font-size: 14px;
+        color: $state-danger-text;
+        background: $state-danger-bg;
     }
 }
 

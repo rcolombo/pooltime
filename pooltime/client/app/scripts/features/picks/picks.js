@@ -110,6 +110,10 @@
 			this.getThisWeeksPicksForAllUsers = function () {
 				return $q.when(FakeData.PicksForAllUsers);
 			};
+
+			this.updatePicks = function (picks) {
+				return $q.reject({ code: 'unknown' });
+			};
 		}])
 
 		.service('MatchupsService', ['$q', function ($q) {
@@ -154,17 +158,50 @@
 
 		})
 
-		.controller('PicksCtrl', ['thisWeeksMatchups', 'picks', 'ScoreHelper', function (thisWeeksMatchups, picks, ScoreHelper) {
+		.controller('PicksCtrl', ['thisWeeksMatchups', 'picks', 'ScoreHelper', 'PicksService', '$timeout', function (thisWeeksMatchups, picks, ScoreHelper, PicksService, $timeout) {
+			var errors= {};
+
 			this.matchups = thisWeeksMatchups;
 			this.picks = picks;
 			this.scoreHelper = ScoreHelper;
+
+			function addError(id, error) {
+				errors[id] = error;
+			}
+
+			// adds and removes an error after 1.5 seconds
+			function addTemporaryError(id, error) {
+				addError(id, error);
+				$timeout(function () {
+					delete errors[id];
+				}, 1500, true);
+			}
+
+			this.hasError = function (id) {
+				return !!errors[id];
+			};
+
+			this.getError = function (id) {
+				return errors[id];
+			};
 
 			this.isPick = function (matchup, team) {
 				return picks[matchup.id] === team;
 			};
 
 			this.pickTeam = function (matchup, team) {
+				var originalPick = picks[matchup.id];
+				function handleError(error) {
+					if (error.code === 'too_late') {
+						addTemporaryError(matchup.id, 'Too late, bitch!');
+					} else {
+						addTemporaryError(matchup.id, 'Oh shit! We fucked up!');
+					}
+					picks[matchup.id] = originalPick;
+				}
 				picks[matchup.id] = team;
+				PicksService.updatePicks(picks)
+					.catch(handleError);
 			};
 		}])
 
