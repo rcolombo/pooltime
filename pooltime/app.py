@@ -13,6 +13,8 @@ from sqlalchemy.orm import sessionmaker
 import datetime
 import requests
 
+import simplejson as json
+
 app = Flask(__name__)
 
 db_uri = 'postgresql://localhost/pooltime'
@@ -20,52 +22,21 @@ engine = create_engine(db_uri)
 Session = sessionmaker(engine)
 session = Session()
 
-wn = 1
-games = session.query(Game).filter_by(week=wn).all()
 users = session.query(User).all()
 
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
+@app.route('/games', methods=['GET'])
+def games():
+    week = request.args.get('week')
+    if week is None:
+        return 'No week number provided', 400
 
-@app.route('/make_picks', methods=['POST'])
-def make_picks():
-    now = datetime.datetime.now()
-    if now.hour <= 13 and request.method == 'POST':
-        records = []
-        for k, v in request.form.items():
-            if k in ('submit', 'user'):
-                continue
-            else:
-                rec = {
-                        'user_id' : request.form['user'],
-                        'game_id' : k,
-                        'selection' : v,
-                      }
-                selection = Selection(**rec)
-                session.merge(selection)
-                session.commit()
-
-    if now.hour >= 13:
-        return render_template('make_picks.html', games=games, users=users, show=False)
-    else:
-        return render_template('make_picks.html', games=games, users=users, show=True)
-
-@app.route('/view_picks', methods=['GET'])
-@app.route('/view_picks/<username>', methods=['GET'])
-def view_picks(username=None):
-    now = datetime.datetime.now()
-    if now.hour >= 13:
-        if username is not None:
-            picks = session.query(Selection.selection, Game.home, Game.home_pts, Game.away, Game.away_pts, User.name) \
-                           .join(Game, and_(Selection.game_id == Game.id, Game.week == 1)) \
-                           .join(User, and_(Selection.user_id == User.id, User.name == username))
-        else:
-            picks = []
-        return render_template('view_picks.html', show=True, username=username, picks=picks)
-    else:
-        return render_template('view_picks.html', show=False)
+    games = session.query(Game).filter_by(week=wn).all()
+    games = [g.to_dict() for g in games]
+    return json.dumps(games), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

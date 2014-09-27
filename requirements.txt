@@ -3,4 +3,5 @@ fabric
 flask
 psycopg2
 requests
+simplejson
 sqlalchemy
