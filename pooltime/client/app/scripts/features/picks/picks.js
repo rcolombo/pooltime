@@ -70,7 +70,7 @@
 		result: null
 	}];
 
-	angular.module('picks', ['ngRoute', 'services.colomboapi', 'ngMoment'])
+	angular.module('picks', ['ngRoute', 'services.colomboapi', 'services.weeks'])
 
 		.config(['$routeProvider', function ($routeProvider) {
 			$routeProvider
@@ -102,40 +102,17 @@
 				});
 		}])
 
-		.service('NFLWeeks', ['$moment', function ($moment) {
-			var REG_SEASON_LEN = 17, WEEK_1_START_DATE = '2014-09-03';
-
-			this.Week = (function initWeeks(startDate) {
-				var week = {}, weekNumber;
-				startDate = $moment(startDate).startOf('day');
-				for (weekNumber = 1; weekNumber <= REG_SEASON_LEN; weekNumber++) {
-					week[weekNumber] = {
-						start: $moment(startDate),
-						end: $moment(startDate).add(6, 'days').endOf('day')
-					};
-					startDate = $moment(startDate).add(7, 'days');
-				}
-				return week;
-			}(WEEK_1_START_DATE));
-
-			this.getCurrentWeek = function () {
-				var now = $moment().zone('-0500'), result = null; // EST time zone
-				angular.forEach(this.Week, function (week, weekNumber) {
-					if (now.isSame(week.start) || now.isAfter(week.start) && now.isBefore(week.end)) {
-						result = weekNumber;
-					}
-				});
-				return result;
-			};
-		}])
-
-		.service('PicksService', ['$q', function ($q) {
+		.service('PicksService', ['ColomboAPI', 'UserWeek', function (ColomboAPI, UserWeek) {
 			this.getThisWeeksPicksForUser = function (user) {
-				return $q.when(FakeData.PicksForAllUsers[user.username.toLowerCase()]);
+				var week = UserWeek.selectedWeek;
+				return ColomboAPI.getPicks(week).then(function (picks) {
+					return picks[user];
+				});
 			};
 
 			this.getThisWeeksPicksForAllUsers = function () {
-				return $q.when(FakeData.PicksForAllUsers);
+				var week = UserWeek.selectedWeek;
+				return ColomboAPI.getPicks(week);
 			};
 
 			this.updatePicks = function (picks) {
@@ -143,10 +120,10 @@
 			};
 		}])
 
-		.service('MatchupsService', ['ColomboAPI', 'NFLWeeks', function (ColomboAPI, NFLWeeks) {
+		.service('MatchupsService', ['ColomboAPI', 'UserWeek', function (ColomboAPI, UserWeek) {
 			this.getThisWeeksMatchups = function () {
-				var currentWeek = NFLWeeks.getCurrentWeek();
-				return ColomboAPI.getGames(currentWeek);
+				var week = UserWeek.selectedWeek;
+				return ColomboAPI.getGames(week);
 			};
 		}])
 
@@ -214,7 +191,7 @@
 			};
 
 			this.isPick = function (matchup, team) {
-				return picks[matchup.id] === team;
+				return team && picks[matchup.id].toLowerCase() === team.toLowerCase();
 			};
 
 			this.pickTeam = function (matchup, team) {

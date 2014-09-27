@@ -3,12 +3,13 @@
   "private": true,
   "dependencies": {
     "bootstrap-sass-official": "~3.1.0",
-    "jquery": "~1.11.0",
     "angular": "~1.2.23",
     "angular-route": "~1.2.23",
     "ngstorage": "~0.3.0",
     "moment": "~2.8.3",
     "angular-momentjs": "~0.1.8"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "angular-mocks": "~1.2.25"
+  }
 }

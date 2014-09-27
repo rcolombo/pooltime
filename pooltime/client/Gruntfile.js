@@ -15,6 +15,8 @@ module.exports = function (grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    grunt.loadNpmTasks('grunt-karma');
+
     // Configurable paths
     var config = {
         app: 'app',
@@ -41,7 +43,7 @@ module.exports = function (grunt) {
                 }
             },
             jstest: {
-                files: ['test/spec/{,*/}*.js'],
+                files: ['test/**/*.js'],
                 tasks: ['test:watch']
             },
             gruntfile: {
@@ -136,16 +138,6 @@ module.exports = function (grunt) {
                 '!<%= config.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js'
             ]
-        },
-
-        // Mocha testing framework configuration options
-        mocha: {
-            all: {
-                options: {
-                    run: true,
-                    urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-                }
-            }
         },
 
         // Compiles Sass to CSS and generates necessary files if requested
@@ -348,6 +340,12 @@ module.exports = function (grunt) {
                 dest: '.tmp/concat/static/scripts/main.js',
                 src: ['.tmp/concat/static/scripts/main.js', '<%= ngtemplates.app.dest %>']
             }
+        },
+
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         }
     });
 
@@ -402,8 +400,15 @@ module.exports = function (grunt) {
         'htmlmin'
     ]);
 
+    grunt.registerTask('test', [
+        'clean:server',
+        'concurrent:test',
+        'autoprefixer',
+        'connect:test',
+        'karma:unit'
+    ]);
+
     grunt.registerTask('default', [
-        'ngtemplates',
         'newer:jshint',
         // 'test',
         'build'
