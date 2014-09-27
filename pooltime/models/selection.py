@@ -14,5 +14,5 @@ class Selection(Base):
 
     game_id = Column(Integer, nullable=False, primary_key=True)
     user_id = Column(Integer, primary_key=True)
-    selection = Column(String(32))
+    team = Column(String(32))
 

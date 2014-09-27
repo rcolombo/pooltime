@@ -39,8 +39,25 @@ def games(week=None):
     return json.dumps(games), 200
 
 @app.route('/picks', methods=['GET'])
-def picks():
-    return 'OK'
+@app.route('/picks/<int:week>', methods=['GET'])
+def picks(week=None):
+    if week is None:
+        return 'No week number provided', 400
+
+    picks = session.query(User.name, Game.id, Selection.team) \
+                    .join(Selection, User.id == Selection.user_id) \
+                    .join(Game, and_(Game.id == Selection.game_id, Game.week == week))
+
+    by_user = {}
+    for p in picks:
+        user = p[0]
+        game_id = p[1]
+        team = p[2]
+        if user not in by_user:
+            by_user[user] = []
+        by_user[user].append({'game_id': game_id, 'team': team})
+
+    return json.dumps(by_user), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
