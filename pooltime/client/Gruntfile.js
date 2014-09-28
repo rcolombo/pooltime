@@ -16,6 +16,7 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
 
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-connect-proxy');
 
     // Configurable paths
     var config = {
@@ -74,18 +75,34 @@ module.exports = function (grunt) {
         connect: {
             options: {
                 port: 9000,
-                open: true,
                 livereload: 35729,
                 hostname: '*'
             },
+            proxies: [{
+                context: '/',
+                host: 'localhost',
+                port: 5000
+            }],
             livereload: {
                 options: {
-                    middleware: function(connect) {
-                        return [
-                            connect.static('.tmp'),
-                            connect().use('/bower_components', connect.static('./bower_components')),
-                            connect.static(config.app)
-                        ];
+                    open: true,
+                    base: [
+                        '.tmp',
+                        '<%= config.app %>',
+                    ],
+                    middleware: function(connect, options) {
+                        var middlewares = [];
+
+                        if (!Array.isArray(options.base)) {
+                            options.base = [options.base];
+                        }
+
+                        middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
+
+                        options.base.forEach(function (base) {
+                            middlewares.push(connect.static(base));
+                        });
+                        return middlewares;
                     }
                 }
             },
@@ -97,7 +114,7 @@ module.exports = function (grunt) {
                         return [
                             connect.static('.tmp'),
                             connect.static('test'),
-                            connect().use('/bower_components', connect.static('./bower_components')),
+                            connect().use('/app/bower_components', connect.static('./app/bower_components')),
                             connect.static(config.app)
                         ];
                     }
@@ -352,6 +369,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
+            console.log('Warning! Running serve:dist is not configured to work with the proxy!');
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
 
@@ -359,6 +377,7 @@ module.exports = function (grunt) {
             'clean:server',
             'concurrent:server',
             'autoprefixer',
+            'configureProxies:server',
             'connect:livereload',
             'watch'
         ]);

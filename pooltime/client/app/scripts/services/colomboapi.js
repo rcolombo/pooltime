@@ -8,7 +8,7 @@
                 ColomboAPIConverter.convertGamesData(response.data);
             }
             this.getGames = function (week) {
-                var url = '/games/' + week;
+                var url = 'games/' + week;
                 return $http.get(url).then(responseToGames);
             };
 
@@ -16,7 +16,7 @@
                 return ColomboAPIConverter.convertPicksData(response.data);
             }
             this.getPicks = function (week) {
-                var url = '/picks/' + week;
+                var url = 'picks/' + week;
                 return $http.get(url).then(responseToPicks);
             };
         }])
