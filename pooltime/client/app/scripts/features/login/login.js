@@ -11,7 +11,7 @@
 			});
 		}])
 
-		.service('UserService', ['$q', '$localStorage', function ($q, $localStorage) {
+		.service('UserService', ['$q', '$localStorage', 'ColomboAPI', function ($q, $localStorage, ColomboAPI) {
 			var state, currentUser;
 
 			state = {
@@ -19,6 +19,7 @@
 			};
 
 			currentUser = {
+				id: null,
 				username: ''
 			};
 
@@ -34,13 +35,14 @@
 				return currentUser;
 			};
 
-			function afterSuccessfulLogin() {
+			function afterSuccessfulLogin(response) {
 				state.loggedIn = true;
+				currentUser.id = response.data;
 			}
 
 			this.login = function () {
 				$localStorage.username = currentUser.username;
-				return $q.when(true)
+				return ColomboAPI.login(currentUser.username)
 					.then(afterSuccessfulLogin);
 			};
 		}])

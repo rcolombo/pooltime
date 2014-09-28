@@ -102,7 +102,7 @@
 				});
 		}])
 
-		.service('PicksService', ['ColomboAPI', 'UserWeek', function (ColomboAPI, UserWeek) {
+		.service('PicksService', ['ColomboAPI', 'UserWeek', 'UserService', function (ColomboAPI, UserWeek, UserService) {
 			this.getThisWeeksPicksForUser = function (user) {
 				var week = UserWeek.selectedWeek;
 				return ColomboAPI.getPicks(week).then(function (picks) {
@@ -116,7 +116,7 @@
 			};
 
 			this.updatePicks = function (picks) {
-				return $q.reject({ code: 'unknown' });
+				return ColomboAPI.updatePicks(picks, UserService.getCurrentUser().id);
 			};
 		}])
 
