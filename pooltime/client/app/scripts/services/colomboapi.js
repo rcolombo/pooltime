@@ -62,7 +62,7 @@
             this.picksServerToClient = function (serverModel) {
                 var clientModel = {};
                 angular.forEach(serverModel, function (picks, username) {
-                    var userPicks = clientModel[username] = {};
+                    var userPicks = clientModel[username.toLowerCase()] = {};
                     angular.forEach(picks, function (pick) {
                         userPicks[pick.game_id] = pick.team;
                     });
