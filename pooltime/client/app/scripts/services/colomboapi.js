@@ -5,7 +5,7 @@
 
         .service('ColomboAPI', ['$http', 'ColomboAPIConverter', function ($http, ColomboAPIConverter) {
             function responseToGames(response) {
-                ColomboAPIConverter.gamesServerToClient(response.data);
+                return ColomboAPIConverter.gamesServerToClient(response.data);
             }
             this.getGames = function (week) {
                 var url = 'games/' + week;
