@@ -3,16 +3,16 @@
 		<table class="table table-striped">
 			<thead>
 				<tr class="all-picks-header">
-					<th ng-repeat="(username, picks) in allPicksView.allPicks track by username">{{ username }} ({{allPicksView.scoreHelper.getTotalCorrect(allPicksView.matchups, picks)}})</th>
+					<th ng-repeat="(username, picks) in allPicksView.allPicks track by username">{{ username }} ({{allPicksView.gameHelper.getTotalCorrect(allPicksView.games, picks)}})</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="matchup in allPicksView.matchups">
+				<tr ng-repeat="game in allPicksView.games">
 					<td ng-repeat="(username, picks) in allPicksView.allPicks track by username"
-					    ng-init="pick = picks[matchup.id]"
+					    ng-init="pick = picks[game.id]"
 					    ng-class="{
-					        'success': allPicksView.scoreHelper.isCorrect(matchup, pick),
-					        'danger': matchup.result !== null && !allPicksView.scoreHelper.isCorrect(matchup, pick)
+					        'success': allPicksView.gameHelper.isCorrect(game, pick),
+					        'danger': game.result !== null && !allPicksView.gameHelper.isCorrect(game, pick)
 					    }">
 					    {{ pick }}
 					</td>

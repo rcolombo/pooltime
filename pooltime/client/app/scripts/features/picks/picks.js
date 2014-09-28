@@ -10,8 +10,8 @@
 					controller: 'PicksCtrl',
 					controllerAs: 'picksView',
 					resolve: {
-						thisWeeksMatchups: ['MatchupsService', function (MatchupsService) {
-							return MatchupsService.getThisWeeksMatchups();
+						games: ['GamesService', function (GamesService) {
+							return GamesService.getGames();
 						}],
 						picks: ['PicksService', 'UserService', function (PicksService, UserService) {
 							return PicksService.getPicksForUser(UserService.getCurrentUser());
@@ -23,8 +23,8 @@
 					controller: 'AllPicksCtrl',
 					controllerAs: 'allPicksView',
 					resolve: {
-						thisWeeksMatchups: ['MatchupsService', function (MatchupsService) {
-							return MatchupsService.getThisWeeksMatchups();
+						games: ['GamesService', function (GamesService) {
+							return GamesService.getGames();
 						}],
 						allPicks: ['PicksService', function (PicksService) {
 							return PicksService.getPicksForAllUsers();
@@ -51,26 +51,26 @@
 			};
 		}])
 
-		.service('MatchupsService', ['ColomboAPI', 'UserWeek', function (ColomboAPI, UserWeek) {
-			this.getThisWeeksMatchups = function () {
+		.service('GamesService', ['ColomboAPI', 'UserWeek', function (ColomboAPI, UserWeek) {
+			this.getGames = function () {
 				var week = UserWeek.selectedWeek;
 				return ColomboAPI.getGames(week);
 			};
 		}])
 
-		.service('ScoreHelper', function () {
+		.service('GameHelper', function () {
 
-			this.isCorrect = function (matchup, team) {
+			this.isCorrect = function (game, team) {
 				var points, winner, loser, correctPick = null;
 
-				if (matchup.result) {
-					winner = matchup.result.winner;
-					if (winner === matchup.favorite) {
-						points = matchup.result.pointDifference - matchup.spread;
-						loser = matchup.underdog;
+				if (game.result) {
+					winner = game.result.winner;
+					if (winner === game.favorite) {
+						points = game.result.pointDifference - game.spread;
+						loser = game.underdog;
 					} else {
-						points = matchup.result.pointDifference + matchup.spread;
-						loser = matchup.favorite;
+						points = game.result.pointDifference + game.spread;
+						loser = game.favorite;
 					}
 					if (points > 0) {
 						correctPick = winner;
@@ -82,10 +82,10 @@
 				return correctPick === team;
 			};
 
-			this.getTotalCorrect = function (matchups, userPicks) {
+			this.getTotalCorrect = function (games, userPicks) {
 				var total = 0;
-				angular.forEach(matchups, function (matchup) {
-					if (this.isCorrect(matchup, userPicks[matchup.id])) {
+				angular.forEach(games, function (game) {
+					if (this.isCorrect(game, userPicks[game.id])) {
 						total++;
 					}
 				}, this);
@@ -94,12 +94,12 @@
 
 		})
 
-		.controller('PicksCtrl', ['thisWeeksMatchups', 'picks', 'ScoreHelper', 'PicksService', '$timeout', function (thisWeeksMatchups, picks, ScoreHelper, PicksService, $timeout) {
+		.controller('PicksCtrl', ['games', 'picks', 'GameHelper', 'PicksService', '$timeout', function (games, picks, GameHelper, PicksService, $timeout) {
 			var errors= {};
 
-			this.matchups = thisWeeksMatchups;
+			this.games = games;
 			this.picks = picks;
-			this.scoreHelper = ScoreHelper;
+			this.gameHelper = GameHelper;
 
 			function addError(id, error) {
 				errors[id] = error;
@@ -121,29 +121,29 @@
 				return errors[id];
 			};
 
-			this.isPick = function (matchup, team) {
-				return team && picks[matchup.id] === team;
+			this.isPick = function (game, team) {
+				return team && picks[game.id] === team;
 			};
 
-			this.pickTeam = function (matchup, team) {
-				var originalPick = picks[matchup.id];
+			this.pickTeam = function (game, team) {
+				var originalPick = picks[game.id];
 				function handleError(error) {
 					if (error.code === 'too_late') {
-						addTemporaryError(matchup.id, 'Too late, bitch!');
+						addTemporaryError(game.id, 'Too late, bitch!');
 					} else {
-						addTemporaryError(matchup.id, 'Oh shit! We fucked up!');
+						addTemporaryError(game.id, 'Oh shit! We fucked up!');
 					}
-					picks[matchup.id] = originalPick;
+					picks[game.id] = originalPick;
 				}
-				picks[matchup.id] = team;
+				picks[game.id] = team;
 				PicksService.updatePicks(picks)
 					.catch(handleError);
 			};
 		}])
 
-		.controller('AllPicksCtrl', ['thisWeeksMatchups', 'allPicks', 'ScoreHelper', function (thisWeeksMatchups, allPicks, ScoreHelper) {
-			this.matchups = thisWeeksMatchups;
+		.controller('AllPicksCtrl', ['games', 'allPicks', 'GameHelper', function (games, allPicks, GameHelper) {
+			this.games = games;
 			this.allPicks = allPicks;
-			this.scoreHelper = ScoreHelper;
+			this.gameHelper = GameHelper;
 		}]);
 })(angular);

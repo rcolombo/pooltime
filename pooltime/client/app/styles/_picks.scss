@@ -1,12 +1,12 @@
-.matchups {
-    .matchups-header {
+.games {
+    .games-header {
         font-size: 16px;
         padding: 10px;
         text-align: center;
         vertical-align: middle;
         font-weight: bold;
     }
-    .matchup {
+    .game {
         font-size: 16px;
         padding: 5px;
         text-align: center;
@@ -37,7 +37,7 @@
             padding: 5px;
         }
     }
-    .matchup.even {
+    .game.even {
         background: $table-bg-accent;
     }
     .team-divider {
@@ -53,8 +53,8 @@
 }
 
 @media screen and (min-width: 768px) {
-    .matchups {
-        .matchups-header, .matchup {
+    .games {
+        .games-header, .game {
             font-size: 20px;
         }
     }
