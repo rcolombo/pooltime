@@ -106,7 +106,7 @@
 			this.getThisWeeksPicksForUser = function (user) {
 				var week = UserWeek.selectedWeek;
 				return ColomboAPI.getPicks(week).then(function (picks) {
-					return picks[user] || {};
+					return picks[user.username.toLowerCase()] || {};
 				});
 			};
 

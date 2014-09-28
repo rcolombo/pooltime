@@ -24,7 +24,7 @@
                 var url = 'lookup';
                 return $http.get(url, {
                     params: {
-                        user: username
+                        user: username.toLowerCase()
                     }
                 });
             };
