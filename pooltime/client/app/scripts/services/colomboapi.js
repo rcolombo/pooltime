@@ -26,6 +26,8 @@
                     params: {
                         user: username.toLowerCase()
                     }
+                }).then(function (response) {
+                    return response.data;
                 });
             };
 

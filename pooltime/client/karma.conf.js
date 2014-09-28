@@ -14,22 +14,21 @@ module.exports = function(config) {
 		files: [
 			'app/bower_components/angular/angular.js',
 			'app/bower_components/angular-mocks/angular-mocks.js',
-			'app/bower_components/angular-mocks/angular-mocks.js',
 			'app/bower_components/angular-momentjs/angular-momentjs.js',
-			'app/bower_components/angular-momentjs/angular-momentjs.js',
-			'app/bower_components/ngstorage/ngStorage.js',
+			'app/bower_components/angular-route/angular-route.js',
 			'app/bower_components/moment/moment.js',
+			'app/bower_components/ngstorage/ngStorage.js',
 			'app/scripts/*.js',
 			'app/scripts/**/*.js',
 			'app/scripts/**/*.html',
-			'test/spec/**/*.js',
+			'test/spec/**/*.js'
 		],
 
 		port: 8180,
 
 		logLevel: config.LOG_INFO,
 
-		browsers: ['PhantomJS', 'Chrome'],
+		browsers: ['PhantomJS'],
 
 		reporters: ['spec'],
 

@@ -22,6 +22,10 @@
                     picksServerToClient: function (data) {
                         this.convertedPicks = data;
                         return data;
+                    },
+                    picksClientToServer: function (data) {
+                        this.convertedPicks = data;
+                        return testData.WEEK_3_PICKS.Joe;
                     }
                 };
                 function providerOverride($provide) {
@@ -36,29 +40,53 @@
 
             describe('getGames', function () {
                 it('should make a request, return a promise, and convert the data on success', function () {
-                    var returnsPromise = false;
+                    var result;
                     $httpBackend.expectGET('games/3').respond(200, testData.WEEK_3_GAMES);
-                    ColomboAPI.getGames(3).then(function () {
-                        returnsPromise = true;
+                    ColomboAPI.getGames(3).then(function (data) {
+                        result = data;
                     });
                     $httpBackend.flush();
 
+                    expect(result).toEqual(testData.WEEK_3_GAMES);
                     expect(ColomboAPIConverter.convertedGames).toEqual(testData.WEEK_3_GAMES);
-                    expect(returnsPromise).toBe(true);
                 });
             });
 
             describe('getPicks', function () {
                 it('should make a request, return a promise, and convert the data on success', function () {
-                    var returnsPromise = false;
+                    var result;
                     $httpBackend.expectGET('picks/3').respond(200, testData.WEEK_3_PICKS);
-                    ColomboAPI.getPicks(3).then(function () {
-                        returnsPromise = true;
+                    ColomboAPI.getPicks(3).then(function (data) {
+                        result = data;
                     });
                     $httpBackend.flush();
 
+                    expect(result).toEqual(testData.WEEK_3_PICKS);
                     expect(ColomboAPIConverter.convertedPicks).toEqual(testData.WEEK_3_PICKS);
-                    expect(returnsPromise).toBe(true);
+                });
+            });
+
+            describe('updatePicks', function () {
+                it('should make a request and return a promise', function () {
+                    var userId = 0;
+                    $httpBackend.expectPUT('picks', {
+                        'user_id': userId,
+                        'selections': testData.WEEK_3_PICKS.Joe
+                    }).respond(200);
+                    ColomboAPI.updatePicks(testData.CLIENT_PICKS_FOR_JOE, userId);
+                    $httpBackend.flush();
+                });
+            });
+
+            describe('login', function () {
+                it('should make a request and return a promise', function () {
+                    var result;
+                    $httpBackend.expectGET('lookup?user=joe').respond(200, '123');
+                    ColomboAPI.login('Joe').then(function (data) {
+                        result = data;
+                    });
+                    $httpBackend.flush();
+                    expect(result).toBe('123');
                 });
             });
         });
@@ -95,7 +123,7 @@
                 it('should convert the data properly', function () {
                     var result, joesPicks;
                     result = ColomboAPIConverter.picksServerToClient(testData.WEEK_3_PICKS);
-                    joesPicks = result.Joe;
+                    joesPicks = result.joe;
                     expect(joesPicks[testData.WEEK_3_GAMES[0].id]).toBe('Atlanta');
                     expect(joesPicks[testData.WEEK_3_GAMES[1].id]).toBe('Detroit');
                 });

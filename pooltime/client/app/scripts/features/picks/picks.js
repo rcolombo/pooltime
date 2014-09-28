@@ -1,76 +1,7 @@
 (function (angular) {
 	'use strict';
 
-	var FakeData = {};
-
-	FakeData.PicksForAllUsers = {
-		'joe': {
-			'lkj': 'PACKERS',
-			'asdf': 'PATRIOTS',
-			'qwert': 'LIONS',
-			'zxc': 'CHARGERS'
-		},
-		'ryan': {
-			'lkj': 'SEAHAWKS',
-			'asdf': 'PATRIOTS',
-			'qwert': 'GIANTS',
-			'zxc': 'CHARGERS'
-		},
-		'will': {
-			'lkj': 'SEAHAWKS',
-			'asdf': 'DOLPHINS',
-			'qwert': 'GIANTS',
-			'zxc': 'CHARGERS'
-		},
-		'colombo': {
-			'lkj': 'PACKERS',
-			'asdf': 'PATRIOTS',
-			'qwert': 'LIONS',
-			'zxc': 'CHARGERS'
-		}
-	};
-
-	FakeData.ThisWeeksMatchups = [{
-		id: 'lkj',
-		homeTeam: 'SEAHAWKS',
-		awayTeam: 'PACKERS',
-		favorite: 'SEAHAWKS',
-		underdog: 'PACKERS',
-		spread: 5.5,
-		result: {
-			winner: 'SEAHAWKS',
-			pointDifference: 36
-		}
-	}, {
-		id: 'asdf',
-		homeTeam: 'DOLPHINS',
-		awayTeam: 'PATRIOTS',
-		favorite: 'PATRIOTS',
-		underdog: 'DOLPHINS',
-		spread: 6,
-		result: {
-			winner: 'DOLPHINS',
-			pointDifference: 13
-		}
-	}, {
-		id: 'qwert',
-		homeTeam: 'LIONS',
-		awayTeam: 'GIANTS',
-		favorite: 'LIONS',
-		underdog: 'GIANTS',
-		spread: 6.5,
-		result: null
-	}, {
-		id: 'zxc',
-		homeTeam: 'CARDINALS',
-		awayTeam: 'CHARGERS',
-		favorite: 'CARDINALS',
-		underdog: 'CHARGERS',
-		spread: 3,
-		result: null
-	}];
-
-	angular.module('picks', ['ngRoute', 'services.colomboapi', 'services.weeks'])
+	angular.module('picks', ['ngRoute', 'services.colomboapi', 'services.weeks', 'services.user'])
 
 		.config(['$routeProvider', function ($routeProvider) {
 			$routeProvider
@@ -83,7 +14,7 @@
 							return MatchupsService.getThisWeeksMatchups();
 						}],
 						picks: ['PicksService', 'UserService', function (PicksService, UserService) {
-							return PicksService.getThisWeeksPicksForUser(UserService.getCurrentUser());
+							return PicksService.getPicksForUser(UserService.getCurrentUser());
 						}]
 					}
 				})
@@ -96,21 +27,21 @@
 							return MatchupsService.getThisWeeksMatchups();
 						}],
 						allPicks: ['PicksService', function (PicksService) {
-							return PicksService.getThisWeeksPicksForAllUsers();
+							return PicksService.getPicksForAllUsers();
 						}]
 					}
 				});
 		}])
 
 		.service('PicksService', ['ColomboAPI', 'UserWeek', 'UserService', function (ColomboAPI, UserWeek, UserService) {
-			this.getThisWeeksPicksForUser = function (user) {
+			this.getPicksForUser = function (user) {
 				var week = UserWeek.selectedWeek;
 				return ColomboAPI.getPicks(week).then(function (picks) {
 					return picks[user.username.toLowerCase()] || {};
 				});
 			};
 
-			this.getThisWeeksPicksForAllUsers = function () {
+			this.getPicksForAllUsers = function () {
 				var week = UserWeek.selectedWeek;
 				return ColomboAPI.getPicks(week);
 			};
