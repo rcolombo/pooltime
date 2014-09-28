@@ -191,7 +191,7 @@
 			};
 
 			this.isPick = function (matchup, team) {
-				return team && picks[matchup.id].toLowerCase() === team.toLowerCase();
+				return team && picks[matchup.id] === team;
 			};
 
 			this.pickTeam = function (matchup, team) {
