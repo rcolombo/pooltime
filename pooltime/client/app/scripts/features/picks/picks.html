@@ -1,36 +1,36 @@
 <div class="games">
-	<p><strong>Total Correct: </strong>{{picksView.gameHelper.getTotalCorrect(picksView.games, picksView.picks)}}</p>
-	<div class="row games-header">
-		<div class="col-xs-5 team">Favorite</div>
-		<div class="col-xs-2 spread"><small class="text-muted">Points</small></div>
-		<div class="col-xs-5 team">Underdog</div>
-	</div>
-	<span ng-repeat="game in picksView.games">
-		<div class="row game" ng-class="{ 'even': $even }">
-			<div class="col-xs-5 favorite team"
-			     ng-class="{
-			         'selected': picksView.isPick(game, game.favorite),
-			         'correct': picksView.gameHelper.isCorrect(game, game.favorite),
-			         'incorrect': picksView.gameHelper.isCorrect(game, game.underdog),
-			     }"
-			     ng-click="picksView.pickTeam(game, game.favorite)">
-			    {{ game.homeTeam === game.favorite ? '@' : '' }} {{ game.favorite }}
-			</div>
-			<div class="col-xs-2 spread">
-			  {{ game.spread }}
-			</div>
-			<div class="col-xs-5 underdog team"
-			     ng-class="{
-			         'selected': picksView.isPick(game, game.underdog),
-			         'correct': picksView.gameHelper.isCorrect(game, game.underdog),
-			         'incorrect': picksView.gameHelper.isCorrect(game, game.favorite),
-			     }"
-			     ng-click="picksView.pickTeam(game, game.underdog)">
-			    {{ game.homeTeam === game.underdog ? '@ ' : '' }} {{ game.underdog }}
-			</div>
-		</div>
-		<div ng-show="picksView.hasError(game.id)" class="row error">
-			{{ picksView.getError(game.id) }}
-		</div>
-	</span>
+    <p><strong>Total Correct: </strong>{{picksView.gameHelper.getTotalCorrect(picksView.games, picksView.picks)}}</p>
+    <div class="row games-header">
+        <div class="col-xs-5 team">Favorite</div>
+        <div class="col-xs-2 spread"><small class="text-muted">Points</small></div>
+        <div class="col-xs-5 team">Underdog</div>
+    </div>
+    <span ng-repeat="game in picksView.games">
+        <div class="row game" ng-class="{ 'even': $even }">
+            <div class="col-xs-5 favorite team"
+                 ng-class="{
+                     'selected': picksView.isPick(game, game.favorite),
+                     'correct': picksView.gameHelper.isCorrect(game, game.favorite),
+                     'incorrect': picksView.gameHelper.isCorrect(game, game.underdog),
+                 }"
+                 ng-click="picksView.pickTeam(game, game.favorite)">
+                {{ game.homeTeam === game.favorite ? '@' : '' }} {{ game.favorite }}
+            </div>
+            <div class="col-xs-2 spread">
+              {{ game.spread }}
+            </div>
+            <div class="col-xs-5 underdog team"
+                 ng-class="{
+                     'selected': picksView.isPick(game, game.underdog),
+                     'correct': picksView.gameHelper.isCorrect(game, game.underdog),
+                     'incorrect': picksView.gameHelper.isCorrect(game, game.favorite),
+                 }"
+                 ng-click="picksView.pickTeam(game, game.underdog)">
+                {{ game.homeTeam === game.underdog ? '@ ' : '' }} {{ game.underdog }}
+            </div>
+        </div>
+        <div ng-show="picksView.hasError(game.id)" class="row error">
+            {{ picksView.getError(game.id) }}
+        </div>
+    </span>
 </div>
