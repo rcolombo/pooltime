@@ -15,7 +15,7 @@
         <div class="container">
             <div jz-nav-header></div>
             <div ng-hide="isRouteChanging" ng-view></div>
-            <span us-spinner="{radius:20, width:8, length: 16}" spinner-key="main-spinner"></span>
+            <div class="loading-spinner" us-spinner="{radius: 20, width: 8, length: 16, position: 'relative'}" spinner-key="main-spinner"></div>
         </div>
 
         <!-- build:js /static/scripts/vendor.js -->
