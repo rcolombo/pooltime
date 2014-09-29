@@ -1,24 +1,29 @@
-<div class="row login">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-		<form ng-submit="loginView.login()" class="form-signin" role="form" name="loginForm">
-		    <h2 class="form-signin-heading">Enter your name</h2>
-		    <input name="username"
-		           ng-model="loginView.user.username"
-		           type="text"
-		           class="form-control"
-		           required=""
-		           autofocus=""
-		           autocomplete="off"
-		           autocorrect="off"
-		           autocapitalize="off"
-		           spellcheck="false">
-		    <span ng-switch on="loginView.user.username | uppercase">
-			    <input ng-switch-when="JOE" class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" value="You're the man!">
-			    <input ng-switch-when="WILL" class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" value="You're a pussy!">
-			    <input ng-switch-when="RYAN" class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" value="You're a bitch!">
-			    <input ng-switch-when="COLOMBO" class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" value="You're a testicle licker!">
-			    <input ng-switch-default class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" ng-submit="loginView.login()" value="TITTIES!">
-		    </span>
-		</form>
+<span>
+	<div class="header">
+		<h1 class="text-muted">NFL Picks</h1>
 	</div>
-</div>
+	<div class="row login">
+	    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+			<form ng-submit="loginView.login()" class="form-signin" role="form" name="loginForm">
+			    <h2 class="form-signin-heading">Enter your name</h2>
+			    <input name="username"
+			           ng-model="loginView.user.username"
+			           type="text"
+			           class="form-control"
+			           required=""
+			           autofocus=""
+			           autocomplete="off"
+			           autocorrect="off"
+			           autocapitalize="off"
+			           spellcheck="false">
+			    <span ng-switch on="loginView.user.username | uppercase">
+				    <input ng-switch-when="JOE" class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" value="You're the man!">
+				    <input ng-switch-when="WILL" class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" value="You're a pussy!">
+				    <input ng-switch-when="RYAN" class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" value="You're a bitch!">
+				    <input ng-switch-when="COLOMBO" class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" value="You're a testicle licker!">
+				    <input ng-switch-default class="btn btn-lg btn-primary btn-block login-button" type="submit" ng-disabled="!loginForm.$valid" ng-submit="loginView.login()" value="TITTIES!">
+			    </span>
+			</form>
+		</div>
+	</div>
+</span>

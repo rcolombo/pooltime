@@ -7,7 +7,8 @@
     "angular-route": "~1.2.23",
     "ngstorage": "~0.3.0",
     "moment": "~2.8.3",
-    "angular-momentjs": "~0.1.8"
+    "angular-momentjs": "~0.1.8",
+    "angular-spinner": "~0.5.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.25"

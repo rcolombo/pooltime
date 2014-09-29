@@ -14,7 +14,7 @@
 					        'success': allPicksView.gameHelper.isCorrect(game, pick),
 					        'danger': game.result !== null && !allPicksView.gameHelper.isCorrect(game, pick)
 					    }">
-					    {{ pick }}
+					    {{ game.homeTeam === pick ? '@' : '' }} {{ pick }}
 					</td>
 				</tr>
 			</tbody>

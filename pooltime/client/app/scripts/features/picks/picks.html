@@ -14,7 +14,7 @@
 			         'incorrect': picksView.gameHelper.isCorrect(game, game.underdog),
 			     }"
 			     ng-click="picksView.pickTeam(game, game.favorite)">
-			    {{ (game.homeTeam === game.favorite ? '@ ' : '') + game.favorite }}
+			    {{ game.homeTeam === game.favorite ? '@' : '' }} {{ game.favorite }}
 			</div>
 			<div class="col-xs-2 spread">
 			  {{ game.spread }}
@@ -26,7 +26,7 @@
 			         'incorrect': picksView.gameHelper.isCorrect(game, game.favorite),
 			     }"
 			     ng-click="picksView.pickTeam(game, game.underdog)">
-			    {{ (game.homeTeam === game.underdog ? '@ ' : '') + game.underdog }}
+			    {{ game.homeTeam === game.underdog ? '@ ' : '' }} {{ game.underdog }}
 			</div>
 		</div>
 		<div ng-show="picksView.hasError(game.id)" class="row error">

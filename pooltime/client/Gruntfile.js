@@ -79,7 +79,7 @@ module.exports = function (grunt) {
                 hostname: '*'
             },
             proxies: [{
-                context: '/',
+                context: ['/games', '/picks', '/lookup'],
                 host: 'localhost',
                 port: 5000
             }],
