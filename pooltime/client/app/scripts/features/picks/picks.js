@@ -5,28 +5,32 @@
 
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider
-                .when('/picks', {
+                .when('/picks/:week', {
                     templateUrl: 'scripts/features/picks/picks.html',
                     controller: 'PicksCtrl',
                     controllerAs: 'picksView',
                     resolve: {
-                        games: ['GamesService', function (GamesService) {
+                        games: ['GamesService', 'UserWeek', '$route', function (GamesService, UserWeek, $route) {
+                            UserWeek.selectedWeek = $route.current.params.week;
                             return GamesService.getGames();
                         }],
-                        picks: ['PicksService', 'UserService', function (PicksService, UserService) {
+                        picks: ['PicksService', 'UserService', 'UserWeek', '$route', function (PicksService, UserService, UserWeek, $route) {
+                            UserWeek.selectedWeek = $route.current.params.week;
                             return PicksService.getPicksForUser(UserService.getCurrentUser());
                         }]
                     }
                 })
-                .when('/all-picks', {
+                .when('/all-picks/:week', {
                     templateUrl: 'scripts/features/picks/all-picks.html',
                     controller: 'AllPicksCtrl',
                     controllerAs: 'allPicksView',
                     resolve: {
-                        games: ['GamesService', function (GamesService) {
+                        games: ['GamesService', 'UserWeek', '$route', function (GamesService, UserWeek, $route) {
+                            UserWeek.selectedWeek = $route.current.params.week;
                             return GamesService.getGames();
                         }],
-                        allPicks: ['PicksService', function (PicksService) {
+                        allPicks: ['PicksService', 'UserWeek', '$route', function (PicksService, UserWeek, $route) {
+                            UserWeek.selectedWeek = $route.current.params.week;
                             return PicksService.getPicksForAllUsers();
                         }]
                     }
@@ -94,12 +98,17 @@
 
         })
 
-        .controller('PicksCtrl', ['games', 'picks', 'GameHelper', 'PicksService', '$timeout', function (games, picks, GameHelper, PicksService, $timeout) {
+        .controller('PicksCtrl', ['$scope', 'games', 'picks', 'GameHelper', 'PicksService', '$timeout', 'UserWeek', '$location', function ($scope, games, picks, GameHelper, PicksService, $timeout, UserWeek, $location) {
             var errors= {};
 
             this.games = games;
             this.picks = picks;
             this.gameHelper = GameHelper;
+            $scope.$watch(function () {
+                return UserWeek.selectedWeek;
+            }, function (newValue) {
+                $location.path('/picks/' + newValue);
+            });
 
             function addError(id, error) {
                 errors[id] = error;
@@ -141,9 +150,14 @@
             };
         }])
 
-        .controller('AllPicksCtrl', ['games', 'allPicks', 'GameHelper', function (games, allPicks, GameHelper) {
+        .controller('AllPicksCtrl', ['$scope', 'games', 'allPicks', 'GameHelper', 'UserWeek', '$location', function ($scope, games, allPicks, GameHelper, UserWeek, $location) {
             this.games = games;
             this.allPicks = allPicks;
             this.gameHelper = GameHelper;
+            $scope.$watch(function () {
+                return UserWeek.selectedWeek;
+            }, function (newValue) {
+                $location.path('/all-picks/' + newValue);
+            });
         }]);
 })(angular);

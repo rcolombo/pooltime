@@ -1,36 +1,52 @@
 (function (angular) {
     'use strict';
 
-    angular.module('services.weeks', ['ngMoment'])
+    angular.module('services.weeks.constants', [])
+        .constant('WEEK_1_START_DATE', new Date('2014-09-03T03:00:00-04:00'))
+        .constant('REG_SEASON_LEN', 17);
+
+    angular.module('services.weeks', ['ngMoment', 'services.weeks.constants', 'services.common.now'])
 
         .service('UserWeek', ['NFLWeeks', function (NFLWeeks) {
             this.selectedWeek = NFLWeeks.getCurrentWeek();
         }])
 
-        .service('NFLWeeks', ['$moment', function ($moment) {
-            var REG_SEASON_LEN = 17, WEEK_1_START_DATE = '2014-09-03';
+        .service('NFLWeeks', ['$moment', 'WEEK_1_START_DATE', 'REG_SEASON_LEN', 'now', function ($moment, WEEK_1_START_DATE, REG_SEASON_LEN, now) {
 
-            this.Week = (function initWeeks(startDate) {
-                var week = {}, weekNumber;
-                startDate = $moment(startDate).startOf('day');
-                for (weekNumber = 1; weekNumber <= REG_SEASON_LEN; weekNumber++) {
-                    week[weekNumber] = {
-                        start: $moment(startDate),
-                        end: $moment(startDate).add(6, 'days').endOf('day')
+            var weeks = [];
+
+            function init() {
+                var weekIndex, moment;
+                moment = $moment(WEEK_1_START_DATE);
+                for (weekIndex = 0; weekIndex < REG_SEASON_LEN; weekIndex++) {
+                    weeks[weekIndex] = {
+                        start: moment.clone().toDate(),
+                        end: moment.add(1, 'week').clone().toDate()
                     };
-                    startDate = $moment(startDate).add(7, 'days');
                 }
-                return week;
-            }(WEEK_1_START_DATE));
+            }
 
-            this.getCurrentWeek = function () {
-                var now = $moment().zone('-0500'), result = null; // EST time zone
-                angular.forEach(this.Week, function (week, weekNumber) {
-                    if (now.isSame(week.start) || now.isAfter(week.start) && now.isBefore(week.end)) {
-                        result = parseInt(weekNumber, 10);
-                    }
-                });
-                return result;
-            };
+            function getStartOfWeek(weekNumber) {
+                var weekIndex = parseInt(weekNumber, 10) - 1;
+                return weeks[weekIndex].start;
+            }
+            function getEndOfWeek(weekNumber) {
+                var weekIndex = parseInt(weekNumber, 10) - 1;
+                return weeks[weekIndex].end;
+            }
+            function getCurrentWeek() {
+                var weekNumber; // EST time zone
+                function isCurrentWeekOrLastWeekOfSeason() {
+                    return now() < getEndOfWeek(weekNumber) || weekNumber >= REG_SEASON_LEN;
+                }
+                for (weekNumber = 1; !isCurrentWeekOrLastWeekOfSeason(); weekNumber++) {}
+                return weekNumber;
+            }
+
+            init();
+            this.getStartOfWeek = getStartOfWeek;
+            this.getEndOfWeek = getEndOfWeek;
+            this.getCurrentWeek = getCurrentWeek;
+
         }]);
 })(angular);

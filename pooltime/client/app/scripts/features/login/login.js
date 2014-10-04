@@ -11,11 +11,11 @@
             });
         }])
 
-        .controller('LoginCtrl', ['UserService', '$location', function (UserService, $location) {
+        .controller('LoginCtrl', ['UserService', 'UserWeek', '$location', function (UserService, UserWeek, $location) {
             this.user = UserService.getCurrentUser();
 
             function redirectToPicks() {
-                $location.path('/picks');
+                $location.path('/picks/' + UserWeek.selectedWeek);
             }
 
             this.login = function () {

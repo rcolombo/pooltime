@@ -38,6 +38,12 @@ body {
     margin: 70px;
 }
 
+.week-arrow {
+    padding: 0 2px;
+    display: inline-block;
+    cursor: pointer;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
