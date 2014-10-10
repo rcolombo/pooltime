@@ -20,6 +20,8 @@ class Game(Base):
                 'week': self.week,
                 'home': self.home,
                 'away': self.away,
-                'spread': self.spread
+                'spread': self.spread,
+                'home_score': self.home_score,
+                'away_score': self.away_score,
         }
 

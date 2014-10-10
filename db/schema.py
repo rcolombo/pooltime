@@ -8,6 +8,8 @@ print '''
       week INTEGER,
       home VARCHAR(32),
       away VARCHAR(32),
+      home_score INTEGER,
+      away_score INTEGER,
       spread FLOAT
   ); '''
 print ''' CREATE UNIQUE INDEX ix_games_week_home ON games (week, home); '''
