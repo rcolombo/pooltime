@@ -1,12 +1,6 @@
 // Generated on 2014-09-07 using generator-webapp 0.4.9
 'use strict';
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
-
 module.exports = function (grunt) {
 
     // Load grunt tasks automatically
@@ -37,7 +31,7 @@ module.exports = function (grunt) {
                 tasks: ['bowerInstall']
             },
             js: {
-                files: ['<%= config.app %>/scripts/{,*/}*.js',],
+                files: ['<%= config.app %>/scripts/**/*.js',],
                 tasks: ['jshint'],
                 options: {
                     livereload: true
@@ -297,18 +291,23 @@ module.exports = function (grunt) {
                     cwd: '<%= config.app %>',
                     dest: '<%= config.dist %>',
                     src: [
-                        '*.{ico,png,txt}',
-                        '.htaccess',
                         'images/{,*/}*.webp',
-                        '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*'
+                        '{,*/}*.html'
                     ]
                 }, {
                     expand: true,
                     dot: true,
-                    cwd: '.',
-                    src: ['bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*'],
-                    dest: '<%= config.dist %>'
+                    cwd: '<%= config.app %>',
+                    dest: '<%= config.dist %>/static',
+                    src: [
+                        '*.{ico,png,txt}'
+                    ]
+                }, {
+                    expand: true,
+                    dot: true,
+                    cwd: 'app/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap',
+                    src: ['*.*'],
+                    dest: '<%= config.dist %>/static/fonts'
                 }]
             },
             styles: {

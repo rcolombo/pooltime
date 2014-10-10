@@ -11,11 +11,11 @@
                     controllerAs: 'picksView',
                     resolve: {
                         games: ['GamesService', 'UserWeek', '$route', function (GamesService, UserWeek, $route) {
-                            UserWeek.selectedWeek = $route.current.params.week;
+                            UserWeek.selectedWeek = parseInt($route.current.params.week, 10);
                             return GamesService.getGames();
                         }],
                         picks: ['PicksService', 'UserService', 'UserWeek', '$route', function (PicksService, UserService, UserWeek, $route) {
-                            UserWeek.selectedWeek = $route.current.params.week;
+                            UserWeek.selectedWeek = parseInt($route.current.params.week, 10);
                             return PicksService.getPicksForUser(UserService.getCurrentUser());
                         }]
                     }
@@ -26,11 +26,11 @@
                     controllerAs: 'allPicksView',
                     resolve: {
                         games: ['GamesService', 'UserWeek', '$route', function (GamesService, UserWeek, $route) {
-                            UserWeek.selectedWeek = $route.current.params.week;
+                            UserWeek.selectedWeek = parseInt($route.current.params.week, 10);
                             return GamesService.getGames();
                         }],
                         allPicks: ['PicksService', 'UserWeek', '$route', function (PicksService, UserWeek, $route) {
-                            UserWeek.selectedWeek = $route.current.params.week;
+                            UserWeek.selectedWeek = parseInt($route.current.params.week, 10);
                             return PicksService.getPicksForAllUsers();
                         }]
                     }

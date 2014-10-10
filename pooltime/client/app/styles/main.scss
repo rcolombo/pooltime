@@ -15,11 +15,6 @@ body {
     padding-bottom: 20px;
 }
 
-.header {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 /* Custom page header */
 .header {
     border-bottom: 1px solid #e5e5e5;
@@ -39,21 +34,19 @@ body {
 }
 
 .week-arrow {
-    padding: 0 2px;
     display: inline-block;
     cursor: pointer;
 }
+.week-select {
+    padding-bottom: 5px;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media (min-width: $screen-tablet) {
     .container {
         max-width: 730px;
-    }
-
-    /* Remove the padding we set earlier */
-    .header {
-        padding-left: 0;
-        padding-right: 0;
     }
 
     /* Space out the masthead */
