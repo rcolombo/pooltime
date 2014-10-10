@@ -12,7 +12,8 @@
                      'selected': picksView.isPick(game, game.favorite),
                      'correct': picksView.gameHelper.isCorrect(game, game.favorite),
                      'incorrect': picksView.gameHelper.isIncorrect(game, game.favorite),
-                     'push': picksView.gameHelper.isPush(game)
+                     'push': picksView.gameHelper.isPush(game),
+                     'pick-is-in': game.result
                  }"
                  ng-click="picksView.pickTeam(game, game.favorite)">
                 {{ game.homeTeam === game.favorite ? '@' : '' }} {{ game.favorite }}
@@ -25,7 +26,8 @@
                      'selected': picksView.isPick(game, game.underdog),
                      'correct': picksView.gameHelper.isCorrect(game, game.underdog),
                      'incorrect': picksView.gameHelper.isIncorrect(game, game.underdog),
-                     'push': picksView.gameHelper.isPush(game)
+                     'push': picksView.gameHelper.isPush(game),
+                     'pick-is-in': game.result
                  }"
                  ng-click="picksView.pickTeam(game, game.underdog)">
                 {{ game.homeTeam === game.underdog ? '@ ' : '' }} {{ game.underdog }}

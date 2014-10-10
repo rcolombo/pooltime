@@ -17,6 +17,9 @@
             padding: 5px;
             cursor: pointer;
         }
+        .team.pick-is-in {
+            cursor: default;
+        }
         .selected {
             margin-top: 0px;
             color: $brand-primary;
