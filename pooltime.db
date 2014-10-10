@@ -1,0 +1,946 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: foo; Type: TABLE; Schema: public; Owner: ryan; Tablespace: 
+--
+
+CREATE TABLE foo (
+    id integer NOT NULL,
+    bar character varying(32)
+);
+
+
+ALTER TABLE public.foo OWNER TO ryan;
+
+--
+-- Name: games_id_seq; Type: SEQUENCE; Schema: public; Owner: ryan
+--
+
+CREATE SEQUENCE games_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.games_id_seq OWNER TO ryan;
+
+--
+-- Name: games; Type: TABLE; Schema: public; Owner: ryan; Tablespace: 
+--
+
+CREATE TABLE games (
+    id integer DEFAULT nextval('games_id_seq'::regclass) NOT NULL,
+    week integer,
+    home character varying(32),
+    away character varying(32),
+    spread double precision,
+    home_score integer,
+    away_score integer
+);
+
+
+ALTER TABLE public.games OWNER TO ryan;
+
+--
+-- Name: games_old; Type: TABLE; Schema: public; Owner: ryan; Tablespace: 
+--
+
+CREATE TABLE games_old (
+    id integer DEFAULT nextval('games_id_seq'::regclass) NOT NULL,
+    week integer,
+    away character varying(32),
+    home character varying(32),
+    spread double precision
+);
+
+
+ALTER TABLE public.games_old OWNER TO ryan;
+
+--
+-- Name: selections; Type: TABLE; Schema: public; Owner: ryan; Tablespace: 
+--
+
+CREATE TABLE selections (
+    game_id integer NOT NULL,
+    user_id integer NOT NULL,
+    team character varying(32)
+);
+
+
+ALTER TABLE public.selections OWNER TO ryan;
+
+--
+-- Name: selections_id_seq; Type: SEQUENCE; Schema: public; Owner: ryan
+--
+
+CREATE SEQUENCE selections_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.selections_id_seq OWNER TO ryan;
+
+--
+-- Name: selections_old; Type: TABLE; Schema: public; Owner: ryan; Tablespace: 
+--
+
+CREATE TABLE selections_old (
+    game_id integer NOT NULL,
+    user_id integer NOT NULL,
+    selection character varying(32)
+);
+
+
+ALTER TABLE public.selections_old OWNER TO ryan;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: ryan
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO ryan;
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: ryan; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer DEFAULT nextval('users_id_seq'::regclass) NOT NULL,
+    name character varying(32)
+);
+
+
+ALTER TABLE public.users OWNER TO ryan;
+
+--
+-- Name: users_old; Type: TABLE; Schema: public; Owner: ryan; Tablespace: 
+--
+
+CREATE TABLE users_old (
+    id integer DEFAULT nextval('users_id_seq'::regclass) NOT NULL,
+    name character varying(32)
+);
+
+
+ALTER TABLE public.users_old OWNER TO ryan;
+
+--
+-- Data for Name: foo; Type: TABLE DATA; Schema: public; Owner: ryan
+--
+
+COPY foo (id, bar) FROM stdin;
+1	colombo
+\.
+
+
+--
+-- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: ryan
+--
+
+COPY games (id, week, home, away, spread, home_score, away_score) FROM stdin;
+24	2	Minnesota	New England	3.5	\N	\N
+25	2	Cleveland	New Orleans	5	\N	\N
+26	2	Cincinnati	Atlanta	-5	\N	\N
+27	2	Washington	Jacksonville	-5	\N	\N
+28	2	N.Y. Giants	Arizona	-2	\N	\N
+29	2	San Diego	Seattle	4.5	\N	\N
+30	2	Tampa Bay	St. Louis	-4	\N	\N
+31	2	Denver	Kansas City	-13	\N	\N
+32	2	Oakland	Houston	3	\N	\N
+33	2	Green Bay	N.Y. Jets	-7.5	\N	\N
+34	2	San Francisco	Chicago	-7	\N	\N
+35	2	Indianapolis	Philadelphia	-3	\N	\N
+36	3	Atlanta	Tampa Bay	-6.5	\N	\N
+37	3	Detroit	Green Bay	-1	\N	\N
+38	3	Cincinnati	Tennessee	-6.5	\N	\N
+39	3	St. Louis	Dallas	2	\N	\N
+40	3	Philadelphia	Washington	-4.5	\N	\N
+41	3	New England	Oakland	-14	\N	\N
+42	3	N.Y. Giants	Houston	-1	\N	\N
+43	3	Buffalo	San Diego	-2.5	\N	\N
+44	3	Jacksonville	Indianapolis	7	\N	\N
+45	3	New Orleans	Minnesota	-10	\N	\N
+46	3	Cleveland	Baltimore	1	\N	\N
+47	3	Arizona	San Francisco	3	\N	\N
+48	3	Miami	Kansas City	-4	\N	\N
+49	3	Seattle	Denver	-4	\N	\N
+50	3	Carolina	Pittsburgh	-3	\N	\N
+51	3	N.Y. Jets	Chicago	-3	\N	\N
+65	4	Houston	Buffalo	-3	\N	\N
+66	4	Pittsburgh	Tampa Bay	-7.5	\N	\N
+67	4	Oakland	Miami	3.5	\N	\N
+68	4	N.Y. Jets	Detroit	-1	\N	\N
+69	4	Indianapolis	Tennessee	-7.5	\N	\N
+70	4	Baltimore	Carolina	-3.5	\N	\N
+71	4	Chicago	Green Bay	1.5	\N	\N
+73	4	San Diego	Jacksonville	-13	\N	\N
+74	4	Minnesota	Atlanta	4	\N	\N
+75	4	San Francisco	Philadelphia	-4	\N	\N
+76	4	Dallas	New Orleans	3	\N	\N
+77	4	Kansas City	New England	3	\N	\N
+78	4	Washington	N.Y. Giants	-3.5	\N	\N
+81	5	Green Bay	Minnesota	-8.5	\N	\N
+82	5	N.Y. Giants	Atlanta	-4.5	\N	\N
+83	5	Dallas	Houston	-6	\N	\N
+84	5	Philadelphia	St. Louis	-4.5	\N	\N
+85	5	Tennessee	Cleveland	1	\N	\N
+86	5	New Orleans	Tampa Bay	-10	\N	\N
+87	5	Detroit	Buffalo	-5.5	\N	\N
+88	5	Carolina	Chicago	-2	\N	\N
+89	5	Jacksonville	Pittsburgh	6	\N	\N
+90	5	Denver	Arizona	-7.5	\N	\N
+91	5	San Francisco	Kansas City	-4	\N	\N
+92	5	San Diego	N.Y. Jets	-6	\N	\N
+93	5	New England	Cincinnati	2.5	\N	\N
+94	5	Washington	Seattle	7.5	\N	\N
+95	5	Indianapolis	Baltimore	-3	\N	\N
+96	1	Seattle	Green Bay	-6.5	36	16
+8	1	Chicago	Buffalo	-7	20	23
+10	1	Pittsburgh	Cleveland	-6.5	30	27
+6	1	Philadelphia	Jacksonville	-10.5	34	17
+5	1	Miami	New England	3.5	33	20
+3	1	Atlanta	New Orleans	3	37	34
+14	1	Tampa Bay	Carolina	-2.5	14	20
+17	1	Denver	Indianapolis	-7.5	31	24
+18	1	Detroit	N.Y Giants	-6.5	35	14
+12	1	Baltimore	Cincinnati	-2	16	23
+13	1	St. Louis	Minnesota	-3	6	34
+7	1	N.Y. Jets	Oakland	-5	19	14
+16	1	Dallas	San Francisco	3.5	17	28
+19	1	Arizona	San Diego	-3	18	17
+9	1	Kansas City	Tennessee	-3	10	26
+11	1	Houston	Washington	-3	17	6
+20	2	Baltimore	Pittsburgh	-2.5	26	6
+23	2	Buffalo	Miami	-1	29	10
+22	2	Carolina	Detroit	-1	24	7
+21	2	Tennessee	Dallas	-3.5	10	26
+\.
+
+
+--
+-- Name: games_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ryan
+--
+
+SELECT pg_catalog.setval('games_id_seq', 96, true);
+
+
+--
+-- Data for Name: games_old; Type: TABLE DATA; Schema: public; Owner: ryan
+--
+
+COPY games_old (id, week, away, home, spread) FROM stdin;
+3	1	New Orleans	Atlanta	3
+5	1	New England	Miami	3.5
+6	1	Jacksonville	Philadelphia	-10.5
+7	1	Oakland	N.Y. Jets	-5
+8	1	Buffalo	Chicago	-7
+9	1	Tennessee	Kansas City	-3
+10	1	Cleveland	Pittsburgh	-6.5
+11	1	Washington	Houston	-3
+12	1	Cincinnati	Baltimore	-2
+13	1	Minnesota	St. Louis	-3
+14	1	Carolina	Tampa Bay	-2.5
+16	1	San Francisco	Dallas	3.5
+17	1	Indianapolis	Denver	-7.5
+18	1	N.Y Giants	Detroit	-6.5
+19	1	San Diego	Arizona	-3
+20	2	Pittsburgh	Baltimore	-2.5
+21	2	Dallas	Tennessee	-3.5
+22	2	Detroit	Carolina	-1
+23	2	Miami	Buffalo	-1
+24	2	New England	Minnesota	3.5
+25	2	New Orleans	Cleveland	5
+26	2	Atlanta	Cincinnati	-5
+27	2	Jacksonville	Washington	-5
+28	2	Arizona	N.Y. Giants	-2
+29	2	Seattle	San Diego	4.5
+30	2	St. Louis	Tampa Bay	-4
+31	2	Kansas City	Denver	-13
+32	2	Houston	Oakland	3
+33	2	N.Y. Jets	Green Bay	-7.5
+34	2	Chicago	San Francisco	-7
+35	2	Philadelphia	Indianapolis	-3
+36	3	Tampa Bay	Atlanta	-6.5
+37	3	Green Bay	Detroit	-1
+38	3	Tennessee	Cincinnati	-6.5
+39	3	Dallas	St. Louis	2
+40	3	Washington	Philadelphia	-4.5
+41	3	Oakland	New England	-14
+42	3	Houston	N.Y. Giants	-1
+43	3	San Diego	Buffalo	-2.5
+44	3	Indianapolis	Jacksonville	7
+45	3	Minnesota	New Orleans	-10
+46	3	Baltimore	Cleveland	1
+47	3	San Francisco	Arizona	3
+48	3	Kansas City	Miami	-4
+49	3	Denver	Seattle	-4
+50	3	Pittsburgh	Carolina	-3
+51	3	Chicago	N.Y. Jets	-3
+\.
+
+
+--
+-- Data for Name: selections; Type: TABLE DATA; Schema: public; Owner: ryan
+--
+
+COPY selections (game_id, user_id, team) FROM stdin;
+11	6	Houston
+10	6	Pittsburgh
+13	6	Minnesota
+12	6	Baltimore
+14	6	Carolina
+17	6	Indianapolis
+16	6	San Francisco
+19	6	San Diego
+18	6	Detroit
+3	6	New Orleans
+5	6	New England
+7	6	N.Y. Jets
+6	6	Philadelphia
+9	6	Kansas City
+8	6	Buffalo
+11	4	Houston
+10	4	Cleveland
+13	4	Minnesota
+12	4	Cincinnati
+14	4	Tampa Bay
+17	4	Denver
+16	4	Dallas
+19	4	San Diego
+18	4	N.Y Giants
+3	4	New Orleans
+5	4	Miami
+7	4	N.Y. Jets
+6	4	Jacksonville
+9	4	Kansas City
+8	4	Chicago
+11	3	Washington
+10	3	Pittsburgh
+13	3	St. Louis
+12	3	Baltimore
+14	3	Tampa Bay
+17	3	Denver
+16	3	San Francisco
+19	3	San Diego
+18	3	Detroit
+3	3	Atlanta
+5	3	New England
+7	3	N.Y. Jets
+6	3	Jacksonville
+9	3	Kansas City
+8	3	Buffalo
+11	5	Washington
+10	5	Cleveland
+13	5	Minnesota
+12	5	Cincinnati
+14	5	Tampa Bay
+17	5	Denver
+16	5	Dallas
+19	5	San Diego
+18	5	N.Y Giants
+3	5	New Orleans
+5	5	New England
+7	5	Oakland
+6	5	Philadelphia
+9	5	Kansas City
+8	5	Chicago
+24	4	New England
+25	4	New Orleans
+26	4	Atlanta
+27	4	Jacksonville
+20	4	Pittsburgh
+21	4	Dallas
+22	4	Detroit
+23	4	Miami
+33	4	Green Bay
+32	4	Houston
+31	4	Kansas City
+30	4	St. Louis
+28	4	N.Y. Giants
+29	4	San Diego
+35	4	Philadelphia
+34	4	Chicago
+24	3	New England
+25	3	New Orleans
+26	3	Atlanta
+27	3	Jacksonville
+20	3	Baltimore
+21	3	Dallas
+22	3	Carolina
+23	3	Buffalo
+33	3	N.Y. Jets
+32	3	Houston
+31	3	Kansas City
+30	3	Tampa Bay
+28	3	Arizona
+29	3	Seattle
+35	3	Philadelphia
+34	3	San Francisco
+24	5	New England
+25	5	New Orleans
+26	5	Atlanta
+27	5	Jacksonville
+20	5	Pittsburgh
+21	5	Dallas
+22	5	Detroit
+23	5	Miami
+33	5	Green Bay
+32	5	Oakland
+31	5	Denver
+30	5	Tampa Bay
+28	5	N.Y. Giants
+29	5	San Diego
+35	5	Philadelphia
+34	5	Chicago
+42	3	N.Y. Giants
+36	3	Atlanta
+39	3	Dallas
+38	3	Cincinnati
+48	3	Miami
+49	3	Seattle
+46	3	Cleveland
+47	3	San Francisco
+44	3	Jacksonville
+45	3	New Orleans
+51	3	Chicago
+43	3	Buffalo
+40	3	Philadelphia
+41	3	Oakland
+37	3	Green Bay
+50	3	Carolina
+42	5	N.Y. Giants
+36	5	Atlanta
+39	5	Dallas
+38	5	Cincinnati
+48	5	Kansas City
+49	5	Seattle
+46	5	Cleveland
+47	5	San Francisco
+44	5	Indianapolis
+45	5	New Orleans
+51	5	Chicago
+43	5	San Diego
+40	5	Washington
+41	5	Oakland
+37	5	Detroit
+50	5	Carolina
+42	4	N.Y. Giants
+36	4	Atlanta
+39	4	St. Louis
+38	4	Cincinnati
+48	4	Miami
+49	4	Seattle
+46	4	Cleveland
+47	4	San Francisco
+44	4	Indianapolis
+22	6	Detroit
+23	6	Miami
+24	6	New England
+25	6	New Orleans
+26	6	Atlanta
+27	6	Jacksonville
+28	6	Arizona
+29	6	San Diego
+30	6	Tampa Bay
+31	6	Kansas City
+32	6	Houston
+34	6	Chicago
+35	6	Indianapolis
+21	6	Tennessee
+45	4	New Orleans
+51	4	Chicago
+43	4	San Diego
+40	4	Philadelphia
+41	4	Oakland
+37	4	Green Bay
+50	4	Carolina
+74	4	Atlanta
+75	4	Philadelphia
+55	6	Tennessee
+76	4	New Orleans
+77	4	Kansas City
+78	4	N.Y. Giants
+65	3	Buffalo
+66	3	Tampa Bay
+67	3	Miami
+68	3	N.Y. Jets
+69	3	Indianapolis
+52	5	Buffalo
+53	5	Tampa Bay
+52	6	Houston
+53	6	Tampa Bay
+70	3	Carolina
+71	3	Green Bay
+73	3	Jacksonville
+74	3	Atlanta
+75	3	Philadelphia
+76	3	New Orleans
+77	3	New England
+78	3	N.Y. Giants
+36	6	Atlanta
+37	6	Detroit
+38	6	Cincinnati
+39	6	Dallas
+40	6	Washington
+41	6	New England
+42	6	Houston
+43	6	San Diego
+44	6	Jacksonville
+45	6	New Orleans
+46	6	Cleveland
+47	6	San Francisco
+48	6	Kansas City
+65	6	Houston
+66	6	Pittsburgh
+67	6	Miami
+68	6	Detroit
+69	6	Indianapolis
+70	6	Carolina
+71	6	Green Bay
+73	6	Jacksonville
+74	6	Atlanta
+75	6	San Francisco
+76	6	New Orleans
+77	6	New England
+78	6	N.Y. Giants
+20	6	Pittsburgh
+33	6	Green Bay
+85	5	Cleveland
+49	6	Denver
+50	6	Carolina
+51	6	N.Y. Jets
+81	5	Minnesota
+92	5	N.Y. Jets
+87	4	Detroit
+81	6	Green Bay
+65	5	Buffalo
+82	6	N.Y. Giants
+66	5	Tampa Bay
+67	5	Oakland
+68	5	Detroit
+69	5	Indianapolis
+70	5	Carolina
+71	5	Chicago
+73	5	Jacksonville
+74	5	Atlanta
+75	5	Philadelphia
+83	6	Dallas
+76	5	Dallas
+77	5	New England
+78	5	N.Y. Giants
+84	6	Philadelphia
+85	6	Cleveland
+65	4	Houston
+66	4	Pittsburgh
+67	4	Miami
+68	4	Detroit
+69	4	Indianapolis
+70	4	Baltimore
+71	4	Green Bay
+73	4	San Diego
+86	6	Tampa Bay
+87	6	Detroit
+88	6	Chicago
+89	6	Pittsburgh
+88	4	Carolina
+87	3	Detroit
+88	3	Carolina
+89	4	Pittsburgh
+90	6	Arizona
+90	4	Denver
+91	4	San Francisco
+89	3	Pittsburgh
+90	3	Arizona
+91	6	Kansas City
+91	3	San Francisco
+92	3	San Diego
+93	3	New England
+94	3	Seattle
+95	3	Indianapolis
+92	6	San Diego
+93	6	New England
+94	5	Seattle
+81	4	Green Bay
+82	4	N.Y. Giants
+83	4	Dallas
+94	6	Washington
+95	6	Indianapolis
+92	4	San Diego
+84	4	Philadelphia
+93	4	New England
+94	4	Seattle
+95	4	Indianapolis
+81	3	Minnesota
+82	3	Atlanta
+83	3	Houston
+85	4	Tennessee
+84	3	Philadelphia
+85	3	Tennessee
+86	4	New Orleans
+86	3	New Orleans
+86	5	New Orleans
+90	5	Denver
+93	5	New England
+95	5	Indianapolis
+91	5	Kansas City
+89	5	Pittsburgh
+88	5	Chicago
+87	5	Buffalo
+84	5	St. Louis
+83	5	Houston
+82	5	N.Y. Giants
+\.
+
+
+--
+-- Name: selections_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ryan
+--
+
+SELECT pg_catalog.setval('selections_id_seq', 11, true);
+
+
+--
+-- Data for Name: selections_old; Type: TABLE DATA; Schema: public; Owner: ryan
+--
+
+COPY selections_old (game_id, user_id, selection) FROM stdin;
+11	6	Houston
+10	6	Pittsburgh
+13	6	Minnesota
+12	6	Baltimore
+14	6	Carolina
+17	6	Indianapolis
+16	6	San Francisco
+19	6	San Diego
+18	6	Detroit
+3	6	New Orleans
+5	6	New England
+7	6	N.Y. Jets
+6	6	Philadelphia
+9	6	Kansas City
+8	6	Buffalo
+11	4	Houston
+10	4	Cleveland
+13	4	Minnesota
+12	4	Cincinnati
+14	4	Tampa Bay
+17	4	Denver
+16	4	Dallas
+19	4	San Diego
+18	4	N.Y Giants
+3	4	New Orleans
+5	4	Miami
+7	4	N.Y. Jets
+6	4	Jacksonville
+9	4	Kansas City
+8	4	Chicago
+11	3	Washington
+10	3	Pittsburgh
+13	3	St. Louis
+12	3	Baltimore
+14	3	Tampa Bay
+17	3	Denver
+16	3	San Francisco
+19	3	San Diego
+18	3	Detroit
+3	3	Atlanta
+5	3	New England
+7	3	N.Y. Jets
+6	3	Jacksonville
+9	3	Kansas City
+8	3	Buffalo
+11	5	Washington
+10	5	Cleveland
+13	5	Minnesota
+12	5	Cincinnati
+14	5	Tampa Bay
+17	5	Denver
+16	5	Dallas
+19	5	San Diego
+18	5	N.Y Giants
+3	5	New Orleans
+5	5	New England
+7	5	Oakland
+6	5	Philadelphia
+9	5	Kansas City
+8	5	Chicago
+24	4	New England
+25	4	New Orleans
+26	4	Atlanta
+27	4	Jacksonville
+20	4	Pittsburgh
+21	4	Dallas
+22	4	Detroit
+23	4	Miami
+33	4	Green Bay
+32	4	Houston
+31	4	Kansas City
+30	4	St. Louis
+28	4	N.Y. Giants
+29	4	San Diego
+35	4	Philadelphia
+34	4	Chicago
+24	3	New England
+25	3	New Orleans
+26	3	Atlanta
+27	3	Jacksonville
+20	3	Baltimore
+21	3	Dallas
+22	3	Carolina
+23	3	Buffalo
+33	3	N.Y. Jets
+32	3	Houston
+31	3	Kansas City
+30	3	Tampa Bay
+28	3	Arizona
+29	3	Seattle
+35	3	Philadelphia
+34	3	San Francisco
+24	5	New England
+25	5	New Orleans
+26	5	Atlanta
+27	5	Jacksonville
+20	5	Pittsburgh
+21	5	Dallas
+22	5	Detroit
+23	5	Miami
+33	5	Green Bay
+32	5	Oakland
+31	5	Denver
+30	5	Tampa Bay
+28	5	N.Y. Giants
+29	5	San Diego
+35	5	Philadelphia
+34	5	Chicago
+24	6	New England
+25	6	New Orleans
+26	6	Atlanta
+27	6	Jacksonville
+20	6	Pittsburgh
+21	6	Tennessee
+22	6	Detroit
+23	6	Miami
+33	6	Green Bay
+32	6	Houston
+31	6	Kansas City
+30	6	Tampa Bay
+28	6	Arizona
+29	6	San Diego
+35	6	Indianapolis
+34	6	Chicago
+42	3	N.Y. Giants
+36	3	Atlanta
+39	3	Dallas
+38	3	Cincinnati
+48	3	Miami
+49	3	Seattle
+46	3	Cleveland
+47	3	San Francisco
+44	3	Jacksonville
+45	3	New Orleans
+51	3	Chicago
+43	3	Buffalo
+40	3	Philadelphia
+41	3	Oakland
+37	3	Green Bay
+50	3	Carolina
+42	5	N.Y. Giants
+36	5	Atlanta
+39	5	Dallas
+38	5	Cincinnati
+48	5	Kansas City
+49	5	Seattle
+46	5	Cleveland
+47	5	San Francisco
+44	5	Indianapolis
+45	5	New Orleans
+51	5	Chicago
+43	5	San Diego
+40	5	Washington
+41	5	Oakland
+37	5	Detroit
+50	5	Carolina
+42	4	N.Y. Giants
+36	4	Atlanta
+39	4	St. Louis
+38	4	Cincinnati
+48	4	Miami
+49	4	Seattle
+46	4	Cleveland
+47	4	San Francisco
+44	4	Indianapolis
+45	4	New Orleans
+51	4	Chicago
+43	4	San Diego
+40	4	Philadelphia
+41	4	Oakland
+37	4	Green Bay
+50	4	Carolina
+42	6	Houston
+36	6	Atlanta
+39	6	Dallas
+38	6	Cincinnati
+48	6	Kansas City
+49	6	Denver
+46	6	Cleveland
+47	6	San Francisco
+44	6	Jacksonville
+45	6	New Orleans
+51	6	N.Y. Jets
+43	6	San Diego
+40	6	Washington
+41	6	New England
+37	6	Detroit
+50	6	Carolina
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: ryan
+--
+
+COPY users (id, name) FROM stdin;
+3	Colombo
+4	Will
+5	Ryan
+6	Joe
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ryan
+--
+
+SELECT pg_catalog.setval('users_id_seq', 10, true);
+
+
+--
+-- Data for Name: users_old; Type: TABLE DATA; Schema: public; Owner: ryan
+--
+
+COPY users_old (id, name) FROM stdin;
+3	Colombo
+4	Will
+5	Ryan
+6	Joe
+\.
+
+
+--
+-- Name: foo_pkey; Type: CONSTRAINT; Schema: public; Owner: ryan; Tablespace: 
+--
+
+ALTER TABLE ONLY foo
+    ADD CONSTRAINT foo_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: games_pkey; Type: CONSTRAINT; Schema: public; Owner: ryan; Tablespace: 
+--
+
+ALTER TABLE ONLY games_old
+    ADD CONSTRAINT games_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: games_pkey1; Type: CONSTRAINT; Schema: public; Owner: ryan; Tablespace: 
+--
+
+ALTER TABLE ONLY games
+    ADD CONSTRAINT games_pkey1 PRIMARY KEY (id);
+
+
+--
+-- Name: selections_pkey; Type: CONSTRAINT; Schema: public; Owner: ryan; Tablespace: 
+--
+
+ALTER TABLE ONLY selections_old
+    ADD CONSTRAINT selections_pkey PRIMARY KEY (game_id, user_id);
+
+
+--
+-- Name: selections_pkey1; Type: CONSTRAINT; Schema: public; Owner: ryan; Tablespace: 
+--
+
+ALTER TABLE ONLY selections
+    ADD CONSTRAINT selections_pkey1 PRIMARY KEY (game_id, user_id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: ryan; Tablespace: 
+--
+
+ALTER TABLE ONLY users_old
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey1; Type: CONSTRAINT; Schema: public; Owner: ryan; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey1 PRIMARY KEY (id);
+
+
+--
+-- Name: ix_games_week_home; Type: INDEX; Schema: public; Owner: ryan; Tablespace: 
+--
+
+CREATE UNIQUE INDEX ix_games_week_home ON games USING btree (week, home);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
