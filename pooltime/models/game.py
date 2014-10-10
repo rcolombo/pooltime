@@ -14,6 +14,8 @@ class Game(Base):
     home = Column(String(32), nullable=False)
     away = Column(String(32), nullable=False)
     spread = Column(Integer, nullable=False)
+    home_score = Column(Integer, nullable=True)
+    away_score = Column(Integer, nullable=True)
 
     def to_dict(self):
         return {'id': self.id,

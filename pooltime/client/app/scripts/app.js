@@ -12,9 +12,11 @@
         .run(['$rootScope', '$location', 'UserService', '$localStorage', function ($rootScope, $location, UserService, $localStorage) {
             if ($localStorage.username) {
                 UserService.getCurrentUser().username = $localStorage.username;
-            }
-            if (!UserService.isLoggedIn()) {
-                $location.path('/login');
+                UserService.login().finally(function () {
+                    if (!UserService.isLoggedIn()) {
+                        $location.path('/login');
+                    }
+                });
             }
 
             $rootScope.$on('startSpinner', function () {

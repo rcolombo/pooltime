@@ -43,6 +43,16 @@
 
         .service('ColomboAPIConverter', [function () {
             this.gamesServerToClient = function (serverModel) {
+                function parseResult(homeScore, awayScore) {
+                    var result = null;
+                    if (typeof homeScore === 'number' && typeof awayScore === 'number') {
+                        result = {
+                            homeScore: homeScore,
+                            awayScore: awayScore
+                        };
+                    }
+                    return result;
+                }
                 var clientModel = [];
                 angular.forEach(serverModel, function (game) {
                     var favorite, underdog;
@@ -55,7 +65,7 @@
                         favorite: favorite,
                         underdog: underdog,
                         spread: Math.abs(game.spread),
-                        result: game.result || null
+                        result: parseResult(game.home_score, game.away_score)
                     });
                 });
                 return clientModel;

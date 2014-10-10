@@ -42,8 +42,8 @@
             underdog: 'Oilers',
             spread: 7.5,
             result: {
-                winner: 'Patriots',
-                pointDifference: 8
+                homeScore: 16,
+                awayScore: 24
             }
         }, {
             id: 'wxyz',
@@ -53,8 +53,8 @@
             underdog: 'Browns',
             spread: 2,
             result: {
-                winner: 'Browns',
-                pointDifference: 3
+                homeScore: 17,
+                awayScore: 20
             }
         }, {
             id: 'asdf',
@@ -64,8 +64,8 @@
             underdog: 'Bills',
             spread: 6.5,
             result: {
-                winner: 'Packers',
-                pointDifference: 4
+                homeScore: 20,
+                awayScore: 24
             }
         }, {
             id: 'lkjh',
@@ -75,9 +75,28 @@
             underdog: 'Seahawks',
             spread: 4.5,
             result: {
-                winner: 'Seahawks',
-                pointDifference: 14
+                homeScore: 31,
+                awayScore: 45
             }
+        }, {
+            id: 'abcd',
+            homeTeam: 'Giants',
+            awayTeam: 'Eagles',
+            favorite: 'Giants',
+            underdog: 'Eagles',
+            spread: 5,
+            result: {
+                homeScore: 40,
+                awayScore: 35
+            }
+        }, {
+            id: 'abcd',
+            homeTeam: 'Giants',
+            awayTeam: 'Eagles',
+            favorite: 'Giants',
+            underdog: 'Eagles',
+            spread: 5,
+            result: null
         }];
     }
 
@@ -206,8 +225,8 @@
                 it('should return true if the given team is the underdog and won', function () {
                     var game = testData.games[1][0];
                     game.result = {
-                        winner: 'Oilers',
-                        pointDifference: 1
+                        homeScore: 35,
+                        awayScore: 34
                     };
                     expect(GameHelper.isCorrect(game, 'Oilers')).toBeTruthy();
                 });
@@ -215,8 +234,8 @@
                 it('should return true if the given team is the underdog and the favorite won and did not cover', function () {
                     var game = testData.games[1][0];
                     game.result = {
-                        winner: 'Patriots',
-                        pointDifference: 7
+                        homeScore: 17,
+                        awayScore: 24
                     };
                     expect(GameHelper.isCorrect(game, 'Oilers')).toBeTruthy();
                 });
@@ -224,8 +243,8 @@
                 it('should return true if the given team is the favorite and covered', function () {
                     var game = testData.games[1][0];
                     game.result = {
-                        winner: 'Patriots',
-                        pointDifference: 8
+                        homeScore: 34,
+                        awayScore: 42
                     };
                     expect(GameHelper.isCorrect(game, 'Patriots')).toBeTruthy();
                 });
@@ -233,8 +252,8 @@
                 it('should return false if the given team is the underdog and the favorite covered', function () {
                     var game = testData.games[1][0];
                     game.result = {
-                        winner: 'Patriots',
-                        pointDifference: 8
+                        homeScore: 34,
+                        awayScore: 42
                     };
                     expect(GameHelper.isCorrect(game, 'Oilers')).toBeFalsy();
                 });
@@ -242,10 +261,22 @@
                 it('should return false if the given team is the favorite and the favorite won but did not cover', function () {
                     var game = testData.games[1][0];
                     game.result = {
-                        winner: 'Patriots',
-                        pointDifference: 6
+                        homeScore: 34,
+                        awayScore: 40
                     };
                     expect(GameHelper.isCorrect(game, 'Patriots')).toBeFalsy();
+                });
+
+                it('should return false if the result is a push', function () {
+                    var game = testData.games[1][4];
+                    expect(GameHelper.isCorrect(game, 'Giants')).toBeFalsy();
+                    expect(GameHelper.isCorrect(game, 'Eagles')).toBeFalsy();
+                });
+
+                it('should return false if no result', function () {
+                    var game = testData.games[1][5];
+                    expect(GameHelper.isCorrect(game, 'Giants')).toBeFalsy();
+                    expect(GameHelper.isCorrect(game, 'Eagles')).toBeFalsy();
                 });
             });
 

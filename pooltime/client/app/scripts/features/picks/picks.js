@@ -64,26 +64,35 @@
 
         .service('GameHelper', function () {
 
-            this.isCorrect = function (game, team) {
-                var points, winner, loser, correctPick = null;
-
-                if (game.result) {
-                    winner = game.result.winner;
-                    if (winner === game.favorite) {
-                        points = game.result.pointDifference - game.spread;
-                        loser = game.underdog;
-                    } else {
-                        points = game.result.pointDifference + game.spread;
-                        loser = game.favorite;
-                    }
-                    if (points > 0) {
-                        correctPick = winner;
-                    } else if (points < 0) {
-                        correctPick = loser;
-                    }
+            function getResultInteger(game) {
+                var homeSpread = game.spread;
+                if (game.homeTeam === game.favorite) {
+                    homeSpread = -1 * game.spread;
                 }
+                return game.result.homeScore - game.result.awayScore + homeSpread;
+            }
 
-                return correctPick === team;
+            this.isCorrect = function (game, team) {
+                var result, correctPick, isCorrect = false;
+                if (game.result) {
+                    result = getResultInteger(game);
+                    if (result > 0) {
+                        correctPick = game.homeTeam;
+                    } else if (result < 0) {
+                        correctPick = game.awayTeam;
+                    }
+
+                    isCorrect = team === correctPick;
+                }
+                return isCorrect;
+            };
+
+            this.isIncorrect = function (game, team) {
+                return game.result && !this.isCorrect(game, team) && !this.isPush(game);
+            };
+
+            this.isPush = function (game) {
+                return game.result && getResultInteger(game) === 0;
             };
 
             this.getTotalCorrect = function (games, userPicks) {

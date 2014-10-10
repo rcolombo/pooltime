@@ -11,8 +11,9 @@
                     <td ng-repeat="(username, picks) in allPicksView.allPicks track by username"
                         ng-init="pick = picks[game.id]"
                         ng-class="{
-                            'success': allPicksView.gameHelper.isCorrect(game, pick),
-                            'danger': game.result !== null && !allPicksView.gameHelper.isCorrect(game, pick)
+                            'correct': allPicksView.gameHelper.isCorrect(game, pick),
+                            'incorrect': allPicksView.gameHelper.isIncorrect(game, pick),
+                            'push': allPicksView.gameHelper.isPush(game),
                         }">
                         {{ game.homeTeam === pick ? '@' : '' }} {{ pick }}
                     </td>

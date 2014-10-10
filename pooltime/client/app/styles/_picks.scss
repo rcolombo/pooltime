@@ -23,6 +23,10 @@
             border: solid $brand-primary;
             border-radius: 25px;
         }
+        .selected.push {
+            color: #777777;
+            border: solid #777777;
+        }
         .selected.correct {
             color: $brand-success;
             border: solid $brand-success;
@@ -68,4 +72,14 @@
     .all-picks-header {
         text-transform: uppercase;
     }
+}
+
+td.correct {
+    @extend .success;
+}
+td.incorrect {
+    @extend .danger;
+}
+td.push {
+    background-color: #cccccc;
 }

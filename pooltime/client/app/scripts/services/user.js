@@ -16,7 +16,7 @@
             };
 
             this.isLoggedIn = function () {
-                return true;
+                return state.loggedIn;
             };
 
             this.getState = function () {
