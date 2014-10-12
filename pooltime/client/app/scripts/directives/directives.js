@@ -1,6 +1,6 @@
 (function (angular) {
     'use strict';
 
-    angular.module('directives', ['directives.header']);
+    angular.module('directives', ['directives.header', 'directives.topindicator']);
 
 })(angular);

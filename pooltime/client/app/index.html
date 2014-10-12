@@ -11,7 +11,7 @@
         <!-- endbuild -->
     </head>
     <body ng-app="nflpicks">
-
+        <div class="top-indicator" jz-top-indicator></div>
         <div class="container">
             <div jz-picks-header></div>
             <div ng-hide="isRouteChanging" ng-view></div>
@@ -33,6 +33,7 @@
         <!-- build:js({app,.tmp}) /static/scripts/main.js -->
         <script src="scripts/directives/directives.js"></script>
         <script src="scripts/directives/header/header.js"></script>
+        <script src="scripts/directives/header/topindicator.js"></script>
         <script src="scripts/features/login/login.js"></script>
         <script src="scripts/features/picks/picks.js"></script>
         <script src="scripts/services/colomboapi.js"></script>

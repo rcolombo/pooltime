@@ -1,7 +1,7 @@
 (function (angular) {
     'use strict';
 
-    angular.module('picks', ['ngRoute', 'services.colomboapi', 'services.weeks', 'services.user'])
+    angular.module('picks', ['ngRoute', 'services.colomboapi', 'services.weeks', 'services.user', 'services.topindicator'])
 
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider
@@ -115,9 +115,7 @@
 
         })
 
-        .controller('PicksCtrl', ['$scope', 'games', 'picks', 'GameHelper', 'PicksService', '$timeout', 'UserWeek', '$location', function ($scope, games, picks, GameHelper, PicksService, $timeout, UserWeek, $location) {
-            var errors= {};
-
+        .controller('PicksCtrl', ['$scope', 'games', 'picks', 'GameHelper', 'PicksService', '$timeout', 'UserWeek', '$location', 'TopIndicator', function ($scope, games, picks, GameHelper, PicksService, $timeout, UserWeek, $location, TopIndicator) {
             this.games = games;
             this.picks = picks;
             this.gameHelper = GameHelper;
@@ -127,25 +125,12 @@
                 $location.path('/picks/' + newValue);
             });
 
-            function addError(id, error) {
-                errors[id] = error;
+            function addError(message) {
+                TopIndicator.setMessage(message, 'error');
             }
-
-            // adds and removes an error after 1.5 seconds
-            function addTemporaryError(id, error) {
-                addError(id, error);
-                $timeout(function () {
-                    delete errors[id];
-                }, 1500, true);
+            function addSuccessMessage(message) {
+                TopIndicator.setMessage(message, 'success');
             }
-
-            this.hasError = function (id) {
-                return !!errors[id];
-            };
-
-            this.getError = function (id) {
-                return errors[id];
-            };
 
             this.isPick = function (game, team) {
                 return team && picks[game.id] === team;
@@ -153,16 +138,20 @@
 
             this.pickTeam = function (game, team) {
                 var originalPick = picks[game.id];
+                function handleSuccess() {
+                    addSuccessMessage('Saved!');
+                }
                 function handleError(error) {
                     if (error.code === 'too_late') {
-                        addTemporaryError(game.id, 'Too late, bitch!');
+                        addError('Too late, bitch!');
                     } else {
-                        addTemporaryError(game.id, 'Oh shit! We fucked up!');
+                        addError('Oh shit! We fucked up!');
                     }
                     picks[game.id] = originalPick;
                 }
                 picks[game.id] = team;
                 PicksService.updatePicks(picks)
+                    .then(handleSuccess)
                     .catch(handleError);
             };
         }])

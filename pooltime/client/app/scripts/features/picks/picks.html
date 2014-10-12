@@ -33,8 +33,5 @@
                 {{ game.homeTeam === game.underdog ? '@ ' : '' }} {{ game.underdog }}
             </div>
         </div>
-        <div ng-show="picksView.hasError(game.id)" class="row error">
-            {{ picksView.getError(game.id) }}
-        </div>
     </span>
 </div>
