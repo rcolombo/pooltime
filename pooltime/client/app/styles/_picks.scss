@@ -71,21 +71,19 @@
     td, th {
         text-align: center;
     }
+    td.correct {
+        @extend .success;
+    }
+    td.incorrect {
+        @extend .danger;
+    }
+    td.push {
+        background-color: #cccccc;
+    }
 
     .all-picks-header {
         text-transform: uppercase;
     }
-}
 
-td.correct {
-    @extend .success;
-}
-td.incorrect {
-    @extend .danger;
-}
-td.push {
-    background-color: #cccccc;
-}
-.no-border {
-    border: 0;
+    margin: 0;
 }

@@ -19,13 +19,6 @@
                 });
             }
 
-            $rootScope.$on('startSpinner', function () {
-                $rootScope.$broadcast('us-spinner:spin', 'main-spinner');
-            });
-            $rootScope.$on('stopSpinner', function () {
-                $rootScope.$broadcast('us-spinner:stop', 'main-spinner');
-            });
-
             function onRouteChangeStart() {
                 $rootScope.isRouteChanging = true;
                 $rootScope.$broadcast('us-spinner:spin', 'main-spinner');
