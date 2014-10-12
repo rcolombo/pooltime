@@ -45,10 +45,10 @@
             this.gamesServerToClient = function (serverModel) {
                 function parseResult(homeScore, awayScore) {
                     var result = null;
-                    if (typeof homeScore === 'number' && typeof awayScore === 'number') {
+                    if (typeof homeScore === 'number' || typeof awayScore === 'number') {
                         result = {
-                            homeScore: homeScore,
-                            awayScore: awayScore
+                            homeScore: homeScore || 0,
+                            awayScore: awayScore || 0
                         };
                     }
                     return result;

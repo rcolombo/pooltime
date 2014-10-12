@@ -104,7 +104,7 @@
         beforeEach(setupTestData);
 
         describe('PicksService', function () {
-            var PicksService, ColomboAPI, UserWeek, $q, $rootScope;
+            var PicksService, ColomboAPI, UserWeek, NFLWeeks, $q, $rootScope;
             beforeEach(function () {
                 ColomboAPI = {
                     getPicks: function (week) {
@@ -121,9 +121,15 @@
                 UserWeek = {
                     selectedWeek: 1
                 };
+                NFLWeeks = {
+                    isNowAfterDeadlineOfWeek: function () {
+                        return this.pastDeadline;
+                    }
+                };
                 function providerOverride($provide) {
                     $provide.value('ColomboAPI', ColomboAPI);
                     $provide.value('UserWeek', UserWeek);
+                    $provide.value('NFLWeeks', NFLWeeks);
                 }
                 module('picks', providerOverride);
                 inject(function (_PicksService_, _$q_, _$rootScope_) {
@@ -160,8 +166,9 @@
             });
 
             describe('updatePicks', function () {
-                it('should call on the ColomboAPI to get the picks for the selected week', function () {
+                it('should call on the ColomboAPI to set the picks for the selected week', function () {
                     var returnsPromise, picks;
+                    NFLWeeks.pastDeadline = false;
                     picks = { whatever: 'fake object yeah' };
                     PicksService.updatePicks(picks).then(function () {
                         returnsPromise = true;
@@ -169,6 +176,19 @@
                     ColomboAPI.flush();
                     expect(returnsPromise).toBe(true);
                     expect(ColomboAPI.updated).toBe(picks);
+                });
+
+                it('should return a rejected promise if now is after the deadline', function () {
+                    var result, picks;
+                    NFLWeeks.pastDeadline = true;
+                    picks = { whatever: 'fake object yeah' };
+                    PicksService.updatePicks(picks).catch(function (error) {
+                        result = error;
+                    });
+                    $rootScope.$digest();
+                    expect(result).toEqual({
+                        code: 'too_late'
+                    });
                 });
             });
         });

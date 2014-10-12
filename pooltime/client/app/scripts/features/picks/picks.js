@@ -37,7 +37,7 @@
                 });
         }])
 
-        .service('PicksService', ['ColomboAPI', 'UserWeek', 'UserService', function (ColomboAPI, UserWeek, UserService) {
+        .service('PicksService', ['ColomboAPI', 'UserWeek', 'UserService', 'NFLWeeks', '$q', function (ColomboAPI, UserWeek, UserService, NFLWeeks, $q) {
             this.getPicksForUser = function (user) {
                 var week = UserWeek.selectedWeek;
                 return ColomboAPI.getPicks(week).then(function (picks) {
@@ -51,7 +51,15 @@
             };
 
             this.updatePicks = function (picks) {
-                return ColomboAPI.updatePicks(picks, UserService.getCurrentUser().id);
+                var promise;
+                if (NFLWeeks.isNowAfterDeadlineOfWeek(UserWeek.selectedWeek)) {
+                    promise = $q.reject({
+                        code: 'too_late'
+                    });
+                } else {
+                    promise = ColomboAPI.updatePicks(picks, UserService.getCurrentUser().id);
+                }
+                return promise;
             };
         }])
 

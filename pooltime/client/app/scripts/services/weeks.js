@@ -3,6 +3,7 @@
 
     angular.module('services.weeks.constants', [])
         .constant('WEEK_1_START_DATE', new Date('2014-09-03T03:00:00-04:00'))
+        .constant('TimeZoneOffset', '-04:00') // EST
         .constant('REG_SEASON_LEN', 17);
 
     angular.module('services.weeks', ['ngMoment', 'services.weeks.constants', 'services.common.now'])
@@ -11,16 +12,17 @@
             this.selectedWeek = NFLWeeks.getCurrentWeek();
         }])
 
-        .service('NFLWeeks', ['$moment', 'WEEK_1_START_DATE', 'REG_SEASON_LEN', 'now', function ($moment, WEEK_1_START_DATE, REG_SEASON_LEN, now) {
+        .service('NFLWeeks', ['$moment', 'WEEK_1_START_DATE', 'REG_SEASON_LEN', 'now', 'TimeZoneOffset', function ($moment, WEEK_1_START_DATE, REG_SEASON_LEN, now, TimeZoneOffset) {
 
             var weeks = [];
 
             function init() {
                 var weekIndex, moment;
-                moment = $moment(WEEK_1_START_DATE);
+                moment = $moment(WEEK_1_START_DATE).zone(TimeZoneOffset);
                 for (weekIndex = 0; weekIndex < REG_SEASON_LEN; weekIndex++) {
                     weeks[weekIndex] = {
                         start: moment.clone().toDate(),
+                        deadline: moment.clone().day(7).hour(13).minute(0).second(0).millisecond(0).toDate(),
                         end: moment.add(1, 'week').clone().toDate()
                     };
                 }
@@ -42,11 +44,18 @@
                 for (weekNumber = 1; !isCurrentWeekOrLastWeekOfSeason(); weekNumber++) {}
                 return weekNumber;
             }
+            function getDeadlineOfWeek(weekNumber) {
+                return weeks[weekNumber - 1].deadline;
+            }
+            function isNowAfterDeadlineOfWeek(weekNumber) {
+                return now() > getDeadlineOfWeek(weekNumber);
+            }
 
             init();
             this.getStartOfWeek = getStartOfWeek;
             this.getEndOfWeek = getEndOfWeek;
             this.getCurrentWeek = getCurrentWeek;
-
+            this.getDeadlineOfWeek = getDeadlineOfWeek;
+            this.isNowAfterDeadlineOfWeek = isNowAfterDeadlineOfWeek;
         }]);
 })(angular);
