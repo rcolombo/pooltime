@@ -1,9 +1,9 @@
 <div class="games">
     <p><strong>Total Correct: </strong>{{picksView.gameHelper.getTotalCorrect(picksView.games, picksView.picks)}}</p>
     <div class="row games-header">
-        <div class="col-xs-4 team">Favorite</div>
-        <div class="col-xs-4 spread"><small class="text-muted">Spread</small></div>
-        <div class="col-xs-4 team">Underdog</div>
+        <div class="col-xs-5 no-padding team">Favorite</div>
+        <div class="col-xs-2 no-padding spread"><small class="text-muted">Spread</small></div>
+        <div class="col-xs-5 no-padding team">Underdog</div>
     </div>
     <span ng-repeat="game in picksView.games">
         <div class="row game" ng-class="{ 'even': $even }">
