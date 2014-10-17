@@ -8,7 +8,8 @@
     "ngstorage": "~0.3.0",
     "moment": "~2.8.3",
     "angular-momentjs": "~0.1.8",
-    "angular-spinner": "~0.5.1"
+    "angular-spinner": "~0.5.1",
+    "angular-animate": "~1.2.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.25"

@@ -1,33 +1,36 @@
 .top-indicator {
     position: fixed;
-    text-align: center;
     top: 0;
-    background: $label-info-bg;
-    color: white;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    opacity: 0;
     width: 100%;
-    -webkit-transition: opacity 3s ease;
-    -moz-transition: opacity 3s ease;
-    -ms-transition: opacity 3s ease;
-    -o-transition: opacity 3s ease;
-    transition: opacity 3s ease;
     z-index: 1000;
 }
-.top-indicator.active {
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-    opacity: 1;
-    -webkit-transition: opacity 0;
-    -moz-transition: opacity 0;
-    -ms-transition: opacity 0;
-    -o-transition: opacity 0;
-    transition: opacity 0;
+.top-indicator .top-indicator-label {
+    position: relative;
+    text-align: center;
+    background: $label-info-bg;
+    color: white;
+    opacity: 0.9;
 }
-.top-indicator.success {
+
+.top-indicator.success .top-indicator-label {
     background: $label-success-bg;
 }
-.top-indicator.error {
+.top-indicator.error .top-indicator-label {
     background: $label-danger-bg;
+}
+@media (min-width: $screen-sm-min) {
+    .top-indicator .top-indicator-label {
+        border-radius: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+    }
+}
+.top-indicator .top-indicator-label.ng-hide {
+    opacity:0;
+    -webkit-transition: opacity 1s ease 1s;
+    -moz-transition: opacity 1s ease 1s;
+    -ms-transition: opacity 1s ease 1s;
+    -o-transition: opacity 1s ease 1s;
+    transition: opacity 1s ease 1s;
 }

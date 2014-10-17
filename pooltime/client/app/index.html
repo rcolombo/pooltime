@@ -11,7 +11,9 @@
         <!-- endbuild -->
     </head>
     <body ng-app="nflpicks">
-        <div class="top-indicator" jz-top-indicator></div>
+        <div class="top-indicator" jz-top-indicator ng-class="{'success': type === 'success', 'error': type === 'error'}">
+            <div class="top-indicator-label fade-out" ng-show="showMessage">{{ message }}</div>
+        </div>
         <div class="container">
             <div jz-picks-header></div>
             <div ng-hide="isRouteChanging" ng-view></div>
@@ -19,15 +21,14 @@
         </div>
 
         <!-- build:js /static/scripts/vendor.js -->
-        <!-- bower:js -->
         <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/ngstorage/ngStorage.js"></script>
         <script src="bower_components/moment/moment.js"></script>
         <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
         <script src="bower_components/spin.js/spin.js"></script>
         <script src="bower_components/angular-spinner/angular-spinner.js"></script>
-        <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) /static/scripts/main.js -->

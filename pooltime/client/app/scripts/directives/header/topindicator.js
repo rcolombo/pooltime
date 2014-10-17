@@ -3,22 +3,20 @@
 
     angular.module('directives.topindicator', ['services.topindicator'])
 
-        .directive('jzTopIndicator', ['TopIndicator', '$timeout', function (TopIndicator, $timeout) {
+        .directive('jzTopIndicator', ['$timeout', function ($timeout) {
             return {
-                link: function ($scope, element) {
+                link: function ($scope) {
+                    var fadePromise;
                     $scope.$on('topIndicatorMessage', function (event, message, type) {
-                        element.removeClass('success');
-                        element.removeClass('error');
-                        element.text(message);
-                        if (type === 'success') {
-                            element.addClass('success');
-                        } else if (type === 'error') {
-                            element.addClass('error');
+                        if (fadePromise) {
+                            $timeout.cancel(fadePromise);
                         }
-                        element.addClass('active');
-                        $timeout(function () {
-                            element.removeClass('active');
-                        }, 1000);
+                        $scope.message = message;
+                        $scope.type = type;
+                        $scope.showMessage = true;
+                        fadePromise = $timeout(function () {
+                            $scope.showMessage = false;
+                        });
                     });
                 }
             };
