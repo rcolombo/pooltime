@@ -1,7 +1,7 @@
 (function (angular) {
     'use strict';
 
-    angular.module('login', ['ngRoute', 'services.user'])
+    angular.module('login', ['ngRoute', 'services.user', 'services.topindicator'])
 
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.when('/login', {
@@ -11,16 +11,22 @@
             });
         }])
 
-        .controller('LoginCtrl', ['UserService', 'UserWeek', '$location', function (UserService, UserWeek, $location) {
+        .controller('LoginCtrl', ['UserService', 'UserWeek', '$location', 'TopIndicator', function (UserService, UserWeek, $location, TopIndicator) {
             this.user = UserService.getCurrentUser();
 
             function redirectToPicks() {
                 $location.path('/picks/' + UserWeek.selectedWeek);
             }
 
+            function addLoginError(errorResponse) {
+                if (errorResponse.status === 401) {
+                    TopIndicator.setMessage('Username does not exist!', 'error');
+                }
+            }
+
             this.login = function () {
                 UserService.login()
-                    .then(redirectToPicks);
+                    .then(redirectToPicks, addLoginError);
             };
 
         }]);

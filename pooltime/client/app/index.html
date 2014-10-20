@@ -11,9 +11,7 @@
         <!-- endbuild -->
     </head>
     <body ng-app="nflpicks">
-        <div class="top-indicator" jz-top-indicator ng-class="{'success': type === 'success', 'error': type === 'error'}">
-            <div class="top-indicator-label fade-out" ng-show="showMessage">{{ message }}</div>
-        </div>
+        <div jz-top-indicator></div>
         <div class="container">
             <div jz-picks-header></div>
             <div ng-hide="isRouteChanging" ng-view></div>

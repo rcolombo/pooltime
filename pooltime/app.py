@@ -99,7 +99,7 @@ def lookup():
             .filter(func.lower(User.name) == request.args.get('user').lower()) \
             .first()
     if uid is None:
-        return 'User Not Found', 200
+        return 'User Not Found', 401
 
     return str(uid[0]), 200
 

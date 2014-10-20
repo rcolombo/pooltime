@@ -5,6 +5,12 @@
 
         .directive('jzTopIndicator', ['$timeout', function ($timeout) {
             return {
+                restrict: 'A',
+                replace: true,
+                template:
+                '<div class="top-indicator" ng-class="{\'success\': type === \'success\', \'error\': type === \'error\'}">' +
+                '    <div class="top-indicator-label fade-out" ng-show="showMessage">{{ message }}</div>' +
+                '</div>',
                 link: function ($scope) {
                     var fadePromise;
                     $scope.$on('topIndicatorMessage', function (event, message, type) {
