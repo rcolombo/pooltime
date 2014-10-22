@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import Response
 
 from models.game import Game
 from models.selection import Selection
@@ -10,6 +11,9 @@ from sqlalchemy import create_engine
 from sqlalchemy import and_
 from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
+
+from time import sleep
+import random
 
 import datetime
 import requests
@@ -102,6 +106,63 @@ def lookup():
         return 'User Not Found', 401
 
     return str(uid[0]), 200
+
+class ServerSentEvent(object):
+    def __init__(self, data, event=None, id=None):
+        self.data = json.dumps(data)
+        self.event = event
+        self.id = id
+        self.desc_map = {
+            self.data : "data",
+            self.event : "event",
+            self.id : "id"
+        }
+
+    def encode(self):
+        if not self.data:
+            return ""
+        lines = ["%s: %s" % (v, k) 
+                 for k, v in self.desc_map.iteritems() if k]
+        
+        return "%s\n\n" % "\n".join(lines)
+
+@app.route('/scores', methods=['GET'])
+@app.route('/scores/<int:game_id>', methods=['GET'])
+def scores(game_id=None):
+    # TODO: actually implement this
+    def scores_stream(game_id):
+        score = {
+            'home_score': 0,
+            'away_score': 0,
+            'final': False
+        }
+        yield ServerSentEvent(score, event='update').encode()
+        t = 0
+        while not score['final']:
+            sleep(random.randrange(3, 10))
+            r_scorer = random.random()
+            r_points = random.random()
+
+            if (r_scorer < .5):
+                scorer = 'away_score'
+            else:
+                scorer = 'home_score'
+            if (r_points < .4):
+                points = 3
+            else:
+                points = 7
+            score[scorer] += points
+            t += 1
+            if (t >= random.randrange(3, 8)):
+                score['final'] = True
+            print 'Score updated.'
+            yield ServerSentEvent(score, event='update').encode()
+
+
+
+    if game_id is None:
+        return 'No game id provided', 400
+    return Response(scores_stream(game_id), mimetype="text/event-stream")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

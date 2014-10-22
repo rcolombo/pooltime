@@ -30,5 +30,41 @@
             $rootScope.$on('$routeChangeStart', onRouteChangeStart);
             $rootScope.$on('$routeChangeSuccess', onRouteChangeFinished);
             $rootScope.$on('$routeChangeError', onRouteChangeFinished);
+        }])
+
+        .config(['$routeProvider', function ($routeProvider) {
+            $routeProvider.when('/scores', {
+                template: '<div ng-class="{\'text-muted\': scoresView.final}">{{ scoresView.score }}</div>',
+                controller: 'Scores',
+                controllerAs: 'scoresView'
+            });
+        }])
+        .controller('Scores', ['$scope', function ($scope) {
+            var scoresView = this;
+            scoresView.score = 'No score';
+            scoresView.final = false;
+
+            var scoresStream = new EventSource('scores/1');
+            scoresStream.addEventListener('update', function (event) {
+                var score = JSON.parse(event.data);
+                $scope.$apply(function () {
+                    scoresView.score = 'Home score: ' + score.home_score + ', Away score: ' + score.away_score;
+                    scoresView.final = score.final;
+                });
+                console.log('update received');
+                console.log(event);
+                if (score.final) {
+                    scoresStream.close();
+                }
+            });
+            scoresStream.addEventListener('open', function (event) {
+                console.log('open received');
+                console.log(event);
+            });
+            scoresStream.addEventListener('error', function (event) {
+                scoresStream.close();
+                console.log('error received');
+                console.log(event);
+            });
         }]);
 })(angular);
