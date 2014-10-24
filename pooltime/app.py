@@ -129,21 +129,22 @@ class ServerSentEvent(object):
 @app.route('/scores', methods=['GET'])
 @app.route('/scores/<int:game_id>', methods=['GET'])
 def scores(game_id=None):
-    def scores_stream(game_id):
-        game = session.query(Game).filter_by(id=game_id).one()
-        score = {
-            'game_id': game.id,
-            'home_score': game.home_score,
-            'away_score': game.away_score
-        }
-        yield ServerSentEvent(score, event='update').encode()
-        for score in score_streamer.stream():
-            if score['game_id'] == game_id:
-                yield ServerSentEvent(score, event='update').encode()
+    def sse_gen(game_id):
+        # game = session.query(Game).filter_by(id=game_id).one()
+        # score = {
+        #     'game_id': game.id,
+        #     'home_score': game.home_score,
+        #     'away_score': game.away_score
+        # }
+        # yield ServerSentEvent(score, event='update').encode()
+        for score in score_streamer.game_stream(game_id):
+            yield ServerSentEvent(score, event='update').encode()
+
     if game_id is None:
         return 'No game id provided', 400
-    return Response(scores_stream(game_id), mimetype="text/event-stream")
+    return Response(sse_gen(game_id), mimetype="text/event-stream")
 
 if __name__ == '__main__':
+    eventlet.spawn(score_streamer.stream)
     app.run(host='0.0.0.0', debug=True, threaded=True)
 
