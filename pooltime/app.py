@@ -126,25 +126,15 @@ class ServerSentEvent(object):
         
         return "%s\n\n" % "\n".join(lines)
 
-@app.route('/scores', methods=['GET'])
-@app.route('/scores/<int:game_id>', methods=['GET'])
-def scores(game_id=None):
-    def sse_gen(game_id):
-        # game = session.query(Game).filter_by(id=game_id).one()
-        # score = {
-        #     'game_id': game.id,
-        #     'home_score': game.home_score,
-        #     'away_score': game.away_score
-        # }
-        # yield ServerSentEvent(score, event='update').encode()
-        for score in score_streamer.game_stream(game_id):
+@app.route('/livescores', methods=['GET'])
+def scores():
+    def sse_gen():
+        for score in score_streamer.new_stream():
             yield ServerSentEvent(score, event='update').encode()
 
-    if game_id is None:
-        return 'No game id provided', 400
-    return Response(sse_gen(game_id), mimetype="text/event-stream")
+    return Response(sse_gen(), mimetype="text/event-stream")
 
 if __name__ == '__main__':
-    eventlet.spawn(score_streamer.stream)
+    eventlet.spawn(score_streamer.run)
     app.run(host='0.0.0.0', debug=True, threaded=True)
 

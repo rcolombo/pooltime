@@ -43,7 +43,7 @@
             var scoresView = this;
             scoresView.score = 'No score';
 
-            var scoresStream = new EventSource('scores/24');
+            var scoresStream = new EventSource('livescores');
             scoresStream.addEventListener('update', function (event) {
                 var score = JSON.parse(event.data);
                 $scope.$apply(function () {
