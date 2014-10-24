@@ -20,12 +20,18 @@ import requests
 
 import simplejson as json
 
+import eventlet
+from livescores import ScoreListener
+
+eventlet.monkey_patch()
 app = Flask(__name__)
 
 db_uri = 'postgresql://localhost/pooltime'
 engine = create_engine(db_uri)
 Session = sessionmaker(engine)
 session = Session()
+
+score_listener = ScoreListener()
 
 users = session.query(User).all()
 
@@ -131,32 +137,20 @@ class ServerSentEvent(object):
 def scores(game_id=None):
     # TODO: actually implement this
     def scores_stream(game_id):
+        game = session.query(Game).filter_by(id=game_id).one()
         score = {
-            'home_score': 0,
-            'away_score': 0,
-            'final': False
+            'game_id': game.id,
+            'home_score': game.home_score,
+            'away_score': game.away_score
         }
         yield ServerSentEvent(score, event='update').encode()
-        t = 0
-        while not score['final']:
-            sleep(random.randrange(3, 10))
-            r_scorer = random.random()
-            r_points = random.random()
-
-            if (r_scorer < .5):
-                scorer = 'away_score'
-            else:
-                scorer = 'home_score'
-            if (r_points < .4):
-                points = 3
-            else:
-                points = 7
-            score[scorer] += points
-            t += 1
-            if (t >= random.randrange(3, 8)):
-                score['final'] = True
-            print 'Score updated.'
-            yield ServerSentEvent(score, event='update').encode()
+        while True:
+            print 'streaming score'
+            score = score_listener.q.get()
+            print 'score almost sent'
+            if score['game_id'] == game_id:
+                print 'score sent'
+                yield ServerSentEvent(score, event='update').encode()
 
 
 
@@ -165,4 +159,6 @@ def scores(game_id=None):
     return Response(scores_stream(game_id), mimetype="text/event-stream")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    score_listener.run()
+    app.run(host='0.0.0.0', debug=True, threaded=True)
+

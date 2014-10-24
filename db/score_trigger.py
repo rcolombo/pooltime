@@ -21,7 +21,7 @@ print '''
             old_away_score := old.away_score;
         end if;
         if new_home_score <> old_home_score or new_away_score <> old_away_score then
-            perform pg_notify('score_update', cast(new_home_score as text) || ', ' || cast(new_away_score as text));
+            perform pg_notify('score_update', cast(new.game_id as text) || ', ' || cast(new_home_score as text) || ', ' || cast(new_away_score as text));
         end if;
         return new;
     end;
