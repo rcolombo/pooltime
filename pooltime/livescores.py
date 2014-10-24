@@ -1,25 +1,15 @@
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-import eventlet
 from eventlet.hubs import trampoline
 
-import threading
-
-class ScoreListener(object):
-    """
-    Listens to the db for score updates and adds them to a self-managed queue,
-    accessable through the q property.
-    """
+class ScoreStreamer(object):
     def __init__(self):
-        super(ScoreListener, self).__init__()
-        print 'init'
-        self.q = eventlet.Queue()
+        super(ScoreStreamer, self).__init__()
 
-    def run(self):
-        eventlet.spawn(self.listen)
-
-    def listen(self):
-        print 'run'
+    """
+    Generates a live stream of scores directly from persistence.
+    """
+    def stream(self):
         def parse_score_data(notify_obj):
             scores = notify_obj.payload.split(',')
             game_id = int(scores[0].strip())
@@ -38,8 +28,7 @@ class ScoreListener(object):
             trampoline(cnn, read=True)
             cnn.poll()
             while cnn.notifies:
-                print 'notifies'
                 score_data = cnn.notifies.pop()
-                print 'notifies.pop'
                 score = parse_score_data(score_data)
-                self.q.put(score)
+                yield score
+

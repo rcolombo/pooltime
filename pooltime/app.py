@@ -12,16 +12,10 @@ from sqlalchemy import and_
 from sqlalchemy import func
 from sqlalchemy.orm import sessionmaker
 
-from time import sleep
-import random
-
-import datetime
-import requests
-
 import simplejson as json
 
 import eventlet
-from livescores import ScoreListener
+import livescores
 
 eventlet.monkey_patch()
 app = Flask(__name__)
@@ -31,7 +25,7 @@ engine = create_engine(db_uri)
 Session = sessionmaker(engine)
 session = Session()
 
-score_listener = ScoreListener()
+score_streamer = livescores.ScoreStreamer()
 
 users = session.query(User).all()
 
@@ -135,7 +129,6 @@ class ServerSentEvent(object):
 @app.route('/scores', methods=['GET'])
 @app.route('/scores/<int:game_id>', methods=['GET'])
 def scores(game_id=None):
-    # TODO: actually implement this
     def scores_stream(game_id):
         game = session.query(Game).filter_by(id=game_id).one()
         score = {
@@ -144,21 +137,13 @@ def scores(game_id=None):
             'away_score': game.away_score
         }
         yield ServerSentEvent(score, event='update').encode()
-        while True:
-            print 'streaming score'
-            score = score_listener.q.get()
-            print 'score almost sent'
+        for score in score_streamer.stream():
             if score['game_id'] == game_id:
-                print 'score sent'
                 yield ServerSentEvent(score, event='update').encode()
-
-
-
     if game_id is None:
         return 'No game id provided', 400
     return Response(scores_stream(game_id), mimetype="text/event-stream")
 
 if __name__ == '__main__':
-    score_listener.run()
     app.run(host='0.0.0.0', debug=True, threaded=True)
 
