@@ -103,5 +103,24 @@ def lookup():
 
     return str(uid[0]), 200
 
+@app.route('/totals')
+def totals():
+    rec = session.execute('''SELECT users.name,
+                                    SUM(CASE
+                                            WHEN (away_score - home_score = spread) THEN 0
+                                            WHEN (away_score - home_score < spread AND team=home) THEN 1
+                                            WHEN (away_score - home_score > spread AND team=away) THEN 1
+                                            ELSE 0
+                                        END) AS cover
+                             FROM games
+                             INNER JOIN selections ON games.id = selections.game_id
+                             INNER JOIN users ON users.id = selections.user_id
+                             GROUP BY 1
+                             ORDER BY 2 DESC; ''')
+    totals = {}
+    for r in rec.fetchall():
+        totals[r[0]] = r[1]
+    return json.dumps(totals), 200
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
