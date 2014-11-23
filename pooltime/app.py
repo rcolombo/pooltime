@@ -17,7 +17,6 @@ import simplejson as json
 import eventlet
 import livescores
 
-eventlet.monkey_patch()
 app = Flask(__name__)
 
 db_uri = 'postgresql://localhost/pooltime'
@@ -130,11 +129,13 @@ class ServerSentEvent(object):
 def scores():
     def sse_gen():
         for score in score_streamer.new_stream():
+            print 'sending score'
             yield ServerSentEvent(score, event='update').encode()
+        
 
     return Response(sse_gen(), mimetype="text/event-stream")
 
 if __name__ == '__main__':
-    eventlet.spawn(score_streamer.run)
+    score_streamer.start()
     app.run(host='0.0.0.0', debug=True, threaded=True)
 

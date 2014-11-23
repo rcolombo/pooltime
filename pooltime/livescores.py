@@ -3,21 +3,20 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 import threading
 from eventlet.hubs import trampoline
 
-"""
-Simple listener on a particular game whose score is updated
-and update_event is set and reset upon a score update for the game.
-This behavior is controlled by the main stream
-"""
 class ScoreListener(object):
     def __init__(self):
         self.update_event = threading.Event()
         self.score = None
 
+    """
+    Listens in on the stream for update events and blocks
+    the thread until receiving one. Returns the score dict.
+    """
     def wait_for_score(self):
         self.update_event.wait()
         return self.score
 
-class ScoreStreamer(object):
+class ScoreStreamer(threading.Thread):
     def __init__(self):
         super(ScoreStreamer, self).__init__()
         self.score_listener = ScoreListener()
@@ -30,9 +29,7 @@ class ScoreStreamer(object):
             yield self.score_listener.wait_for_score()
 
     """
-    The main stream of scores. Listens to the db and manages any GameListener
-    objects by updating their scores upon a db update. This should only be
-    run on a single thread.
+    The main stream of scores. This should only be run on a single thread.
     """
     def run(self):
         def _parse_score_data(notify_obj):
