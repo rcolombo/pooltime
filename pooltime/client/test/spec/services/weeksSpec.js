@@ -58,27 +58,27 @@
             describe('getCurrentWeek', function () {
                 it('should be week 1 when the current date is before the WEEK_1_START_DATE', function () {
                     now = Dates.March_1_1989_3_PM_EST;
-                    expect(NFLWeeks.getCurrentWeek()).toBe(1);
+                    expect(NFLWeeks.getCurrentWeek().value).toBe(1);
                 });
 
                 it('should be week 1 when the current date is the WEEK_1_START_DATE', function () {
                     now = Dates.March_15_1989_3_PM_EST;
-                    expect(NFLWeeks.getCurrentWeek()).toBe(1);
+                    expect(NFLWeeks.getCurrentWeek().value).toBe(1);
                 });
 
                 it('should be week 1 when the current date is less than 7 days after the WEEK_1_START_DATE', function () {
                     now = new Date(Dates.March_22_1989_3_PM_EST.valueOf() - 1);
-                    expect(NFLWeeks.getCurrentWeek()).toBe(1);
+                    expect(NFLWeeks.getCurrentWeek().value).toBe(1);
                 });
 
                 it('should be week 2 when the current date is exactly 7 days after the WEEK_1_START_DATE', function () {
                     now = Dates.March_22_1989_3_PM_EST;
-                    expect(NFLWeeks.getCurrentWeek()).toBe(2);
+                    expect(NFLWeeks.getCurrentWeek().value).toBe(2);
                 });
 
                 it('should be week 17 when the current date is after the season ends', function () {
                     now = new Date();
-                    expect(NFLWeeks.getCurrentWeek()).toBe(17);
+                    expect(NFLWeeks.getCurrentWeek().value).toBe(17);
                 });
             });
 

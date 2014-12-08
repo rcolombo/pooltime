@@ -42,19 +42,6 @@ body {
     margin: 70px;
 }
 
-.week-arrow {
-    display: inline-block;
-    cursor: pointer;
-}
-.week-nav {
-    color: $brand-dark;
-}
-.week-select {
-    padding-bottom: 5px;
-    line-height: 40px;
-    padding-bottom: 19px;
-}
-
 /* Responsive: Portrait tablets and up */
 @media (min-width: $screen-tablet) {
     .container {
