@@ -65,23 +65,28 @@ $games-font-size-sm: 18px;
     }
 }
 
-.all-picks .table {
-    td, th {
-        text-align: center;
+.all-picks {
+    .table-container {
+        margin-top: 10px;
     }
-    td.correct {
-        @extend .success;
-    }
-    td.incorrect {
-        @extend .danger;
-    }
-    td.push {
-        background-color: #cccccc;
-    }
+    .table {
+        td, th {
+            text-align: center;
+        }
+        td.correct {
+            @extend .success;
+        }
+        td.incorrect {
+            @extend .danger;
+        }
+        td.push {
+            background-color: #cccccc;
+        }
 
-    .all-picks-header {
-        text-transform: uppercase;
-    }
+        .all-picks-header {
+            text-transform: uppercase;
+        }
 
-    margin: 0;
+        margin: 0;
+    }
 }
