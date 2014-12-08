@@ -32,14 +32,14 @@ module.exports = function (grunt) {
             },
             js: {
                 files: ['<%= config.app %>/scripts/**/*.js',],
-                tasks: ['jshint'],
+                tasks: ['newer:jshint'],
                 options: {
                     livereload: true
                 }
             },
             jstest: {
                 files: ['test/**/*.js'],
-                tasks: ['test:watch']
+                tasks: ['newer:jshint', 'karma:unit']
             },
             gruntfile: {
                 files: ['Gruntfile.js']
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
                 hostname: '*'
             },
             proxies: [{
-                context: ['/games', '/picks', '/lookup'],
+                context: ['/games', '/picks', '/lookup', '/totals'],
                 host: 'localhost',
                 port: 5000
             }],
@@ -360,18 +360,20 @@ module.exports = function (grunt) {
 
         karma: {
             unit: {
-                configFile: 'karma.conf.js'
+                configFile: 'karma.conf.js',
+                singleRun: true
+            },
+            dev: {
+                configFile: 'karma.conf.js',
+                singleRun: false,
+                autowatch: true,
+                browsers: ['Chrome']
             }
         }
     });
 
 
-    grunt.registerTask('serve', function (target) {
-        if (target === 'dist') {
-            console.log('Warning! Running serve:dist is not configured to work with the proxy!');
-            return grunt.task.run(['build', 'connect:dist:keepalive']);
-        }
-
+    grunt.registerTask('serve', function () {
         grunt.task.run([
             'clean:server',
             'concurrent:server',
@@ -380,11 +382,6 @@ module.exports = function (grunt) {
             'connect:livereload',
             'watch'
         ]);
-    });
-
-    grunt.registerTask('server', function (target) {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run([target ? ('serve:' + target) : 'serve']);
     });
 
     grunt.registerTask('build', [
@@ -405,14 +402,18 @@ module.exports = function (grunt) {
 
     grunt.registerTask('test', [
         'clean:server',
-        'concurrent:test',
-        'autoprefixer',
-        'connect:test',
         'karma:unit'
+    ]);
+
+    grunt.registerTask('debug', [
+        'clean:server',
+        'connect:test',
+        'karma:dev'
     ]);
 
     grunt.registerTask('default', [
         'newer:jshint',
+        'karma:unit',
         'build'
     ]);
 };

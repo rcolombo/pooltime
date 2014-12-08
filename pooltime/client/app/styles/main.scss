@@ -1,5 +1,11 @@
 $icon-font-path: "/app/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
+$brand-primary: #CB876D;
+$brand-dark: #4E362D;
+$brand-danger: #FF4848;
+$brand-success: #75AE44;
+$table-bg-accent: #FDFAF9;
+
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
@@ -7,6 +13,7 @@ $icon-font-path: "/app/bower_components/bootstrap-sass-official/vendor/assets/fo
 // Custom imports JWZ
 @import 'login';
 @import 'picks';
+@import 'standings';
 @import 'topindicator';
 // end Custom imports
 
@@ -14,6 +21,7 @@ $icon-font-path: "/app/bower_components/bootstrap-sass-official/vendor/assets/fo
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    color: $brand-dark;
 }
 
 /* Custom page header */
@@ -37,6 +45,9 @@ body {
 .week-arrow {
     display: inline-block;
     cursor: pointer;
+}
+.week-nav {
+    color: $brand-dark;
 }
 .week-select {
     padding-bottom: 5px;

@@ -1,68 +1,66 @@
+$games-font-size-xs: 14px;
+$games-font-size-sm: 18px;
+
 .games {
     .games-header {
-        font-size: 16px;
+        font-size: $games-font-size-xs;
         padding: 10px;
         text-align: center;
         vertical-align: middle;
         font-weight: bold;
     }
     .game {
-        font-size: 16px;
-        padding: 5px;
+        font-size: $games-font-size-xs;
+        padding: 0;
         text-align: center;
         vertical-align: middle;
+        margin: 2px 0;
 
         .team {
-            margin-top: 3px;
-            padding: 5px;
+            padding: 10px;
+        }
+        .pickable {
             cursor: pointer;
         }
-        .team.pick-is-in {
-            cursor: default;
+        .pickable:hover {
+            background-color: #FBFBE8;
         }
         .selected {
             margin-top: 0px;
             color: $brand-primary;
-            border: solid $brand-primary;
-            border-radius: 25px;
+        }
+        .selected.favorite {
+            border-left: solid $brand-primary 3px;
+        }
+        .selected.underdog {
+            border-right: solid $brand-primary 3px;
         }
         .selected.push {
             color: #777777;
-            border: solid #777777;
+            border-color: #777777;
         }
         .selected.correct {
             color: $brand-success;
-            border: solid $brand-success;
+            border-color: $brand-success;
         }
         .selected.incorrect {
             color: $brand-danger;
-            border: solid $brand-danger;
+            border-color: $brand-danger;
         }
 
         .spread {
-            margin-top: 3px;
-            padding: 5px;
+            padding: 10px;
         }
     }
     .game.even {
         background: $table-bg-accent;
-    }
-    .team-divider {
-        background: #ccc;
-    }
-    .error {
-        padding: 5px;
-        text-align: center;
-        font-size: 14px;
-        color: $state-danger-text;
-        background: $state-danger-bg;
     }
 }
 
 @media screen and (min-width: 768px) {
     .games {
         .games-header, .game {
-            font-size: 20px;
+            font-size: $games-font-size-sm;
         }
     }
 }

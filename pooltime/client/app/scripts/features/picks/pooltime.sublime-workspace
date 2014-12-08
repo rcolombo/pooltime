@@ -1,0 +1,1638 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"games",
+				"games-font-size-sm"
+			],
+			[
+				"Col",
+				"ColomboAPIConverter"
+			],
+			[
+				"totals",
+				"totalsServerToClient"
+			],
+			[
+				"C",
+				"ColomboAPIConverter"
+			],
+			[
+				"val",
+				"valueName"
+			],
+			[
+				"key",
+				"keyName"
+			],
+			[
+				"random",
+				"random_score"
+			],
+			[
+				"ran",
+				"random_score"
+			],
+			[
+				"str",
+				"stream"
+			],
+			[
+				"Sco",
+				"ScoreStreamer"
+			],
+			[
+				"by",
+				"by_game_id"
+			],
+			[
+				"is",
+				"is_alive"
+			],
+			[
+				"home",
+				"home_score"
+			],
+			[
+				"score",
+				"score_cache"
+			],
+			[
+				"game",
+				"game_id"
+			],
+			[
+				"top",
+				"top-indicator-label"
+			],
+			[
+				"T",
+				"TopIndicator"
+			],
+			[
+				"User",
+				"UserService"
+			],
+			[
+				"sun",
+				"sundayAfter1"
+			],
+			[
+				"sund",
+				"sundayAt1"
+			],
+			[
+				"sunday",
+				"sunday12CentralTime"
+			],
+			[
+				"sundA",
+				"sundayAfter1"
+			],
+			[
+				"sundayA",
+				"sundayAfter1"
+			],
+			[
+				"exp",
+				"expectedDeadline"
+			],
+			[
+				"M",
+				"March_19_1989_1_PM_EST"
+			],
+			[
+				"March_1",
+				"March_16_1989_3_PM_EST"
+			],
+			[
+				"awa",
+				"awayScore"
+			],
+			[
+				"sprea",
+				"spreadByHomeTeam"
+			],
+			[
+				"away",
+				"away_score"
+			],
+			[
+				"aw",
+				"awayPoints"
+			],
+			[
+				"Picks",
+				"PicksCtrl"
+			],
+			[
+				"lef",
+				"leftArrowClicked"
+			],
+			[
+				"show",
+				"showLeftArrow"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"Mar",
+				"March_15_1989_3_PM_EST"
+			],
+			[
+				"be",
+				"beforeEach"
+			],
+			[
+				"ST",
+				"WEEK_1_START_DATE"
+			],
+			[
+				"July",
+				"July_12_1989_3_PM_EST"
+			],
+			[
+				"pro",
+				"providerOverride"
+			],
+			[
+				"start",
+				"startOfWeek"
+			],
+			[
+				"week",
+				"week1StartDate"
+			],
+			[
+				"endO",
+				"endOfWeek"
+			],
+			[
+				"endOf",
+				"getEndOfWeek"
+			],
+			[
+				"stat",
+				"startDate"
+			],
+			[
+				"loc",
+				"location"
+			],
+			[
+				"onR",
+				"onRouteChangeFinished"
+			],
+			[
+				"route",
+				"routeChangeSuccess"
+			],
+			[
+				"lo",
+				"location"
+			],
+			[
+				"Br",
+				"Broncos"
+			],
+			[
+				"Bro",
+				"Browns"
+			],
+			[
+				"P",
+				"Patriots"
+			],
+			[
+				"_",
+				"_MatchupsService_"
+			],
+			[
+				"prov",
+				"providerOverride"
+			],
+			[
+				"upd",
+				"updatePicks"
+			],
+			[
+				"ro",
+				"rootScope_"
+			],
+			[
+				"root",
+				"rootScope"
+			],
+			[
+				"getP",
+				"getPicksForAllUsers"
+			],
+			[
+				"pr",
+				"provide"
+			],
+			[
+				"pikcs",
+				"picksClientToServer"
+			],
+			[
+				"CA",
+				"ColomboAPI"
+			],
+			[
+				"WEEK",
+				"WEEK_3_PICKS"
+			],
+			[
+				"conver",
+				"convertedPicks"
+			],
+			[
+				"WEE",
+				"WEEK_3_PICKS"
+			],
+			[
+				"gam",
+				"game_id"
+			],
+			[
+				"J",
+				"CLIENT_PICKS_FOR_JOE"
+			],
+			[
+				"serv",
+				"serverModel"
+			],
+			[
+				"bower",
+				"bower_components"
+			],
+			[
+				"midd",
+				"middlewares"
+			],
+			[
+				"res",
+				"responseToGames"
+			],
+			[
+				"retu",
+				"returnsPromise"
+			],
+			[
+				"Co",
+				"ColomboAPIConverter"
+			],
+			[
+				"resp",
+				"responseData"
+			],
+			[
+				"get",
+				"getCurrentWeek"
+			],
+			[
+				"getCur",
+				"getCurrentWeek"
+			],
+			[
+				"ser",
+				"serverModel"
+			],
+			[
+				"h",
+				"httpBackend_"
+			],
+			[
+				"htt",
+				"httpBackend"
+			],
+			[
+				"CO",
+				"ColomboAPI"
+			],
+			[
+				"add",
+				"addError"
+			],
+			[
+				"match",
+				"matchup"
+			],
+			[
+				"pi",
+				"pickTeam"
+			],
+			[
+				"Pic",
+				"PicksService"
+			],
+			[
+				"tr",
+				"transform"
+			],
+			[
+				"matc",
+				"matchup"
+			],
+			[
+				"no",
+				"normal"
+			],
+			[
+				"mat",
+				"matchup"
+			],
+			[
+				"poin",
+				"pointDifference"
+			],
+			[
+				"q",
+				"qwert"
+			],
+			[
+				"ho",
+				"homeTeam"
+			],
+			[
+				"matchu",
+				"matchups"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"hom",
+				"homePoints"
+			],
+			[
+				"userna",
+				"username"
+			],
+			[
+				"picks",
+				"picksByMatchupId"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"usern",
+				"username"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"Lo",
+				"LoginService"
+			],
+			[
+				"th",
+				"thisOrThatApp"
+			],
+			[
+				"tem",
+				"template"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.js",
+			"settings":
+			{
+				"buffer_size": 2624,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
+			"settings":
+			{
+				"buffer_size": 2052,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "picks.html",
+			"settings":
+			{
+				"buffer_size": 1983,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_standings.scss",
+			"settings":
+			{
+				"buffer_size": 509,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.html",
+			"settings":
+			{
+				"buffer_size": 873,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
+			"settings":
+			{
+				"buffer_size": 1300,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.js",
+			"settings":
+			{
+				"buffer_size": 856,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "all-picks.html",
+			"settings":
+			{
+				"buffer_size": 1317,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/user.js",
+			"settings":
+			{
+				"buffer_size": 1263,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"sass",
+				"Set Syntax: Sass"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"git stash",
+				"Git: Stash Changes"
+			],
+			[
+				"git rese",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"packinst",
+				"Package Control: Install Package"
+			],
+			[
+				"package cont rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"git",
+				"Gitignore: New gitignore"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/picks.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/package.json",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/region-usage-json/ME.json",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/LICENSE-MIT",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/log4js/test/gelfAppender-test.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/Gruntfile.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/picks.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/app.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/spin.js/spin.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/9ca6bb1740ca06ba99001f55afd78d366e26de9b/_standings.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-angular-templates/test/expected/standalone.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_standings.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/http-proxy/test/core/simple/test-http-head-response-has-no-body.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/xmlhttprequest/tests/test-headers.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-svgmin/node_modules/svgo/plugins/convertShapeToPath.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/65d66557fb458bfc31ab6b0e1d218fbfe382c6ba/_text-overflow.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.tmp/templates.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/user.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/c709daf9fd144c133f9a766e920e06c8cabd5867/_variables.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/13140e8ef0a51a70c52d6c64e94d8a800e3051d9/_variables.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_variables.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_login.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/414446a6dba1bfcec2503ad65272db3f61437722/_login.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/login/login.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/login/login.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-angular-templates/LICENSE",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/all-picks.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/services/colomboapiSpec.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/colomboapi.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/9ca6bb1740ca06ba99001f55afd78d366e26de9b/_picks.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/414446a6dba1bfcec2503ad65272db3f61437722/_picks.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/index.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/filters/filtersSpec.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/filters/filters.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-jshint/node_modules/jshint/src/jshint.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/lib/file_list.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-bower-install/node_modules/bower-config/node_modules/mout/object/forIn.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/shelljs/test/resources/ls/filename(with)[chars$]^that.must+be-escaped",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-imagemin/node_modules/image-min/node_modules/gifsicle/node_modules/bin-build/node_modules/download/node_modules/decompress/node_modules/tar/node_modules/fstream/examples/filter-pipe.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/standings/standings.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-connect-proxy/test/server2_proxy_test.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma-phantomjs-launcher/node_modules/phantomjs/node_modules/request/node_modules/form-data/node_modules/combined-stream/node_modules/delayed-stream/test/integration/test-delayed-stream-pause.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/useragent/test/features.test.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/log4js/test/fileAppender-test.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-bower-install/node_modules/bower-config/node_modules/mout/array/forEach.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-concat/test/fixtures/file1",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular-animate/angular-animate.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-angular-templates/node_modules/.bin/html-minifier",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/65d66557fb458bfc31ab6b0e1d218fbfe382c6ba/_hide-text.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/shelljs/test/resources/find/.hidden",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.gitignore",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/node_modules/chalk/node_modules/.bin/strip-ansi",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/totals/totals.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/weeks.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/karma.conf.js",
+		"/Users/jz/dev/projects/notify/asyncnotify.py",
+		"/Users/jz/dev/projects/test/asyncnotify-example.py",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/moment/locale/sr-cyrl.js",
+		"/Users/jz/dev/projects/pooltime/db/schema.py",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.jshintrc",
+		"/Users/jz/dev/projects/pooltime/.gitignore",
+		"/Users/jz/dev/projects/pooltime/pooltime/static/fonts/glyphicons-halflings-regular.svg",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-clean/docs/clean-options.md",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/CHANGELOG",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/load-grunt-tasks/load-grunt-tasks.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/optimist/example/line_count_options.js",
+		"/Users/jz/dev/projects/pooltime/requirements.txt",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_responsive-embed.scssc",
+		"/Users/jz/dev/projects/pooltime/README.md",
+		"/Users/jz/dev/projects/pooltime/pooltime/scores/scores.py",
+		"/Users/jz/dev/projects/pooltime/pooltime/scores/__init__.py",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_modals.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-connect/node_modules/connect/lib/middleware/methodOverride.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/templates/make_picks.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/app.py",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-svgmin/node_modules/.bin/pretty-bytes",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-bower-install/node_modules/bower-config/node_modules/mout/object/deepEquals.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/optimist/example/default_singles.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-bower-install/node_modules/bower-config/node_modules/mout/function/awaitDelay.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma-phantomjs-launcher/node_modules/phantomjs/lib/phantom/examples/modernizr.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-svgmin/node_modules/svgo/node_modules/sax/examples/pretty-print.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/features-json/user-select-none.json",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/useragent/test/parser.qa.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/socket.io/node_modules/redis/examples/web_server.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular/angular-csp.css",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular-mocks/angular-mocks.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/directives.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-bower-install/node_modules/bower-config/node_modules/mout/object/deepMixIn.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/65d66557fb458bfc31ab6b0e1d218fbfe382c6ba/_nav-vertical-align.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.tmp/concat/static/scripts/vendor.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/services/weeksSpec.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/features/picks/picksSpec.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt/node_modules/colors/colors.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/colors/colors.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma-spec-reporter/node_modules/colors/colors.js",
+		"/Users/jz/dev/projects/pooltime/pooltime.db",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/log4js/lib/connect-logger.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/lib/init/color_schemes.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/http-proxy/test/core/simple/test-http-extra-response.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-htmlmin/tasks/htmlmin.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/common.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/package.json",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-connect/node_modules/connect/node_modules/multiparty/test/fixture/js/no-filename.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt/node_modules/.bin/nopt",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular-spinner/angular-spinner.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/bower.json",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/test/mocks/colomboapiMock.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/jshint-stylish/stylish.js",
+		"/Users/jz/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_component-animations.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/shelljs/test/resources/issue44/main.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt/node_modules/iconv-lite/test/main-test.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_media.scssc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt/node_modules/.bin/js-yaml",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-imagemin/node_modules/mkdirp/test/umask_sync.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular/angular.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/region-usage-json/alt-na.json",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-svgmin/node_modules/svgo/plugins/cleanupIDs.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/lib/reporters/progress_color.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/.bowerrc",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-newer/test/integration/newer-dest.spec.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"*.scss",
+			"*",
+			"*.js",
+			"*.scss",
+			"*.js, *.html",
+			"_*.scss",
+			"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts, /Users/jz/dev/projects/pooltime/pooltime/client/test/spec",
+			"*.css",
+			"*.scss",
+			"",
+			"colomboapiSpec.js",
+			"*",
+			"*.scss",
+			"*.js",
+			"*.scss",
+			"package.json"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"team",
+			"10px",
+			"left",
+			"favorite",
+			"12px",
+			"16px",
+			"UserService",
+			"lighter",
+			".even",
+			"even",
+			"info",
+			"primary",
+			"text",
+			"primary",
+			"info",
+			"li",
+			"ol",
+			"picks.scss",
+			"standing",
+			"game",
+			"games",
+			"name",
+			"even",
+			"standing",
+			"convertedPicks",
+			"item",
+			"key",
+			"obj",
+			"Joe",
+			"999",
+			"arr",
+			"obj",
+			"directives",
+			"totals",
+			"orderBy",
+			"key",
+			"value",
+			"null",
+			"things",
+			"stuff",
+			"value",
+			"key",
+			"orderObject",
+			"item",
+			"items",
+			"sorted",
+			"orderObject",
+			"orderByObject",
+			"orderObject",
+			"describe",
+			"toEqual",
+			"([]);",
+			"null",
+			"undefined",
+			"null",
+			"an empty object",
+			"'picks'",
+			"nflpicks",
+			"standings",
+			"picks",
+			"name",
+			"games",
+			"totals",
+			"colomboapi",
+			"PicksCtrl",
+			"picks",
+			"functi",
+			"data",
+			"karma",
+			"watch",
+			"getTotal",
+			"import",
+			"__init",
+			"reactor",
+			"funcname",
+			"False",
+			"evnt",
+			"update",
+			"event",
+			"update",
+			"json",
+			"error",
+			"update",
+			"event",
+			"update",
+			"error",
+			"response",
+			"message",
+			"score",
+			"None",
+			"message",
+			"http",
+			"response.score",
+			"score",
+			"loginView",
+			"login",
+			"score",
+			"True",
+			"game_id",
+			"session",
+			"filter_by",
+			"self.",
+			"cache",
+			"Thread",
+			"threading",
+			"__init__",
+			"Thread",
+			"from",
+			"self",
+			"func",
+			"and_",
+			"score_cache",
+			"current",
+			"score",
+			"game_id",
+			"stream_scores",
+			"ScoresStream",
+			"one(",
+			"one",
+			"db_uri",
+			"matchupId",
+			"week",
+			"console.log",
+			"all",
+			"fade-out",
+			"show",
+			"opacity",
+			"route"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"    ",
+			"'",
+			"",
+			"{\\n"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								913,
+								913
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 121.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2052,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								615,
+								615
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 174.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "picks.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1983,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								796,
+								796
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 88.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_standings.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 509,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								507,
+								461
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 873,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								78,
+								78
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								170,
+								170
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 856,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								830,
+								830
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "all-picks.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1317,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								359,
+								359
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/user.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1174,
+								1174
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 71.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"project": "pooltime.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"picks",
+				"app/scripts/features/picks/picks.html"
+			],
+			[
+				"all",
+				"app/scripts/features/picks/all-picks.html"
+			],
+			[
+				"picks.sc",
+				"app/styles/_picks.scss"
+			],
+			[
+				"user",
+				"app/scripts/services/user.js"
+			],
+			[
+				"standin",
+				"app/scripts/features/standings/standings.js"
+			],
+			[
+				"standings.sc",
+				"app/styles/_standings.scss"
+			],
+			[
+				"main",
+				"app/styles/main.scss"
+			],
+			[
+				"stand",
+				"app/scripts/features/standings/standings.html"
+			],
+			[
+				"header.h",
+				"app/scripts/directives/header/header.html"
+			],
+			[
+				"head",
+				"app/scripts/directives/header/header.js"
+			],
+			[
+				"standings.js",
+				"app/scripts/features/standings/standings.js"
+			],
+			[
+				"variab",
+				"app/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss"
+			],
+			[
+				"login.scss",
+				"app/styles/_login.scss"
+			],
+			[
+				"colom",
+				"test/spec/services/colomboapiSpec.js"
+			],
+			[
+				"app",
+				"app/scripts/app.js"
+			],
+			[
+				"standi",
+				"app/scripts/features/standings/standings.html"
+			],
+			[
+				"colo",
+				"app/scripts/services/colomboapi.js"
+			],
+			[
+				"ind",
+				"app/index.html"
+			],
+			[
+				"filters",
+				"test/spec/filters/filtersSpec.js"
+			],
+			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"karm",
+				"karma.conf.js"
+			],
+			[
+				"gru",
+				"Gruntfile.js"
+			],
+			[
+				"colob",
+				"app/scripts/services/colomboapi.js"
+			],
+			[
+				"wk",
+				"app/scripts/services/weeks.js"
+			],
+			[
+				"sche",
+				"db/schema.py"
+			],
+			[
+				".js",
+				"pooltime/client/.jshintrc"
+			],
+			[
+				"col",
+				"pooltime/client/app/scripts/services/colomboapi.js"
+			],
+			[
+				"logi",
+				"pooltime/client/app/scripts/features/login/login.js"
+			],
+			[
+				"gam",
+				"pooltime/models/game.py"
+			],
+			[
+				"app.p",
+				"~/dev/projects/pooltime/pooltime/app.py"
+			],
+			[
+				"login",
+				"app/scripts/features/login/login.js"
+			],
+			[
+				"use",
+				"app/scripts/services/user.js"
+			],
+			[
+				"angular-a",
+				"app/bower_components/angular-animate/angular-animate.js"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"week",
+				"app/scripts/services/weeks.js"
+			],
+			[
+				"m",
+				"app/styles/main.scss"
+			],
+			[
+				"pick",
+				"app/styles/_picks.scss"
+			],
+			[
+				"picks.",
+				"app/scripts/features/picks/picks.html"
+			],
+			[
+				"dir",
+				"app/scripts/directives/directives.js"
+			],
+			[
+				"inde",
+				"app/index.html"
+			],
+			[
+				"_var",
+				"app/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss"
+			],
+			[
+				"vari",
+				".sass-cache/c709daf9fd144c133f9a766e920e06c8cabd5867/_variables.scssc"
+			],
+			[
+				"pickss",
+				"test/spec/features/picks/picksSpec.js"
+			],
+			[
+				"weekss",
+				"test/spec/services/weeksSpec.js"
+			],
+			[
+				"in",
+				"app/index.html"
+			],
+			[
+				"colomb",
+				"app/scripts/services/colomboapi.js"
+			],
+			[
+				"_picks",
+				"app/styles/_picks.scss"
+			],
+			[
+				"allp",
+				"app/scripts/features/picks/all-picks.html"
+			],
+			[
+				"all-",
+				"app/scripts/features/picks/all-picks.html"
+			],
+			[
+				"colosp",
+				"test/spec/services/colomboapiSpec.js"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"_variables.scss",
+				"app/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss"
+			],
+			[
+				"pic",
+				"app/scripts/features/picks/picks.js"
+			],
+			[
+				"wee",
+				"app/scripts/services/weeks.js"
+			],
+			[
+				"main.",
+				"app/styles/main.scss"
+			],
+			[
+				"pickssp",
+				"test/spec/features/picks/picksSpec.js"
+			],
+			[
+				"index",
+				"app/index.html"
+			],
+			[
+				"weeks",
+				"app/scripts/services/weeks.js"
+			],
+			[
+				"spin",
+				"app/bower_components/spin.js/spin.js"
+			],
+			[
+				"spinne",
+				"app/bower_components/angular-spinner/angular-spinner.js"
+			],
+			[
+				"main.s",
+				"app/styles/main.scss"
+			],
+			[
+				"ma",
+				"app/styles/main.scss"
+			],
+			[
+				"i",
+				"app/index.html"
+			],
+			[
+				"login.h",
+				"app/scripts/features/login/login.html"
+			],
+			[
+				"log",
+				"app/scripts/features/login/login.js"
+			],
+			[
+				"_pick",
+				"app/styles/_picks.scss"
+			],
+			[
+				"angularmo",
+				"app/bower_components/angular-mocks/angular-mocks.js"
+			],
+			[
+				"kar",
+				"karma.conf.js"
+			],
+			[
+				"pciks",
+				"app/scripts/features/picks/picks.html"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"gr",
+				"Gruntfile.js"
+			],
+			[
+				".jsh",
+				".jshintrc"
+			],
+			[
+				"colapis",
+				"test/spec/services/colomboapiSpec.js"
+			],
+			[
+				".gi",
+				".gitignore"
+			],
+			[
+				"_vari",
+				"bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss"
+			],
+			[
+				"_picks.sc",
+				"app/styles/_picks.scss"
+			],
+			[
+				"picks.s",
+				"app/styles/_picks.scss"
+			],
+			[
+				"varia",
+				"bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss"
+			],
+			[
+				"lo",
+				"app/scripts/features/login/login.html"
+			],
+			[
+				"temp",
+				".tmp/templates.js"
+			],
+			[
+				"main.js",
+				".tmp/concat/scripts/main.js"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"jshintr",
+				".jshintrc"
+			],
+			[
+				"picks.scss",
+				"app/styles/_picks.scss"
+			],
+			[
+				"allpi",
+				"app/scripts/features/picks/all-picks.html"
+			],
+			[
+				"variable",
+				"bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss"
+			],
+			[
+				"_va",
+				".sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_variables.scssc"
+			],
+			[
+				"main.css",
+				".tmp/styles/main.css"
+			],
+			[
+				"labels.scss",
+				"bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins/_labels.scss"
+			],
+			[
+				".scss",
+				"bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss"
+			],
+			[
+				"tem",
+				"app/templates.js"
+			],
+			[
+				"main.j",
+				"node_modules/grunt-ngmin/node_modules/ngmin/main.js"
+			],
+			[
+				".jshi",
+				".jshintrc"
+			],
+			[
+				"templat",
+				"app/scripts/templates.js"
+			],
+			[
+				"templ",
+				"app/scripts/templates.js"
+			],
+			[
+				"logins",
+				"test/spec/login/loginSpec.js"
+			],
+			[
+				"spec",
+				"test/spec/login/loginSpec.js"
+			],
+			[
+				"scripts",
+				"dist/scripts/scripts.b07b2c21.js"
+			],
+			[
+				"pa",
+				"package.json"
+			],
+			[
+				"main.ht",
+				"app/views/main.html"
+			],
+			[
+				"about",
+				"app/views/about.html"
+			],
+			[
+				"bowe",
+				"bower.json"
+			],
+			[
+				".g",
+				".gitignore"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 209.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

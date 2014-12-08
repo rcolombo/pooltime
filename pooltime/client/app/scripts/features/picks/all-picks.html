@@ -4,7 +4,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr class="all-picks-header">
-                        <th ng-repeat="(username, picks) in allPicksView.allPicks track by username">{{ username }} ({{allPicksView.gameHelper.getTotalCorrect(allPicksView.games, picks)}})</th>
+                        <th ng-repeat="(username, picks) in allPicksView.allPicks track by username" ng-class="{ 'me': allPicksView.isMe(username) }">{{ username }} ({{allPicksView.gameHelper.getTotalCorrect(allPicksView.games, picks)}})</th>
                     </tr>
                 </thead>
                 <tbody>

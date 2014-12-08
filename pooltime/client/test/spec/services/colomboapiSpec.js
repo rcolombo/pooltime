@@ -10,6 +10,7 @@
         36: 'Atlanta',
         39: 'Dallas'
     };
+    testData.SERVER_TOTALS = {'Joe': 999, 'Will': 888, 'Colombo': 777, 'Ryan': 666};
     describe('services.colomboapi', function () {
         describe('ColomboAPI', function () {
             var ColomboAPI, ColomboAPIConverter, $httpBackend;
@@ -26,7 +27,11 @@
                     picksClientToServer: function (data) {
                         this.convertedPicks = data;
                         return testData.WEEK_3_PICKS.Joe;
-                    }
+                    },
+                    totalsServerToClient: function (data) {
+                        this.convertedTotals = data;
+                        return data;
+                    },
                 };
                 function providerOverride($provide) {
                     $provide.value('ColomboAPIConverter', ColomboAPIConverter);
@@ -87,6 +92,19 @@
                     });
                     $httpBackend.flush();
                     expect(result).toBe('123');
+                });
+            });
+
+            describe('getTotals', function () {
+                it('should make a request and return a promise and convert the data on success', function () {
+                    var result;
+                    $httpBackend.expectGET('totals').respond(200, '123');
+                    ColomboAPI.getTotals().then(function (data) {
+                        result = data;
+                    });
+                    $httpBackend.flush();
+                    expect(result).toBe('123');
+                    expect(ColomboAPIConverter.convertedTotals).toBe('123');
                 });
             });
         });
@@ -151,6 +169,18 @@
                         'game_id': '39',
                         'team': 'Dallas'
                     });
+                });
+            });
+
+            describe('totalsServerToClient', function () {
+                it('should convert the data properly', function () {
+                    var result;
+                    result = ColomboAPIConverter.totalsServerToClient(testData.SERVER_TOTALS);
+                    expect(result.length).toBe(4);
+                    expect(result[0]).toEqual({ name: 'Joe', total: 999 });
+                    expect(result[1]).toEqual({ name: 'Will', total: 888 });
+                    expect(result[2]).toEqual({ name: 'Colombo', total: 777 });
+                    expect(result[3]).toEqual({ name: 'Ryan', total: 666 });
                 });
             });
         });

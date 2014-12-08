@@ -1,9 +1,10 @@
 <div class="header" ng-show="headerCtrl.showNavHeader()">
      <ul class="nav nav-pills pull-right">
           <li ng-repeat="tab in headerCtrl.tabs" ng-class="{'active': headerCtrl.atLocation(tab.path)}">
-               <a ng-href="#{{headerCtrl.resolvePath(tab.path)}}">{{ tab.title }}</a></li>
+               <a ng-href="#{{headerCtrl.resolvePath(tab.path)}}">{{ tab.title }}</a>
+          </li>
      </ul>
-     <h3 class="text-muted hidden-xs">
+     <h3 class="week-nav hidden-xs">
           <div class="left week-arrow" ng-show="headerCtrl.showLeftArrow()" ng-click="headerCtrl.leftArrowClicked()">&#10094;</div>
                Week {{ headerCtrl.userWeek.selectedWeek }}
           <div class="right week-arrow" ng-show="headerCtrl.showRightArrow()" ng-click="headerCtrl.rightArrowClicked()">&#10095;</div>

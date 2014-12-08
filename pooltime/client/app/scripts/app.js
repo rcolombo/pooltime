@@ -1,7 +1,7 @@
 (function (angular) {
     'use strict';
 
-    angular.module('nflpicks', ['ngRoute', 'ngStorage', 'ngAnimate', 'directives', 'login', 'picks', 'ngMoment', 'angularSpinner'])
+    angular.module('nflpicks', ['ngRoute', 'ngStorage', 'ngAnimate', 'directives', 'login', 'picks', 'standings', 'ngMoment', 'angularSpinner'])
 
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.otherwise({

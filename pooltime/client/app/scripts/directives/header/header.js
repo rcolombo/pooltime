@@ -16,6 +16,9 @@
                     }, {
                         path: '/all-picks/{{week}}',
                         title: 'All Picks'
+                    }, {
+                        path: '/standings',
+                        title: 'Standings'
                     }];
                     this.resolvePath = function (path) {
                         return $interpolate(path)({

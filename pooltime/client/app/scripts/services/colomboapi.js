@@ -39,6 +39,12 @@
                     'selections': selections
                 });
             };
+
+            this.getTotals = function () {
+                return $http.get('totals').then(function (response) {
+                    return ColomboAPIConverter.totalsServerToClient(response.data);
+                });
+            };
         }])
 
         .service('ColomboAPIConverter', [function () {
@@ -91,6 +97,15 @@
                     });
                 });
                 return serverModel;
+            };
+
+            this.totalsServerToClient = function (serverModel) {
+                return Object.keys(serverModel).map(function (name) {
+                    return {
+                        name: name,
+                        total: serverModel[name]
+                    };
+                });
             };
         }]);
 
