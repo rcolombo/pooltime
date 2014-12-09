@@ -115,7 +115,7 @@
 
         })
 
-        .controller('PicksCtrl', ['$scope', 'games', 'picks', 'GameHelper', 'PicksService', '$timeout', 'UserWeek', '$location', 'TopIndicator', function ($scope, games, picks, GameHelper, PicksService, $timeout, UserWeek, $location, TopIndicator) {
+        .controller('PicksCtrl', ['$scope', 'games', 'picks', 'GameHelper', 'PicksService', '$timeout', 'UserWeek', 'NFLWeeks', '$location', 'TopIndicator', function ($scope, games, picks, GameHelper, PicksService, $timeout, UserWeek, NFLWeeks, $location, TopIndicator) {
             this.games = games;
             this.picks = picks;
             this.gameHelper = GameHelper;
@@ -145,14 +145,20 @@
                     if (error.code === 'too_late') {
                         addError('Too late, bitch!');
                     } else {
-                        addError('Oh shit! We fucked up!');
+                        addError('Whoopsies!');
                     }
                     picks[game.id] = originalPick;
                 }
-                picks[game.id] = team;
-                PicksService.updatePicks(picks)
-                    .then(handleSuccess)
-                    .catch(handleError);
+                if (this.isPickable(game, team)) {
+                    picks[game.id] = team;
+                    PicksService.updatePicks(picks)
+                        .then(handleSuccess)
+                        .catch(handleError);
+                }
+            };
+
+            this.isPickable = function (game, pick) {
+                return !this.isPick(game, pick) && !NFLWeeks.isNowAfterDeadlineOfWeek(UserWeek.selectedWeek) && !game.result;
             };
         }])
 

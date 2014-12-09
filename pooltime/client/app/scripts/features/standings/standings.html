@@ -1,0 +1,22 @@
+<div class="row standings">
+    <div class="col-sm-offset-3 col-xs-12 col-sm-6">
+        <div class="panel panel-primary" >
+            <div class="panel-heading">
+                <div class="panel-title">Standings</div>
+            </div>
+            <div class="panel-body">
+                <div class="row standing" ng-repeat="standing in standingsView.totals | orderBy:'total':true" ng-class="{ 'even': $even, 'me': standingsView.isMe(standing.name) }">
+                    <div class="col-xs-2">
+                        {{ $index + 1 }}.
+                    </div>
+                    <div class="col-xs-5">
+                        {{ standing.name }}
+                    </div>
+                    <div class="col-xs-5">
+                        {{ standing.total }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

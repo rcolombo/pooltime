@@ -1,26 +1,33 @@
-<div class="row all-picks">
-    <div class="col-xs-12">
-        <div class="table-responsive no-border">
-            <table class="table table-striped">
-                <thead>
-                    <tr class="all-picks-header">
-                        <th ng-repeat="(username, picks) in allPicksView.allPicks track by username">{{ username }} ({{allPicksView.gameHelper.getTotalCorrect(allPicksView.games, picks)}})</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="game in allPicksView.games">
-                        <td ng-repeat="(username, picks) in allPicksView.allPicks track by username"
-                            ng-init="pick = picks[game.id]"
-                            ng-class="{
-                                'correct': allPicksView.gameHelper.isCorrect(game, pick),
-                                'incorrect': allPicksView.gameHelper.isIncorrect(game, pick),
-                                'push': allPicksView.gameHelper.isPush(game),
-                            }">
-                            {{ game.homeTeam === pick ? '@' : '' }} {{ pick }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="all-picks">
+    <div class="row">
+        <div class="col-xs-12 text-right">
+            <div jz-week-picker></div>
+        </div>
+    </div>
+    <div class="row table-container">
+        <div class="col-xs-12">
+            <div class="table-responsive no-border">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="all-picks-header">
+                            <th ng-repeat="(username, picks) in allPicksView.allPicks track by username" ng-class="{ 'me': allPicksView.isMe(username) }">{{ username }} ({{allPicksView.gameHelper.getTotalCorrect(allPicksView.games, picks)}})</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="game in allPicksView.games">
+                            <td ng-repeat="(username, picks) in allPicksView.allPicks track by username"
+                                ng-init="pick = picks[game.id]"
+                                ng-class="{
+                                    'correct': allPicksView.gameHelper.isCorrect(game, pick),
+                                    'incorrect': allPicksView.gameHelper.isIncorrect(game, pick),
+                                    'push': allPicksView.gameHelper.isPush(game),
+                                }">
+                                {{ game.homeTeam === pick ? '@' : '' }} {{ pick }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

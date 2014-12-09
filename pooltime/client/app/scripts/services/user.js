@@ -37,6 +37,10 @@
                 return ColomboAPI.login(currentUser.username)
                     .then(afterSuccessfulLogin);
             };
+
+            this.isMe = function (name) {
+                return currentUser.username.toLowerCase() === name.toLowerCase();
+            };
         }]);
 
 })(angular);

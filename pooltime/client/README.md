@@ -1,13 +1,5 @@
 # Pooltime Client
 
-## Dear Colombombs,
-
-These are the instructions to build the client. As of now, I committed the /client/dist folder. That is the folder with all of my static assets, as well as the index.html. Normally, I would not commit that folder and just have it built.
-
-For now, if you don't want to bother with getting the client stuff setup with the instructions below, you can just work on hooking up those files directly.
-
--Joe
-
 ## Getting Started
 
 ### Things You Will Need to Install
