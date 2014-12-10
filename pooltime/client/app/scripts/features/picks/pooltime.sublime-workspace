@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"User",
+				"UserWeek"
+			],
+			[
+				"is",
+				"isPickable"
+			],
+			[
 				"back",
 				"background-color"
 			],
@@ -52,10 +60,6 @@
 				"by_game_id"
 			],
 			[
-				"is",
-				"is_alive"
-			],
-			[
 				"home",
 				"home_score"
 			],
@@ -74,10 +78,6 @@
 			[
 				"T",
 				"TopIndicator"
-			],
-			[
-				"User",
-				"UserService"
 			],
 			[
 				"sun",
@@ -412,18 +412,26 @@
 	"buffers":
 	[
 		{
-			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.js",
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/weekpicker/weekpicker.js",
 			"settings":
 			{
-				"buffer_size": 2624,
+				"buffer_size": 576,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/weekpicker/weekpicker.html",
 			"settings":
 			{
-				"buffer_size": 2052,
+				"buffer_size": 126,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.html",
+			"settings":
+			{
+				"buffer_size": 349,
 				"line_ending": "Unix"
 			}
 		},
@@ -431,39 +439,7 @@
 			"file": "picks.html",
 			"settings":
 			{
-				"buffer_size": 1983,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_standings.scss",
-			"settings":
-			{
-				"buffer_size": 509,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.html",
-			"settings":
-			{
-				"buffer_size": 873,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
-			"settings":
-			{
-				"buffer_size": 1300,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.js",
-			"settings":
-			{
-				"buffer_size": 856,
+				"buffer_size": 2126,
 				"line_ending": "Unix"
 			}
 		},
@@ -471,15 +447,39 @@
 			"file": "all-picks.html",
 			"settings":
 			{
-				"buffer_size": 1317,
+				"buffer_size": 1588,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/user.js",
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
 			"settings":
 			{
-				"buffer_size": 1263,
+				"buffer_size": 1893,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/weeks.js",
+			"settings":
+			{
+				"buffer_size": 2952,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/Gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 12578,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
+			"settings":
+			{
+				"buffer_size": 1190,
 				"line_ending": "Unix"
 			}
 		}
@@ -487,9 +487,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 127.0,
 		"selected_items":
 		[
+			[
+				"project",
+				"Git: Update Project Ignored Files"
+			],
 			[
 				"sass",
 				"Set Syntax: Sass"
@@ -535,7 +539,7 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 467.0
+		"width": 551.0
 	},
 	"console":
 	{
@@ -556,44 +560,63 @@
 	},
 	"file_history":
 	[
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/pooltime.sublime-project",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/app.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/Gruntfile.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/karma.conf.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/picks.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/package.json",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/login/login.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/weeks.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/picks.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/login/login.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/weekpicker/weekpicker.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/services/weeksSpec.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/features/picks/picksSpec.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/weekpicker/weekpicker.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/index.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_weekpicker.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/directives.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_login.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/colomboapi.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_standings.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/all-picks.html",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/user.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_topindicator.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/topindicator.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/README.md",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_progress-bars.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_print.scss",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/moment/locale/nb.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/moment/locale/fa.js",
+		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular-spinner/karma.conf.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/region-usage-json/ME.json",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/LICENSE-MIT",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/log4js/test/gelfAppender-test.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/Gruntfile.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.html",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/picks.html",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/app.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/spin.js/spin.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/9ca6bb1740ca06ba99001f55afd78d366e26de9b/_standings.scssc",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-angular-templates/test/expected/standalone.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_standings.scss",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.html",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/http-proxy/test/core/simple/test-http-head-response-has-no-body.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/xmlhttprequest/tests/test-headers.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-svgmin/node_modules/svgo/plugins/convertShapeToPath.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/65d66557fb458bfc31ab6b0e1d218fbfe382c6ba/_text-overflow.scssc",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.tmp/templates.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/user.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/c709daf9fd144c133f9a766e920e06c8cabd5867/_variables.scssc",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/13140e8ef0a51a70c52d6c64e94d8a800e3051d9/_variables.scssc",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_variables.scssc",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_login.scss",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/414446a6dba1bfcec2503ad65272db3f61437722/_login.scssc",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/login/login.html",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/login/login.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-angular-templates/LICENSE",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/picks/all-picks.html",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/services/colomboapiSpec.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/colomboapi.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/9ca6bb1740ca06ba99001f55afd78d366e26de9b/_picks.scssc",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/414446a6dba1bfcec2503ad65272db3f61437722/_picks.scssc",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/index.html",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/filters/filtersSpec.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/filters/filters.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-jshint/node_modules/jshint/src/jshint.js",
@@ -615,8 +638,6 @@
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.gitignore",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/node_modules/chalk/node_modules/.bin/strip-ansi",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/totals/totals.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/weeks.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/karma.conf.js",
 		"/Users/jz/dev/projects/notify/asyncnotify.py",
 		"/Users/jz/dev/projects/test/asyncnotify-example.py",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/moment/locale/sr-cyrl.js",
@@ -648,19 +669,15 @@
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/socket.io/node_modules/redis/examples/web_server.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular/angular-csp.css",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular-mocks/angular-mocks.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/directives.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-bower-install/node_modules/bower-config/node_modules/mout/object/deepMixIn.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/65d66557fb458bfc31ab6b0e1d218fbfe382c6ba/_nav-vertical-align.scssc",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/.tmp/concat/static/scripts/vendor.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/services/weeksSpec.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/test/spec/features/picks/picksSpec.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt/node_modules/colors/colors.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/colors/colors.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma-spec-reporter/node_modules/colors/colors.js",
 		"/Users/jz/dev/projects/pooltime/pooltime.db",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/log4js/lib/connect-logger.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/lib/init/color_schemes.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/node_modules/http-proxy/test/core/simple/test-http-extra-response.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-htmlmin/tasks/htmlmin.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/common.js",
@@ -670,20 +687,7 @@
 		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular-spinner/angular-spinner.js",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/bower.json",
 		"/Users/jz/dev/projects/pooltime/pooltime/client/test/mocks/colomboapiMock.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/jshint-stylish/stylish.js",
-		"/Users/jz/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_component-animations.scssc",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/shelljs/test/resources/issue44/main.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt/node_modules/iconv-lite/test/main-test.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/.sass-cache/086449f390a9bf5ebd2b88444eeb8f195e722798/_media.scssc",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt/node_modules/.bin/js-yaml",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-contrib-imagemin/node_modules/mkdirp/test/umask_sync.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/app/bower_components/angular/angular.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-autoprefixer/node_modules/autoprefixer/node_modules/caniuse-db/region-usage-json/alt-na.json",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-svgmin/node_modules/svgo/plugins/cleanupIDs.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/karma/lib/reporters/progress_color.js",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/.bowerrc",
-		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/grunt-newer/test/integration/newer-dest.spec.js"
+		"/Users/jz/dev/projects/pooltime/pooltime/client/node_modules/jshint-stylish/stylish.js"
 	],
 	"find":
 	{
@@ -694,6 +698,7 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"*.js",
 			"*.scss",
 			"*",
 			"*.js",
@@ -717,6 +722,62 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"selectedWeek",
+			"REG_SEASON_LEN",
+			"selectedWeek.value",
+			"value",
+			"weekIndex",
+			"userWeek",
+			"selectedWeek",
+			"gamesservice",
+			"selectedWeek",
+			"week",
+			"UserWeek",
+			"getCurrentWeek",
+			"weekNumber",
+			"UserWeek",
+			"header",
+			"topindicator",
+			"header",
+			"index",
+			"label",
+			"value",
+			"weekPickerCtrl",
+			"weekNumber",
+			"headerCtrl",
+			"topindicator",
+			"test",
+			"debug",
+			"autopref",
+			"clean",
+			"span",
+			"login",
+			"target",
+			"true",
+			"D29680",
+			"3px",
+			"inset",
+			"solid",
+			"error",
+			"padding",
+			"right",
+			"center",
+			"top",
+			"1FCB4A",
+			"color",
+			"2px",
+			"span",
+			"picksView",
+			"favorite",
+			"picksView.pastDeadline && !picksView.isPick",
+			"pickable",
+			"&& picksView.isPick",
+			"picksView.pickable",
+			"pickable",
+			"pick-is-in",
+			"cursor",
+			"game.result",
+			"!game.result",
 			"team",
 			"10px",
 			"left",
@@ -788,63 +849,7 @@
 			"karma",
 			"watch",
 			"getTotal",
-			"import",
-			"__init",
-			"reactor",
-			"funcname",
-			"False",
-			"evnt",
-			"update",
-			"event",
-			"update",
-			"json",
-			"error",
-			"update",
-			"event",
-			"update",
-			"error",
-			"response",
-			"message",
-			"score",
-			"None",
-			"message",
-			"http",
-			"response.score",
-			"score",
-			"loginView",
-			"login",
-			"score",
-			"True",
-			"game_id",
-			"session",
-			"filter_by",
-			"self.",
-			"cache",
-			"Thread",
-			"threading",
-			"__init__",
-			"Thread",
-			"from",
-			"self",
-			"func",
-			"and_",
-			"score_cache",
-			"current",
-			"score",
-			"game_id",
-			"stream_scores",
-			"ScoresStream",
-			"one(",
-			"one",
-			"db_uri",
-			"matchupId",
-			"week",
-			"console.log",
-			"all",
-			"fade-out",
-			"show",
-			"opacity",
-			"route"
+			"import"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -866,24 +871,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.js",
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/weekpicker/weekpicker.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2624,
+						"buffer_size": 576,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								913,
-								913
+								516,
+								516
 							]
 						],
 						"settings":
@@ -892,127 +897,7 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 121.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2052,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								615,
-								615
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 174.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "picks.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1983,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								796,
-								796
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 88.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_standings.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 509,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								507,
-								461
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 873,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
+						"translation.x": 71.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -1020,57 +905,53 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
+					"buffer": 1,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/weekpicker/weekpicker.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1300,
+						"buffer_size": 126,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								170,
-								170
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/features/standings/standings.js",
+					"buffer": 2,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/directives/header/header.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 856,
+						"buffer_size": 349,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								830,
-								830
+								236,
+								236
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1080,20 +961,50 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "all-picks.html",
+					"buffer": 3,
+					"file": "picks.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1317,
+						"buffer_size": 2126,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								359,
-								359
+								320,
+								24
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "all-picks.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1588,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								189,
+								189
 							]
 						],
 						"settings":
@@ -1110,20 +1021,50 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/user.js",
+					"buffer": 5,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/_picks.scss",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1263,
+						"buffer_size": 1893,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1174,
-								1174
+								1241,
+								1241
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 819.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/scripts/services/weeks.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2952,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
 							]
 						],
 						"settings":
@@ -1133,10 +1074,70 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 71.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/Gruntfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12578,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2183,
+								2183
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6429.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/jz/dev/projects/pooltime/pooltime/client/app/styles/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1190,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								445,
+								445
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 343.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1193,12 +1194,104 @@
 		"selected_items":
 		[
 			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"wek",
+				"app/scripts/services/weeks.js"
+			],
+			[
 				"picks",
-				"app/scripts/features/picks/picks.html"
+				"app/styles/_picks.scss"
 			],
 			[
 				"all",
 				"app/scripts/features/picks/all-picks.html"
+			],
+			[
+				"pi",
+				"app/scripts/features/picks/picks.html"
+			],
+			[
+				"lo",
+				"app/scripts/features/login/login.html"
+			],
+			[
+				"head",
+				"app/scripts/directives/header/header.html"
+			],
+			[
+				"weekp",
+				"app/scripts/directives/weekpicker/weekpicker.html"
+			],
+			[
+				"log",
+				"app/scripts/features/login/login.js"
+			],
+			[
+				"weekpic",
+				"app/scripts/directives/weekpicker/weekpicker.html"
+			],
+			[
+				"weekss",
+				"test/spec/services/weeksSpec.js"
+			],
+			[
+				"weeks",
+				"app/scripts/services/weeks.js"
+			],
+			[
+				"ind",
+				"app/index.html"
+			],
+			[
+				"dir",
+				"app/scripts/directives/directives.js"
+			],
+			[
+				"week",
+				"app/scripts/services/weeks.js"
+			],
+			[
+				"main",
+				"app/styles/main.scss"
+			],
+			[
+				"login",
+				"app/styles/_login.scss"
+			],
+			[
+				"logi",
+				"app/scripts/features/login/login.html"
+			],
+			[
+				"karm",
+				"karma.conf.js"
+			],
+			[
+				"picks.h",
+				"app/scripts/features/picks/picks.html"
+			],
+			[
+				"top",
+				"app/styles/_topindicator.scss"
+			],
+			[
+				"h",
+				"app/scripts/directives/header/header.html"
+			],
+			[
+				"ma",
+				"app/styles/main.scss"
+			],
+			[
+				"proj",
+				"app/scripts/features/picks/pooltime.sublime-project"
+			],
+			[
+				"picks.j",
+				"app/scripts/features/picks/picks.js"
 			],
 			[
 				"picks.sc",
@@ -1217,20 +1310,12 @@
 				"app/styles/_standings.scss"
 			],
 			[
-				"main",
-				"app/styles/main.scss"
-			],
-			[
 				"stand",
 				"app/scripts/features/standings/standings.html"
 			],
 			[
 				"header.h",
 				"app/scripts/directives/header/header.html"
-			],
-			[
-				"head",
-				"app/scripts/directives/header/header.js"
 			],
 			[
 				"standings.js",
@@ -1261,20 +1346,8 @@
 				"app/scripts/services/colomboapi.js"
 			],
 			[
-				"ind",
-				"app/index.html"
-			],
-			[
 				"filters",
 				"test/spec/filters/filtersSpec.js"
-			],
-			[
-				"grun",
-				"Gruntfile.js"
-			],
-			[
-				"karm",
-				"karma.conf.js"
 			],
 			[
 				"gru",
@@ -1301,20 +1374,12 @@
 				"pooltime/client/app/scripts/services/colomboapi.js"
 			],
 			[
-				"logi",
-				"pooltime/client/app/scripts/features/login/login.js"
-			],
-			[
 				"gam",
 				"pooltime/models/game.py"
 			],
 			[
 				"app.p",
 				"~/dev/projects/pooltime/pooltime/app.py"
-			],
-			[
-				"login",
-				"app/scripts/features/login/login.js"
 			],
 			[
 				"use",
@@ -1329,10 +1394,6 @@
 				"bower.json"
 			],
 			[
-				"week",
-				"app/scripts/services/weeks.js"
-			],
-			[
 				"m",
 				"app/styles/main.scss"
 			],
@@ -1343,10 +1404,6 @@
 			[
 				"picks.",
 				"app/scripts/features/picks/picks.html"
-			],
-			[
-				"dir",
-				"app/scripts/directives/directives.js"
 			],
 			[
 				"inde",
@@ -1363,10 +1420,6 @@
 			[
 				"pickss",
 				"test/spec/features/picks/picksSpec.js"
-			],
-			[
-				"weekss",
-				"test/spec/services/weeksSpec.js"
 			],
 			[
 				"in",
@@ -1421,10 +1474,6 @@
 				"app/index.html"
 			],
 			[
-				"weeks",
-				"app/scripts/services/weeks.js"
-			],
-			[
 				"spin",
 				"app/bower_components/spin.js/spin.js"
 			],
@@ -1437,20 +1486,12 @@
 				"app/styles/main.scss"
 			],
 			[
-				"ma",
-				"app/styles/main.scss"
-			],
-			[
 				"i",
 				"app/index.html"
 			],
 			[
 				"login.h",
 				"app/scripts/features/login/login.html"
-			],
-			[
-				"log",
-				"app/scripts/features/login/login.js"
 			],
 			[
 				"_pick",
@@ -1503,10 +1544,6 @@
 			[
 				"varia",
 				"bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/_variables.scss"
-			],
-			[
-				"lo",
-				"app/scripts/features/login/login.html"
 			],
 			[
 				"temp",
@@ -1629,7 +1666,7 @@
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 209.0,
 	"status_bar_visible": true,
 	"template_settings":

@@ -126,12 +126,11 @@ class ServerSentEvent(object):
 
 @app.route('/livescores', methods=['GET'])
 def scores():
+    print 'livescores open'
     def sse_gen():
         for score in score_streamer.new_stream():
             print 'sending score'
             yield ServerSentEvent(score, event='update').encode()
-
-
     return Response(sse_gen(), mimetype="text/event-stream")
 
 @app.route('/totals')
@@ -154,6 +153,7 @@ def totals():
     return json.dumps(totals), 200
 
 if __name__ == '__main__':
+    print 'stuff'
     score_streamer.start()
     app.run(host='0.0.0.0', debug=True, threaded=True)
 

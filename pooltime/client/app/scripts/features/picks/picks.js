@@ -115,6 +115,27 @@
 
         })
 
+        .controller('LiveScores', ['$scope',function ($scope) {
+            var scoresStream = new EventSource('livescores');
+            scoresStream.addEventListener('update', function (event) {
+                var score = JSON.parse(event.data);
+                $scope.$apply(function () {
+                    scoresView.score = 'Home score: ' + score.home_score + ', Away score: ' + score.away_score;
+                });
+                console.log('update received');
+                console.log(event);
+            });
+            scoresStream.addEventListener('open', function (event) {
+                console.log('open received');
+                console.log(event);
+            });
+            scoresStream.addEventListener('error', function (event) {
+                scoresStream.close();
+                console.log('error received');
+                console.log(event);
+            });
+        }])
+
         .controller('PicksCtrl', ['$scope', 'games', 'picks', 'GameHelper', 'PicksService', '$timeout', 'UserWeek', 'NFLWeeks', '$location', 'TopIndicator', function ($scope, games, picks, GameHelper, PicksService, $timeout, UserWeek, NFLWeeks, $location, TopIndicator) {
             this.games = games;
             this.picks = picks;
@@ -170,6 +191,34 @@
                 return UserWeek.selectedWeek;
             }, function (newValue) {
                 $location.path('/all-picks/' + newValue);
+            });
+
+            var scoresStream = new EventSource('livescores');
+            scoresStream.addEventListener('update', function (event) {
+                var score = JSON.parse(event.data);
+                $scope.$apply(function () {
+                    angular.forEach(games, function (game) {
+                        if (game.id === score.game_id) {
+                            game.result.homeScore = score.home_score;
+                            game.result.awayScore = score.away_score;
+                        }
+                    });
+                });
+                console.log('update received');
+                console.log(event);
+            });
+            scoresStream.addEventListener('open', function (event) {
+                console.log('open received');
+                console.log(event);
+            });
+            scoresStream.addEventListener('error', function (event) {
+                scoresStream.close();
+                console.log('error received');
+                console.log(event);
+            });
+
+            $scope.$on('$destroy', function () {
+                scoresStream.close();
             });
         }]);
 })(angular);

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import requests
 from models.game import Game
 
@@ -92,9 +92,10 @@ class LiveScoresScraper:
             home_score = _game['home']['score']['T']
             away_score = _game['away']['score']['T']
             home = NFL_DOT_COM_TEAM_MAPPINGS[_home['abbr']]
-            current_week = 14
+            current_week = 3
             result_set = session.query(Game.id).filter_by(week=current_week, home=home).first()
             if result_set is not None:
+                print result_set[0]
                 game = Game(id=result_set[0], home_score=home_score, away_score=away_score)
                 session.merge(game)
                 session.commit()
