@@ -105,7 +105,7 @@ class LiveScoresScraper:
             session.commit()
 
 
-PINNACLE_MAPPINGS = {
+PINNACLE_TEAM_MAPPINGS = {
     'Chicago Bears': 'Chicago',
     'Dallas Cowboys': 'Dallas',
     'Cincinnati Bengals': 'Cincinnati',
@@ -153,12 +153,12 @@ class LinesScraper:
         for i, elem in enumerate(teams):
             if i % 2 == 0:
                 _away = elem.text.encode("ascii", "replace").split('?')[0]
-                if _away in PINNACLE_MAPPINGS:
-                    away = PINNACLE_MAPPINGS[_away]
+                if _away in PINNACLE_TEAM_MAPPINGS:
+                    away = PINNACLE_TEAM_MAPPINGS[_away]
             else:
                 _home = elem.text.encode("ascii", "replace").split('?')[0]
-                if _home in PINNACLE_MAPPINGS:
-                    home = PINNACLE_MAPPINGS[_home]
+                if _home in PINNACLE_TEAM_MAPPINGS:
+                    home = PINNACLE_TEAM_MAPPINGS[_home]
                     spread = spreads[i].text.encode("ascii", "replace").split('?')[0].replace('+', '')
                     result_set = session.query(Game.id).filter_by(week=current_week, home=home).first()
                     if result_set is not None:
