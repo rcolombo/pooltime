@@ -1,0 +1,15 @@
+.navbar {
+    .navbar-header {
+        .navbar-toggle:focus, .navbar-toggle:hover {
+            background: $navbar-default-bg;
+        }
+        .navbar-brand {
+            color: $brand-dark;
+            font-size: 24px;
+        }
+    }
+}
+.navbar-absolute-top {
+    @extend .navbar-fixed-top;
+    position: relative;
+}

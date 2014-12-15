@@ -31,6 +31,8 @@
                     this.showNavHeader = function () {
                         return UserService.isLoggedIn() && $location.path() !== '/login';
                     };
+
+                    this.showDropdown = false;
                 }
             };
         }]);

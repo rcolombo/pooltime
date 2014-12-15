@@ -5,6 +5,12 @@ $brand-dark: #4E362D;
 $brand-danger: #FF4848;
 $brand-success: #75AE44;
 $table-bg-accent: #FDFAF9;
+$navbar-default-bg: white;
+$navbar-default-link-color: $brand-primary;
+$navbar-default-toggle-icon-bar-bg: $brand-primary;
+$navbar-default-link-active-color: $brand-primary;
+$navbar-default-link-active-bg: $table-bg-accent;
+$navbar-default-link-hover-color: lighten($brand-primary, 25%);
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
@@ -15,7 +21,9 @@ $table-bg-accent: #FDFAF9;
 @import 'picks';
 @import 'standings';
 @import 'topindicator';
+@import 'navbar';
 // end Custom imports
+
 
 /* Space out content a bit */
 body {
