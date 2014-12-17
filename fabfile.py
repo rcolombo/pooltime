@@ -1,4 +1,6 @@
 import os
+import datetime
+import time
 
 from fabric.api import task
 
@@ -50,6 +52,20 @@ def scrape(scores=True, lines=False):
         scrapers.LiveScoresScraper().scrape()
     if true(lines):
         scrapers.LinesScraper().scrape()
+
+@task
+def backup(dir_name=os.path.join(os.path.dirname(__file__), 'db')):
+    file_name = ''.join(['pooltime_', current_timestamp(), '.sql'])
+    local('pg_dump -o pooltime > %s' % os.path.join(dir_name, file_name))
+
+@task
+def restore(backup):
+    local('psql pooltime < %s' % backup)
+
+
+def current_timestamp():
+    ts = time.time()
+    return datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%dT%H:%M:%S')
 
 def true(o):
     return o in ['True', 'true', True]

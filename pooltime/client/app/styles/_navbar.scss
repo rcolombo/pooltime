@@ -6,7 +6,12 @@
         .navbar-brand {
             color: $brand-dark;
             font-size: 24px;
+            padding-left: 2px;
+            padding-right: 30px;
         }
+    }
+    .navbar-toggle {
+        margin-right: 2px;
     }
 }
 .navbar-absolute-top {

@@ -35,7 +35,7 @@ def games(week=None):
     if week is None:
         return 'No week number provided', 400
 
-    games = session.query(Game).filter_by(week=week).all()
+    games = session.query(Game).filter_by(week=week).order_by(Game.id).all()
     games = [g.to_dict() for g in games]
     return json.dumps(games), 200
 

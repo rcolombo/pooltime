@@ -9,7 +9,7 @@ $navbar-default-bg: white;
 $navbar-default-link-color: $brand-primary;
 $navbar-default-toggle-icon-bar-bg: $brand-primary;
 $navbar-default-link-active-color: $brand-primary;
-$navbar-default-link-active-bg: $table-bg-accent;
+$navbar-default-link-active-bg: darken($table-bg-accent, 5%);
 $navbar-default-link-hover-color: lighten($brand-primary, 25%);
 
 // bower:scss

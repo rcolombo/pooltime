@@ -149,7 +149,7 @@ class LinesScraper:
         soup = BeautifulSoup(r.text)
         spreads = soup.find_all('td', {'class': 'linesSpread'})
         teams = soup.find_all('td', {'class': 'linesTeam'})
-        current_week = 15
+        current_week = 16
         for i, elem in enumerate(teams):
             if i % 2 == 0:
                 _away = elem.text.encode("ascii", "replace").split('?')[0]
