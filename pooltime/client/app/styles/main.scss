@@ -11,6 +11,7 @@ $navbar-default-toggle-icon-bar-bg: $brand-primary;
 $navbar-default-link-active-color: $brand-primary;
 $navbar-default-link-active-bg: darken($table-bg-accent, 5%);
 $navbar-default-link-hover-color: lighten($brand-primary, 25%);
+$grid-gutter-width: 10px;
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";

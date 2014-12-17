@@ -6,7 +6,7 @@
     }
 
     .panel-body {
-        padding: 0px 15px;
+        padding: 0px floor($grid-gutter-width / 2);
     }
 
     .standing {
