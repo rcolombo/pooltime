@@ -1,1 +1,13 @@
-<select ng-model="weekPickerCtrl.userWeek.selectedWeek" ng-options="week.value as week.name for week in weekPickerCtrl.weeks">
+<div class="week-picker">
+    <select class="select" ng-model="weekPicker.userWeek.selectedWeek" ng-options="week.value as week.name for week in weekPicker.weeks"></select>
+    <ul class="pagination radius">
+        <li ng-if="weekPicker.showLeft()"><a href="" ng-click="weekPicker.leftClicked()"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a></li>
+        <li ng-class="{
+                'active': weekPicker.isActive(week),
+                'current': weekPicker.isCurrent(week) && !weekPicker.isActive(week)
+            }"
+            ng-repeat="week in weekPicker.weeks | filter:weekPicker.weeksPaginationFilter">
+            <a href="" ng-click="weekPicker.userWeek.selectedWeek = week.value">{{ weekPicker.isActive(week) ? week.name : week.value }}</a></li>
+        <li ng-if="weekPicker.showRight()"><a href="" ng-click="weekPicker.rightClicked()"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+    </ul>
+</div>

@@ -1,0 +1,26 @@
+.week-picker {
+    .pagination {
+        margin: 0;
+
+        .current {
+            a {
+                background-color: #FBFBE8;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .week-picker {
+        .select {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .week-picker {
+        .pagination {
+            display: none;
+        }
+    }
+}
