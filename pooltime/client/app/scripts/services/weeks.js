@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('services.weeks.constants', [])
-        .constant('WEEK_1_START_DATE', new Date('2014-09-05T05:00:00-05:00'))
+        .constant('WEEK_1_START_DATE', new Date('2014-09-02T05:00:00-05:00'))
         .constant('TimeZoneOffset', '-05:00') // EST
         .constant('REG_SEASON_LEN', 17);
 
