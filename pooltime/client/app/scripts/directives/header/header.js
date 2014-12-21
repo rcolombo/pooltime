@@ -3,7 +3,7 @@
 
     angular.module('directives.header', ['services.user', 'services.weeks', 'ngRoute'])
 
-        .directive('jzPicksHeader', ['$location', 'UserService', 'UserWeek', '$routeParams', '$interpolate', function ($location, UserService, UserWeek, $routeParams, $interpolate) {
+        .directive('jzPicksHeader', function ($location, UserService, UserWeek, $routeParams, $interpolate) {
             return {
                 replace: true,
                 templateUrl: 'scripts/directives/header/header.html',
@@ -35,5 +35,5 @@
                     this.showDropdown = false;
                 }
             };
-        }]);
+        });
 })(angular);

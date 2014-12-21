@@ -3,7 +3,7 @@
 
     angular.module('directives.weekpicker', ['services.weeks'])
 
-        .directive('jzWeekPicker', ['NFLWeeks', 'UserWeek', function (NFLWeeks, UserWeek) {
+        .directive('jzWeekPicker', function (NFLWeeks, UserWeek) {
             return {
                 replace: true,
                 templateUrl: 'scripts/directives/weekpicker/weekpicker.html',
@@ -53,5 +53,5 @@
                     $scope.weekPicker = weekPicker;
                 }
             };
-        }]);
+        });
 })(angular);

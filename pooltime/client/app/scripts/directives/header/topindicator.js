@@ -3,7 +3,7 @@
 
     angular.module('directives.topindicator', ['services.topindicator'])
 
-        .directive('jzTopIndicator', ['$timeout', function ($timeout) {
+        .directive('jzTopIndicator', function ($timeout) {
             return {
                 restrict: 'A',
                 replace: true,
@@ -26,13 +26,13 @@
                     });
                 }
             };
-        }]);
+        });
 
     angular.module('services.topindicator', [])
 
-        .service('TopIndicator', ['$rootScope', function ($rootScope) {
+        .service('TopIndicator', function ($rootScope) {
             this.setMessage = function (message, type) {
                 $rootScope.$broadcast('topIndicatorMessage', message, type);
             };
-        }]);
+        });
 })(angular);

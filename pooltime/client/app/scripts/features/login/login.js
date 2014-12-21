@@ -3,15 +3,15 @@
 
     angular.module('login', ['ngRoute', 'services.user', 'services.topindicator'])
 
-        .config(['$routeProvider', function ($routeProvider) {
+        .config(function ($routeProvider) {
             $routeProvider.when('/login', {
                 templateUrl: 'scripts/features/login/login.html',
                 controller: 'LoginCtrl',
                 controllerAs: 'loginView'
             });
-        }])
+        })
 
-        .controller('LoginCtrl', ['UserService', 'UserWeek', '$location', 'TopIndicator', function (UserService, UserWeek, $location, TopIndicator) {
+        .controller('LoginCtrl', function (UserService, UserWeek, $location, TopIndicator) {
             this.user = UserService.getCurrentUser();
 
             function redirectToPicks() {
@@ -29,5 +29,5 @@
                     .then(redirectToPicks, addLoginError);
             };
 
-        }]);
+        });
 })(angular);

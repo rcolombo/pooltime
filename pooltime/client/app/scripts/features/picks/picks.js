@@ -3,7 +3,7 @@
 
     angular.module('picks', ['ngRoute', 'services.colomboapi', 'services.weeks', 'services.user', 'services.topindicator'])
 
-        .config(['$routeProvider', function ($routeProvider) {
+        .config(function ($routeProvider) {
             $routeProvider
                 .when('/picks/:week', {
                     templateUrl: 'scripts/features/picks/picks.html',
@@ -35,7 +35,7 @@
                         }]
                     }
                 });
-        }])
+        })
 
         .service('PicksService', function (ColomboAPI, UserWeek, UserService, NFLWeeks, $q) {
             this.getPicksForUser = function (user) {
