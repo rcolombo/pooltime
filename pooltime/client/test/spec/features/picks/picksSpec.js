@@ -38,8 +38,6 @@
             id: 'abcd',
             homeTeam: 'Oilers',
             awayTeam: 'Patriots',
-            favorite: 'Patriots',
-            underdog: 'Oilers',
             spread: 7.5,
             result: {
                 homeScore: 16,
@@ -49,9 +47,7 @@
             id: 'wxyz',
             homeTeam: 'Jets',
             awayTeam: 'Browns',
-            favorite: 'Jets',
-            underdog: 'Browns',
-            spread: 2,
+            spread: -2,
             result: {
                 homeScore: 17,
                 awayScore: 20
@@ -60,8 +56,6 @@
             id: 'asdf',
             homeTeam: 'Bills',
             awayTeam: 'Packers',
-            favorite: 'Packers',
-            underdog: 'Bills',
             spread: 6.5,
             result: {
                 homeScore: 20,
@@ -71,9 +65,7 @@
             id: 'lkjh',
             homeTeam: 'Broncos',
             awayTeam: 'Seahawks',
-            favorite: 'Broncos',
-            underdog: 'Seahawks',
-            spread: 4.5,
+            spread: -4.5,
             result: {
                 homeScore: 31,
                 awayScore: 45
@@ -82,9 +74,7 @@
             id: 'abcd',
             homeTeam: 'Giants',
             awayTeam: 'Eagles',
-            favorite: 'Giants',
-            underdog: 'Eagles',
-            spread: 5,
+            spread: -5,
             result: {
                 homeScore: 40,
                 awayScore: 35
@@ -93,9 +83,7 @@
             id: 'abcd',
             homeTeam: 'Giants',
             awayTeam: 'Eagles',
-            favorite: 'Giants',
-            underdog: 'Eagles',
-            spread: 5,
+            spread: -5,
             result: null
         }];
     }

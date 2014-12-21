@@ -125,15 +125,11 @@
                     expect(games[0].id).toBe(36);
                     expect(games[0].homeTeam).toBe('Tampa Bay');
                     expect(games[0].awayTeam).toBe('Atlanta');
-                    expect(games[0].favorite).toBe('Atlanta');
-                    expect(games[0].underdog).toBe('Tampa Bay');
                     expect(games[0].spread).toBe(6.5);
                     expect(games[3].id).toBe(39);
                     expect(games[3].homeTeam).toBe('Dallas');
                     expect(games[3].awayTeam).toBe('St. Louis');
-                    expect(games[3].favorite).toBe('Dallas');
-                    expect(games[3].underdog).toBe('St. Louis');
-                    expect(games[3].spread).toBe(2);
+                    expect(games[3].spread).toBe(-2);
                     expect(games[0].result.homeScore).toBe(14);
                     expect(games[0].result.awayScore).toBe(55);
                     expect(games[1].result.homeScore).toBe(0);

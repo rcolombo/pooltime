@@ -61,16 +61,11 @@
                 }
                 var clientModel = [];
                 angular.forEach(serverModel, function (game) {
-                    var favorite, underdog;
-                    favorite = game.spread <= 0 ? game.home : game.away;
-                    underdog = game.spread > 0 ? game.home : game.away;
                     clientModel.push({
                         id: game.id,
                         homeTeam: game.home,
                         awayTeam: game.away,
-                        favorite: favorite,
-                        underdog: underdog,
-                        spread: Math.abs(game.spread),
+                        spread: game.spread,
                         result: parseResult(game.home_score, game.away_score)
                     });
                 });

@@ -3,12 +3,12 @@
 
     var Dates = {};
 
-    Dates.March_1_1989_3_PM_EST = new Date('1989-03-01T15:00:00-04:00');
-    Dates.March_15_1989_3_PM_EST = new Date('1989-03-15T15:00:00-04:00'); // WEEK_1_START_DATE
-    Dates.March_22_1989_3_PM_EST = new Date('1989-03-22T15:00:00-04:00');
-    Dates.March_29_1989_3_PM_EST = new Date('1989-03-29T15:00:00-04:00');
-    Dates.July_5_1989_3_PM_EST = new Date('1989-07-05T15:00:00-04:00');
-    Dates.July_12_1989_3_PM_EST = new Date('1989-07-12T15:00:00-04:00');
+    Dates.March_1_1989_3_PM_EST = new Date('1989-03-01T15:00:00-05:00');
+    Dates.March_15_1989_3_PM_EST = new Date('1989-03-15T15:00:00-05:00'); // WEEK_1_START_DATE
+    Dates.March_22_1989_3_PM_EST = new Date('1989-03-22T15:00:00-05:00');
+    Dates.March_29_1989_3_PM_EST = new Date('1989-03-29T15:00:00-05:00');
+    Dates.July_5_1989_3_PM_EST = new Date('1989-07-05T15:00:00-05:00');
+    Dates.July_12_1989_3_PM_EST = new Date('1989-07-12T15:00:00-05:00');
 
     describe('services.weeks', function () {
         describe('NFLWeeks', function () {
@@ -85,12 +85,12 @@
             describe('getDeadlineOfWeek', function () {
                 it('should always be the following Sunday at 1:00 PM Eastern time', function () {
                     var sundayAt1;
-                    sundayAt1 = new Date('1989-03-19T13:00:00-04:00');
+                    sundayAt1 = new Date('1989-03-19T13:00:00-05:00');
 
                     expect(NFLWeeks.getDeadlineOfWeek(1)).toEqual(sundayAt1);
-                    sundayAt1 = new Date('1989-03-26T13:00:00-04:00');
+                    sundayAt1 = new Date('1989-03-26T13:00:00-05:00');
                     expect(NFLWeeks.getDeadlineOfWeek(2)).toEqual(sundayAt1);
-                    sundayAt1 = new Date('1989-07-09T13:00:00-04:00');
+                    sundayAt1 = new Date('1989-07-09T13:00:00-05:00');
                     expect(NFLWeeks.getDeadlineOfWeek(17)).toEqual(sundayAt1);
 
                 });
@@ -98,14 +98,12 @@
 
             describe('isNowAfterDeadlineOfWeek', function () {
                 it('should be true if now is after the deadline', function () {
-                    var thursday, sundayBefore1, sundayAfter1, sundayAt1, nextSundayAt1, sunday12CentralTime, sunday1201CentralTime;
-                    thursday = new Date('1989-03-16T20:00:00-04:00');
-                    sundayBefore1 = new Date('1989-03-19T12:59:00-04:00');
-                    sundayAt1 = new Date('1989-03-19T13:00:00-04:00');
-                    sunday12CentralTime = new Date('1989-03-19T12:00:00-05:00');
-                    sunday1201CentralTime = new Date('1989-03-19T12:01:00-05:00');
-                    sundayAfter1 = new Date('1989-03-19T13:01:00-04:00');
-                    nextSundayAt1 = new Date('1989-03-26T13:00:00-04:00');
+                    var thursday, sundayBefore1, sundayAfter1, sundayAt1, nextSundayAt1;
+                    thursday = new Date('1989-03-16T20:00:00-05:00');
+                    sundayBefore1 = new Date('1989-03-19T12:59:00-05:00');
+                    sundayAt1 = new Date('1989-03-19T13:00:00-05:00');
+                    sundayAfter1 = new Date('1989-03-19T13:01:00-05:00');
+                    nextSundayAt1 = new Date('1989-03-26T13:00:00-05:00');
 
                     now = thursday;
                     expect(NFLWeeks.isNowAfterDeadlineOfWeek(1)).toBeFalsy();
@@ -117,12 +115,6 @@
                     expect(NFLWeeks.isNowAfterDeadlineOfWeek(1)).toBeFalsy();
 
                     now = sundayAfter1;
-                    expect(NFLWeeks.isNowAfterDeadlineOfWeek(1)).toBeTruthy();
-
-                    now = sunday12CentralTime;
-                    expect(NFLWeeks.isNowAfterDeadlineOfWeek(1)).toBeFalsy();
-
-                    now = sunday1201CentralTime;
                     expect(NFLWeeks.isNowAfterDeadlineOfWeek(1)).toBeTruthy();
                 });
             });

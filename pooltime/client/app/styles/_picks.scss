@@ -29,10 +29,10 @@ $games-font-size-sm: 18px;
             margin-top: 0px;
             color: $brand-primary;
         }
-        .selected.favorite {
+        .selected.home {
             border-left: solid $brand-primary 3px;
         }
-        .selected.underdog {
+        .selected.away {
             border-right: solid $brand-primary 3px;
         }
         .selected.push {

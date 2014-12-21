@@ -8,36 +8,36 @@
         </div>
     </div>
     <div class="row games-header">
-        <div class="col-xs-5 no-padding team">Favorite</div>
+        <div class="col-xs-5 no-padding team">Home</div>
         <div class="col-xs-2 no-padding spread"><small class="text-muted">Spread</small></div>
-        <div class="col-xs-5 no-padding team">Underdog</div>
+        <div class="col-xs-5 no-padding team">Away</div>
     </div>
     <div ng-repeat="game in picksView.games">
         <div class="row game" ng-class="{ 'even': $even }">
-            <div class="col-xs-5 favorite team"
+            <div class="col-xs-5 home team"
                  ng-class="{
-                     'selected': picksView.isPick(game, game.favorite),
-                     'correct': picksView.gameHelper.isCorrect(game, game.favorite),
-                     'incorrect': picksView.gameHelper.isIncorrect(game, game.favorite),
+                     'selected': picksView.isPick(game, game.homeTeam),
+                     'correct': picksView.gameHelper.isCorrect(game, game.homeTeam),
+                     'incorrect': picksView.gameHelper.isIncorrect(game, game.homeTeam),
                      'push': picksView.gameHelper.isPush(game),
-                     'pickable': picksView.isPickable(game, game.favorite)
+                     'pickable': picksView.isPickable(game, game.homeTeam)
                  }"
-                 ng-click="picksView.pickTeam(game, game.favorite)">
-                {{ game.homeTeam === game.favorite ? '@' : '' }} {{ game.favorite }}
+                 ng-click="picksView.pickTeam(game, game.homeTeam)">
+                {{ game.homeTeam }}
             </div>
             <div class="col-xs-2 spread">
               {{ game.spread }}
             </div>
-            <div class="col-xs-5 underdog team"
+            <div class="col-xs-5 away team"
                  ng-class="{
-                     'selected': picksView.isPick(game, game.underdog),
-                     'correct': picksView.gameHelper.isCorrect(game, game.underdog),
-                     'incorrect': picksView.gameHelper.isIncorrect(game, game.underdog),
+                     'selected': picksView.isPick(game, game.awayTeam),
+                     'correct': picksView.gameHelper.isCorrect(game, game.awayTeam),
+                     'incorrect': picksView.gameHelper.isIncorrect(game, game.awayTeam),
                      'push': picksView.gameHelper.isPush(game),
-                     'pickable': picksView.isPickable(game, game.underdog)
+                     'pickable': picksView.isPickable(game, game.awayTeam)
                  }"
-                 ng-click="picksView.pickTeam(game, game.underdog)">
-                {{ game.homeTeam === game.underdog ? '@ ' : '' }} {{ game.underdog }}
+                 ng-click="picksView.pickTeam(game, game.awayTeam)">
+                {{ game.awayTeam }}
             </div>
         </div>
     </div>

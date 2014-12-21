@@ -73,11 +73,7 @@
         .service('GameHelper', function () {
 
             function getResultInteger(game) {
-                var homeSpread = game.spread;
-                if (game.homeTeam === game.favorite) {
-                    homeSpread = -1 * game.spread;
-                }
-                return game.result.homeScore - game.result.awayScore + homeSpread;
+                return game.result.homeScore - game.result.awayScore + game.spread;
             }
 
             this.isCorrect = function (game, team) {

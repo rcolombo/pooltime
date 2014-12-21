@@ -52,7 +52,7 @@ NFL_DOT_COM_TEAM_MAPPINGS = {
     'CLE': 'Cleveland',
     'IND': 'Indianapolis',
     'DET': 'Detroit',
-    'TB': 'Tampy Bay',
+    'TB': 'Tampa Bay',
     'JAC': 'Jacksonville',
     'HOU': 'Houston',
     'MIA': 'Miami',
@@ -95,7 +95,7 @@ class LiveScoresScraper:
             away_score = _game['away']['score']['T']
             home = NFL_DOT_COM_TEAM_MAPPINGS[_home['abbr']]
             away = NFL_DOT_COM_TEAM_MAPPINGS[_away['abbr']]
-            current_week = 15
+            current_week = 16
             result_set = session.query(Game.id).filter_by(week=current_week, home=home).first()
             if result_set is not None:
                 game = Game(id=result_set[0], home_score=home_score, away_score=away_score)
@@ -109,11 +109,11 @@ PINNACLE_TEAM_MAPPINGS = {
     'Chicago Bears': 'Chicago',
     'Dallas Cowboys': 'Dallas',
     'Cincinnati Bengals': 'Cincinnati',
-    'Pittsburgh Steelers': 'Pittsburg',
+    'Pittsburgh Steelers': 'Pittsburgh',
     'Cleveland Browns': 'Cleveland',
     'Indianapolis Colts': 'Indianapolis',
     'Detroit Lions': 'Detroit',
-    'Tampa Bay Buccaneers': 'Tampy Bay',
+    'Tampa Bay Buccaneers': 'Tampa Bay',
     'Jacksonville Jaguars': 'Jacksonville',
     'Houston Texans': 'Houston',
     'Miami Dolphins': 'Miami',
