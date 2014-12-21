@@ -9,7 +9,7 @@
             });
         }])
 
-        .run(['$rootScope', '$location', 'UserService', '$localStorage', function ($rootScope, $location, UserService, $localStorage) {
+        .run(function ($rootScope, $location, UserService, $localStorage) {
             if ($localStorage.username) {
                 UserService.getCurrentUser().username = $localStorage.username;
                 UserService.login().finally(function () {
@@ -30,5 +30,5 @@
             $rootScope.$on('$routeChangeStart', onRouteChangeStart);
             $rootScope.$on('$routeChangeSuccess', onRouteChangeFinished);
             $rootScope.$on('$routeChangeError', onRouteChangeFinished);
-        }]);
+        });
 })(angular);

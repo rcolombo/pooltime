@@ -3,7 +3,7 @@
 
     angular.module('standings', ['ngRoute', 'services.colomboapi'])
 
-        .config(['$routeProvider', function ($routeProvider) {
+        .config(function ($routeProvider) {
             $routeProvider
                 .when('/standings', {
                     templateUrl: 'scripts/features/standings/standings.html',
@@ -15,11 +15,11 @@
                         }]
                     }
                 })
-        }])
+        })
 
-        .controller('StandingsCtrl', ['totals', 'UserService', function (totals, UserService) {
+        .controller('StandingsCtrl', function (totals, UserService) {
             this.totals = totals;
 
             this.isMe = UserService.isMe;
-        }]);
+        });
 })(angular);

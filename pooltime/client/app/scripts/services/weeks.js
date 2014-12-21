@@ -8,11 +8,11 @@
 
     angular.module('services.weeks', ['ngMoment', 'services.weeks.constants', 'services.common.now'])
 
-        .service('UserWeek', ['NFLWeeks', function (NFLWeeks) {
+        .service('UserWeek', function (NFLWeeks) {
             this.selectedWeek = NFLWeeks.getCurrentWeek().value;
-        }])
+        })
 
-        .service('NFLWeeks', ['$moment', 'WEEK_1_START_DATE', 'REG_SEASON_LEN', 'now', 'TimeZoneOffset', function ($moment, WEEK_1_START_DATE, REG_SEASON_LEN, now, TimeZoneOffset) {
+        .service('NFLWeeks', function ($moment, WEEK_1_START_DATE, REG_SEASON_LEN, now, TimeZoneOffset) {
 
             var weeks = [];
 
@@ -67,5 +67,5 @@
             this.getCurrentWeek = getCurrentWeek;
             this.getDeadlineOfWeek = getDeadlineOfWeek;
             this.isNowAfterDeadlineOfWeek = isNowAfterDeadlineOfWeek;
-        }]);
+        });
 })(angular);

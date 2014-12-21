@@ -358,6 +358,12 @@ module.exports = function (grunt) {
             }
         },
 
+        ngAnnotate: {
+            pooltime: {
+                files: { '<%= concat.templates.dest %>': ['<%= concat.templates.dest %>'] }
+            }
+        },
+
         karma: {
             unit: {
                 configFile: 'karma.conf.js',
@@ -392,6 +398,7 @@ module.exports = function (grunt) {
         'autoprefixer',
         'concat:generated',
         'concat:templates',
+        'ngAnnotate',
         'cssmin',
         'uglify',
         'copy:dist',

@@ -3,7 +3,7 @@
 
     angular.module('services.colomboapi', [])
 
-        .service('ColomboAPI', ['$http', 'ColomboAPIConverter', function ($http, ColomboAPIConverter) {
+        .service('ColomboAPI', function ($http, ColomboAPIConverter) {
             function responseToGames(response) {
                 return ColomboAPIConverter.gamesServerToClient(response.data);
             }
@@ -45,9 +45,9 @@
                     return ColomboAPIConverter.totalsServerToClient(response.data);
                 });
             };
-        }])
+        })
 
-        .service('ColomboAPIConverter', [function () {
+        .service('ColomboAPIConverter', function () {
             this.gamesServerToClient = function (serverModel) {
                 function parseResult(homeScore, awayScore) {
                     var result = null;
@@ -102,6 +102,6 @@
                     };
                 });
             };
-        }]);
+        });
 
 })(angular);

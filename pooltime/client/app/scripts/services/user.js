@@ -3,7 +3,7 @@
 
     angular.module('services.user', ['services.colomboapi', 'ngStorage'])
 
-        .service('UserService', ['$q', '$localStorage', 'ColomboAPI', function ($q, $localStorage, ColomboAPI) {
+        .service('UserService', function ($q, $localStorage, ColomboAPI) {
             var state, currentUser;
 
             state = {
@@ -41,6 +41,6 @@
             this.isMe = function (name) {
                 return currentUser.username.toLowerCase() === name.toLowerCase();
             };
-        }]);
+        });
 
 })(angular);

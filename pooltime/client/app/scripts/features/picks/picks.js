@@ -37,7 +37,7 @@
                 });
         }])
 
-        .service('PicksService', ['ColomboAPI', 'UserWeek', 'UserService', 'NFLWeeks', '$q', function (ColomboAPI, UserWeek, UserService, NFLWeeks, $q) {
+        .service('PicksService', function (ColomboAPI, UserWeek, UserService, NFLWeeks, $q) {
             this.getPicksForUser = function (user) {
                 var week = UserWeek.selectedWeek;
                 return ColomboAPI.getPicks(week).then(function (picks) {
@@ -61,14 +61,14 @@
                 }
                 return promise;
             };
-        }])
+        })
 
-        .service('GamesService', ['ColomboAPI', 'UserWeek', function (ColomboAPI, UserWeek) {
+        .service('GamesService', function (ColomboAPI, UserWeek) {
             this.getGames = function () {
                 var week = UserWeek.selectedWeek;
                 return ColomboAPI.getGames(week);
             };
-        }])
+        })
 
         .service('GameHelper', function () {
 
@@ -111,7 +111,7 @@
 
         })
 
-        .controller('PicksCtrl', ['$scope', 'games', 'picks', 'GameHelper', 'PicksService', '$timeout', 'UserWeek', 'NFLWeeks', '$location', 'TopIndicator', function ($scope, games, picks, GameHelper, PicksService, $timeout, UserWeek, NFLWeeks, $location, TopIndicator) {
+        .controller('PicksCtrl', function ($scope, games, picks, GameHelper, PicksService, UserWeek, NFLWeeks, $location, TopIndicator) {
             this.games = games;
             this.picks = picks;
             this.gameHelper = GameHelper;
@@ -156,9 +156,9 @@
             this.isPickable = function (game, pick) {
                 return !this.isPick(game, pick) && !NFLWeeks.isNowAfterDeadlineOfWeek(UserWeek.selectedWeek) && !game.result;
             };
-        }])
+        })
 
-        .controller('AllPicksCtrl', ['$scope', 'games', 'allPicks', 'GameHelper', 'UserWeek', '$location', function ($scope, games, allPicks, GameHelper, UserWeek, $location) {
+        .controller('AllPicksCtrl', function ($scope, games, allPicks, GameHelper, UserWeek, $location) {
             this.games = games;
             this.allPicks = allPicks;
             this.gameHelper = GameHelper;
@@ -167,5 +167,5 @@
             }, function (newValue) {
                 $location.path('/all-picks/' + newValue);
             });
-        }]);
+        });
 })(angular);
