@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		968268021A7A909C00E5DE00 /* MyPicksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968268011A7A909C00E5DE00 /* MyPicksTableViewCell.xib */; };
 		96FC814D1A786C8700A3C32B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC814C1A786C8700A3C32B /* AppDelegate.swift */; };
 		96FC814F1A786C8700A3C32B /* MyPicksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC814E1A786C8700A3C32B /* MyPicksController.swift */; };
 		96FC81511A786C8700A3C32B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC81501A786C8700A3C32B /* SecondViewController.swift */; };
@@ -17,7 +18,6 @@
 		96FC81701A786CC700A3C32B /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FC816E1A786CC700A3C32B /* edit.png */; };
 		96FC81711A786CC700A3C32B /* football.png in Resources */ = {isa = PBXBuildFile; fileRef = 96FC816F1A786CC700A3C32B /* football.png */; };
 		96FC81731A78884800A3C32B /* PicksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC81721A78884800A3C32B /* PicksService.swift */; };
-		96FC81791A79375A00A3C32B /* MyPicksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96FC81781A79375A00A3C32B /* MyPicksTableViewCell.xib */; };
 		96FC817B1A79386F00A3C32B /* MyPicksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC817A1A79386F00A3C32B /* MyPicksTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		968268011A7A909C00E5DE00 /* MyPicksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPicksTableViewCell.xib; sourceTree = "<group>"; };
 		96FC81471A786C8700A3C32B /* pooltime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pooltime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FC814B1A786C8700A3C32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96FC814C1A786C8700A3C32B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		96FC816E1A786CC700A3C32B /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = edit.png; path = ../edit.png; sourceTree = "<group>"; };
 		96FC816F1A786CC700A3C32B /* football.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = football.png; path = ../football.png; sourceTree = "<group>"; };
 		96FC81721A78884800A3C32B /* PicksService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicksService.swift; sourceTree = "<group>"; };
-		96FC81781A79375A00A3C32B /* MyPicksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MyPicksTableViewCell.xib; path = ../MyPicksTableViewCell.xib; sourceTree = "<group>"; };
 		96FC817A1A79386F00A3C32B /* MyPicksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPicksTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,8 +95,8 @@
 				96FC81501A786C8700A3C32B /* SecondViewController.swift */,
 				96FC81521A786C8700A3C32B /* Main.storyboard */,
 				96FC81551A786C8700A3C32B /* Images.xcassets */,
-				96FC81781A79375A00A3C32B /* MyPicksTableViewCell.xib */,
 				96FC817A1A79386F00A3C32B /* MyPicksTableViewCell.swift */,
+				968268011A7A909C00E5DE00 /* MyPicksTableViewCell.xib */,
 				96FC81571A786C8700A3C32B /* LaunchScreen.xib */,
 				96FC814A1A786C8700A3C32B /* Supporting Files */,
 			);
@@ -214,7 +214,7 @@
 				96FC81541A786C8700A3C32B /* Main.storyboard in Resources */,
 				96FC81701A786CC700A3C32B /* edit.png in Resources */,
 				96FC81591A786C8700A3C32B /* LaunchScreen.xib in Resources */,
-				96FC81791A79375A00A3C32B /* MyPicksTableViewCell.xib in Resources */,
+				968268021A7A909C00E5DE00 /* MyPicksTableViewCell.xib in Resources */,
 				96FC81561A786C8700A3C32B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

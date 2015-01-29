@@ -8,17 +8,19 @@
 
 import UIKit
 
-class MyPicksController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyPicksController: UIViewController, UITableViewDelegate, UITableViewDataSource, PicksDelegate {
     
     var games: Array<Game>?
+    var picks: Picks?
+
     @IBOutlet weak var picksTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        picksService.getGamesForWeek(1) {(games) in
-            self.games = games
-            self.picksTableView.reloadData()
-        }
+        let picksService = PicksService()
+        picksService.delegate = self
+        picksService.getGamesForWeek(1)
+        picksService.getPicksForWeek(1)
         let nib = UINib(nibName: "MyPicksTableViewCell", bundle: nil)
         picksTableView.registerNib(nib, forCellReuseIdentifier: "myPicksCell")
     }
@@ -27,6 +29,21 @@ class MyPicksController: UIViewController, UITableViewDelegate, UITableViewDataS
         super.didReceiveMemoryWarning()
     }
     
+    func gamesWereRetrieved(games: Array<Game>) {
+        self.games = games
+        picksTableView.reloadData()
+    }
+    
+    func picksWereRetrieved(picks: Picks) {
+        self.picks = picks
+        if games != nil {
+            picksTableView.reloadData()
+        }
+    }
+    
+    func pickWasUpdated(pick: Pick) {
+        
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = games?.count {
@@ -38,8 +55,10 @@ class MyPicksController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let game: Game = self.games?[indexPath.row] {
-            if let cell = self.picksTableView.dequeueReusableCellWithIdentifier("myPicksCell") as? MyPicksTableViewCell {
-                cell.loadFromGame(game)
+            if let cell = self.picksTableView.dequeueReusableCellWithIdentifier("myPicksCell", forIndexPath: indexPath) as? MyPicksTableViewCell {
+                if let pick = picks?[game.id!] {
+                    cell.load(game, pick: pick)
+                }
                 return cell
             }
         }
