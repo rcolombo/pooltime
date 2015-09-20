@@ -47,11 +47,11 @@ def build():
     TaskHelper.build()
 
 @task
-def scrape(scores=True, lines=False):
+def scrape(week, scores=True, lines=False):
     if true(scores):
-        scrapers.LiveScoresScraper().scrape()
+        scrapers.LiveScoresScraper().scrape(week)
     if true(lines):
-        scrapers.LinesScraper().scrape()
+        scrapers.LinesScraper().scrape(week)
 
 @task
 def backup(dir_name=os.path.join(os.path.dirname(__file__), 'db')):

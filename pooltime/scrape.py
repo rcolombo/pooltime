@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import requests
+import simplejson as json
 from models.game import Game
 
 from bs4 import BeautifulSoup
@@ -84,7 +85,7 @@ class LiveScoresScraper:
     def __init__(self):
         self.url = 'http://www.nfl.com/liveupdate/scores/scores.json'
 
-    def scrape(self):
+    def scrape(self, current_week):
         r = requests.get(self.url)
         _scores_data = r.json()
         for _game_id in _scores_data:
@@ -95,7 +96,6 @@ class LiveScoresScraper:
             away_score = _game['away']['score']['T']
             home = NFL_DOT_COM_TEAM_MAPPINGS[_home['abbr']]
             away = NFL_DOT_COM_TEAM_MAPPINGS[_away['abbr']]
-            current_week = 16
             result_set = session.query(Game.id).filter_by(week=current_week, home=home).first()
             if result_set is not None:
                 game = Game(id=result_set[0], home_score=home_score, away_score=away_score)
@@ -142,33 +142,27 @@ PINNACLE_TEAM_MAPPINGS = {
 
 class LinesScraper:
     def __init__(self):
-        self.url = 'http://www.pinnaclesports.com/League/Football/NFL/1/Lines.aspx'
+        self.url = 'http://www.pinnaclesports.com/webapi/1.14/api/v1/GuestLines/NonLive/15/889'
 
-    def scrape(self):
+    def scrape(self, current_week):
         r = requests.get(self.url)
-        soup = BeautifulSoup(r.text)
-        spreads = soup.find_all('td', {'class': 'linesSpread'})
-        teams = soup.find_all('td', {'class': 'linesTeam'})
-        current_week = 16
-        for i, elem in enumerate(teams):
-            if i % 2 == 0:
-                _away = elem.text.encode("ascii", "replace").split('?')[0]
-                if _away in PINNACLE_TEAM_MAPPINGS:
-                    away = PINNACLE_TEAM_MAPPINGS[_away]
+        response_data = json.loads(r.text)
+        # filter out first half lines and other non-full-game lines
+        games_data = [g for g in response_data['Leagues'][0]['Events'] if g['PeriodNumber'] == 0]
+        for i, game_data in enumerate(games_data):
+            away_team_data = game_data['Participants'][0]
+            home_team_data = game_data['Participants'][1]
+            spread = home_team_data['Handicap']['Min']
+            away_team_name = PINNACLE_TEAM_MAPPINGS[away_team_data['Name']]
+            home_team_name = PINNACLE_TEAM_MAPPINGS[home_team_data['Name']]
+
+            result_set = session.query(Game.id).filter_by(week=current_week, home=home_team_name).first()
+            if result_set is not None:
+                game = Game(id=result_set[0], spread=spread)
             else:
-                _home = elem.text.encode("ascii", "replace").split('?')[0]
-                if _home in PINNACLE_TEAM_MAPPINGS:
-                    home = PINNACLE_TEAM_MAPPINGS[_home]
-                    spread = spreads[i].text.encode("ascii", "replace").split('?')[0].replace('+', '')
-                    result_set = session.query(Game.id).filter_by(week=current_week, home=home).first()
-                    if result_set is not None:
-                        print 'update'
-                        game = Game(id=result_set[0], spread=spread)
-                    else:
-                        print 'create'
-                        game = Game(home=home, away=away, week=current_week, spread=spread)
-                    session.merge(game)
-                    session.commit()
+                game = Game(home=home_team_name, away=away_team_name, week=current_week, spread=spread)
+            session.merge(game)
+            session.commit()
 
 
 if __name__ == '__main__':
